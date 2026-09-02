@@ -1,0 +1,65 @@
+/* =========================
+   AJUSTE RESPONSIVE DEL MENU
+   ========================= */
+@media (max-width: 900px) {
+  .main-menu {
+    top: auto;
+    right: 50%;
+    bottom: 10%;
+    width: min(38vw, 360px);
+    transform: translateX(50%);
+    gap: clamp(12px, 2.5vh, 24px);
+  }
+
+  .main-menu-button {
+    height: clamp(64px, 10vh, 96px);
+    font-size: clamp(11px, 1.65vw, 16px);
+    background-size: 430% 680%;
+  }
+
+  .settings-button {
+    right: 3%;
+    bottom: 3%;
+    width: clamp(34px, 7vw, 54px);
+    height: clamp(34px, 7vw, 54px);
+  }
+}
+
+@media (max-width: 600px) {
+  #start-screen {
+    background-position: center;
+  }
+
+  .main-menu {
+    width: min(72vw, 330px);
+    bottom: 12%;
+    gap: 14px;
+  }
+
+  .main-menu-button {
+    height: 68px;
+    min-height: 60px;
+    font-size: clamp(10px, 3.2vw, 14px);
+    background-size: 405% 650%;
+  }
+
+  .settings-button {
+    right: 4%;
+    bottom: 4%;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .main-menu {
+    width: 82vw;
+    bottom: 10%;
+  }
+
+  .main-menu-button {
+    height: 62px;
+    font-size: 10px;
+  }
+}
+

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --dark-background: #10101c;
+  --panel-background: #1b1c33;
+  --panel-border: #d2ad45;
+  --panel-text: #f1f1f1;
+  --gold: #d2ad45;
+  --blue-track: #555675;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--dark-background);
+  font-family: 'Press Start 2P', monospace;
+}
+
+/*
+ * IMPORTANTE: no se usa transform: scale() ni un lienzo fijo de 1920x1080.
+ * Toda la interfaz ocupa directamente el viewport. De esta forma, al cambiar
+ * el tamaño de la ventana o el zoom, el diseño se recalcula completo y no
+ * aparecen barras/bordes negros alrededor de una maqueta fija.
+ */
+#game-app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+

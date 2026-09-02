@@ -1,0 +1,158 @@
+/* =========================
+   MENU PRINCIPAL
+   ========================= */
+
+#start-screen {
+  background: #081936 url('../../Assets/Recursos Graficos/Fondo.png') center center / 100% 100% no-repeat;
+}
+
+.main-menu {
+  position: absolute;
+  top: 50.185%;
+  right: 17.344%;
+  width: 21.25%;
+  display: flex;
+  flex-direction: column;
+  gap: 4.074vh;
+}
+
+.main-menu-button {
+  width: 100%;
+  height: 12.963vh;
+  min-height: 0;
+  background: transparent url('../../Assets/Recursos Graficos/Botón de menú principal.png') center center / 451% 699% no-repeat;
+  color: #050505;
+  cursor: pointer;
+  image-rendering: pixelated;
+  font-family: 'Press Start 2P', monospace;
+  font-size: min(1.15vw, 2.15vh);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.main-menu-button:hover,
+.settings-button:hover,
+.back-button:hover,
+.toggle-button:hover,
+.language-button:hover,
+.controls-button:hover {
+  filter: brightness(1.08);
+}
+
+.main-menu-button:active,
+.settings-button:active,
+.back-button:active,
+.toggle-button:active,
+.language-button:active,
+.controls-button:active {
+  transform: scale(0.98);
+}
+
+.settings-button {
+  position: absolute;
+  right: 1.1%;
+  bottom: 1.1%;
+  width: 3.4vw;
+  height: 3.4vw;
+  min-width: 0;
+  min-height: 0;
+  max-width: 5.5vh;
+  max-height: 5.5vh;
+  background: transparent url('../../Assets/Recursos Graficos/Icono configuracion cuadrado.png') center / contain no-repeat;
+  cursor: pointer;
+  image-rendering: pixelated;
+}
+
+/* =========================
+   CREDITOS
+   ========================= */
+
+.secondary-screen {
+  background: var(--panel-background);
+  color: var(--panel-text);
+}
+
+.secondary-header {
+  width: 100%;
+  height: 6.389vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e0e1a;
+  color: var(--gold);
+  font-size: min(1.75vw, 3.1vh);
+  line-height: 1;
+  text-align: center;
+}
+
+.credits-content {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+}
+
+.credits-description {
+  position: absolute;
+  top: 10.37vh;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: min(1.1vw, 2.05vh);
+  line-height: 1.4;
+}
+
+.credits-subtitle {
+  position: absolute;
+  top: 17.59vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: min(1.4vw, 2.55vh);
+  white-space: nowrap;
+}
+
+.credits-list {
+  position: absolute;
+  top: 25.46vh;
+  left: 50%;
+  width: 35.73%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 3.241vh;
+}
+
+.credit-card {
+  width: 100%;
+  height: 7.87vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4vh 1.3vw;
+  border: 0.16vh solid var(--gold);
+  border-radius: 0.55vh;
+  background: #2a2b4e;
+  color: #eeeeee;
+  font-size: min(1.4vw, 2.55vh);
+  line-height: 1.2;
+}
+
+/* En la referencia está a 51px del borde izquierdo y a 128px del inferior. */
+.back-button {
+  position: absolute;
+  left: 2.656%;
+  bottom: 11.852%;
+  width: 12vh;
+  height: 4.72vh;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 0.45vh;
+  background: var(--gold);
+  color: #0b0b15;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: min(0.78vw, 1.45vh);
+  text-decoration: underline;
+}
+

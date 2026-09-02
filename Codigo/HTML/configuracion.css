@@ -1,0 +1,149 @@
+/* =========================
+   CONFIGURACION
+   ========================= */
+
+.settings-content {
+  position: absolute;
+  top: 17.5vh;
+  left: 20.573%;
+  width: 44.792%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.407vh;
+}
+
+/*
+ * El PNG Div Configuracion tiene mucho espacio transparente alrededor del
+ * rectángulo visible. Por eso el fondo se dibuja a 192% x 1080% del tamaño
+ * de la fila: así el borde visible coincide con la referencia y sigue siendo
+ * proporcional cuando cambia el viewport.
+ */
+.settings-row {
+  position: relative;
+  width: 100%;
+  height: 7.963vh;
+  display: flex;
+  align-items: center;
+  background: transparent url('../../Assets/Recursos Graficos/Div Configuracion.png') center center / 192% 1080% no-repeat;
+}
+
+.settings-label {
+  position: absolute;
+  left: 2%;
+  width: 40%;
+  padding-right: 1%;
+  color: #eeeeee;
+  font-size: min(1.3vw, 2.35vh);
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+/*
+ * La columna izquierda queda reservada para las etiquetas. Los controles
+ * empiezan después de esa columna para evitar que textos largos como
+ * "Volumen General" se monten sobre el slider o los botones.
+ */
+.settings-row > .settings-range,
+.settings-row > .toggle-group,
+.settings-row > .language-button,
+.settings-row > .controls-button {
+  left: 48%;
+}
+
+.settings-range {
+  position: absolute;
+  left: 48%;
+  top: 50%;
+  width: 39%;
+  max-width: 39%;
+  height: 1.667vh;
+  transform: translateY(-50%);
+  appearance: none;
+  border-radius: 12px;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--gold) 0 var(--range-value, 50%), var(--blue-track) var(--range-value, 50%) 100%);
+}
+
+.settings-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.settings-range::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  border: 0;
+}
+
+.toggle-group {
+  position: absolute;
+  left: 48%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.95vw;
+}
+
+.toggle-button {
+  width: 8.25vw;
+  height: 4.67vh;
+  min-width: 0;
+  min-height: 0;
+  border: 0.16vh solid #555675;
+  background: #0d0d19;
+  color: #777892;
+  cursor: pointer;
+  font-size: min(0.83vw, 1.55vh);
+}
+
+.toggle-button.is-selected {
+  border-color: #eeeeee;
+  background: var(--gold);
+  color: #10101c;
+}
+
+.language-button {
+  position: absolute;
+  left: 48%;
+  top: 50%;
+  width: 34%;
+  height: 6.78vh;
+  min-height: 0;
+  transform: translateY(-50%);
+  border: 0.16vh solid var(--gold);
+  background: #0d0d19;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: min(0.73vw, 1.37vh);
+}
+
+.controls-button {
+  position: absolute;
+  left: 48%;
+  top: 50%;
+  width: 33%;
+  height: 4.67vh;
+  transform: translateY(-50%);
+  border: 0.16vh solid #eeeeee;
+  background: var(--gold);
+  color: #10101c;
+  cursor: pointer;
+  font-size: min(0.73vw, 1.37vh);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+

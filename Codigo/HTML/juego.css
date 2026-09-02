@@ -1,0 +1,84 @@
+/* =========================
+   INSTANCIA JUGABLE - DIARIOS SOBRE UNA MESA
+   ========================= */
+.game-screen { background:#11100e; color:#f4f0df; }
+.table-scene{position:absolute;inset:0;overflow:hidden;background:#24201d;cursor:default;outline:none;}
+.room-backdrop{position:absolute;inset:0;background:linear-gradient(#171923 0%,#2c2930 46%,#1c1714 47%,#110e0c 100%);}
+.room-backdrop:before{content:'';position:absolute;left:8%;right:8%;top:9%;height:42%;border:4px solid #201c1a;background:linear-gradient(135deg,#403936,#292526 60%,#322725);box-shadow:inset 0 0 90px #0b0909,0 15px 35px #0008;}
+.room-backdrop:after{content:'ARCHIVO HISTÓRICO · 1845';position:absolute;top:15%;left:50%;transform:translateX(-50%);font:900 clamp(16px,2vw,28px) Georgia,serif;letter-spacing:.18em;color:#c5a66b;opacity:.75;text-shadow:0 2px 5px #000;}
+.table-surface{position:absolute;left:5%;right:5%;bottom:-4%;height:61%;background:repeating-linear-gradient(8deg,#56351f 0 32px,#654025 32px 35px,#4c2e1d 35px 67px);border:8px solid #29170f;box-shadow:inset 0 25px 50px #1a0e09,0 -15px 40px #0008;transform:perspective(900px) rotateX(13deg);transform-origin:center bottom;}
+.table-edge{position:absolute;left:-1%;right:-1%;top:-7%;height:8%;background:#734a2a;border:5px solid #2b180f;box-shadow:0 8px 15px #0008;}
+.player-view{position:absolute;left:0;right:0;bottom:0;height:30%;pointer-events:none;}
+.player-hands{position:absolute;bottom:-12%;width:20%;height:45%;background:linear-gradient(145deg,#c28f6a,#8d5f46);border:4px solid #4a2f24;box-shadow:0 8px 16px #0008;opacity:.9;}
+.player-hand-left{left:23%;transform:rotate(15deg);border-radius:50% 45% 35% 55%;}
+.player-hand-right{right:23%;transform:rotate(-15deg);border-radius:45% 50% 55% 35%;}
+.newspaper{position:absolute;z-index:5;width:16%;height:13%;border:3px solid #2b2118;color:#18130f;background:#e5d5ae;font-family:Georgia,serif;font-size:clamp(9px,1.2vw,18px);font-weight:900;letter-spacing:.08em;box-shadow:0 10px 18px #090909aa;cursor:pointer;transition:filter .15s,transform .15s,opacity .2s;}
+.newspaper::after{content:'✦  NOTICIAS  ✦';display:block;margin-top:7px;font-size:.52em;border-top:1px solid #4b3d2a;padding-top:5px;}
+.newspaper:hover{filter:brightness(1.15);transform:translateY(-8px) rotate(0deg) scale(1.04);}
+.newspaper-a{left:16%;bottom:39%;transform:rotate(-8deg)} .newspaper-b{right:16%;bottom:41%;transform:rotate(7deg)} .newspaper-c{left:36%;bottom:51%;transform:rotate(4deg)} .newspaper-d{right:34%;bottom:30%;transform:rotate(-5deg)}
+.newspaper.collected{opacity:.18;filter:grayscale(1);pointer-events:none;}
+.game-hud{position:absolute;z-index:20;left:2%;top:2%;width:min(40vw,560px);padding:14px 18px;background:#0b0c15d9;border:2px solid var(--gold);box-shadow:0 5px 20px #0008;}
+.hud-title{color:var(--gold);font-size:clamp(12px,1.2vw,18px);margin-bottom:9px}.hud-objective{font-family:Arial,sans-serif;font-size:12px;line-height:1.4;color:#eee}.progress-wrap{margin-top:12px;font-size:10px}.progress-bar{height:8px;margin-top:6px;background:#3a394e;border:1px solid #666}.progress-bar span{display:block;width:0;height:100%;background:var(--gold);transition:width .25s}
+.controls-hint{position:absolute;z-index:20;bottom:2%;left:50%;transform:translateX(-50%);padding:10px 15px;background:#090a10dd;color:#ddd;font-size:10px;white-space:nowrap;}
+.interact-hint{position:absolute;z-index:20;left:50%;bottom:12%;transform:translateX(-50%);padding:11px 16px;background:#0c0d15e6;border:1px solid #aaa;font-size:10px;color:#fff;}
+.game-modal{position:absolute;z-index:100;inset:0;display:flex;align-items:center;justify-content:center;background:#06070dcc;padding:4vh 4vw}.game-modal.hidden{display:none!important}.paper-sheet,.quiz-panel,.complete-panel{position:relative;width:min(720px,90vw);max-height:90vh;overflow:auto;background:#e7d8b7;color:#201a15;border:5px solid #3c2b1d;box-shadow:0 20px 70px #000;padding:30px}.paper-sheet:before,.quiz-panel:before,.complete-panel:before{content:'';position:absolute;inset:8px;border:1px solid #9b815c;pointer-events:none}.paper-masthead{text-align:center;font-family:Georgia,serif;font-weight:900;letter-spacing:.18em;border-bottom:2px solid #382a20;padding-bottom:10px;margin-bottom:15px}.paper-sheet h2,.quiz-panel h2,.complete-panel h2{text-align:center;font-family:Georgia,serif;font-size:clamp(22px,3vw,36px);margin:10px 0}.paper-date{text-align:center;font:italic 15px Georgia,serif;margin-bottom:20px}.paper-sheet p,.complete-panel p{font:18px/1.55 Georgia,serif;text-align:justify}.paper-source-note{margin:20px 0;font:12px/1.4 Arial,sans-serif;color:#65543f}.modal-close{position:absolute;right:17px;top:15px;background:#30241b;color:#fff;padding:8px 10px;cursor:pointer;z-index:2}.gold-action{display:block;margin:20px auto 0;padding:14px 20px;border:2px solid #2b2119;background:var(--gold);color:#111;cursor:pointer;font-size:12px}.gold-action:hover{filter:brightness(1.08)}
+.quiz-panel{background:#eee3c8}.quiz-instruction{font:15px/1.45 Arial,sans-serif;text-align:center;margin-bottom:18px}.quiz-number{font-size:11px;color:#725c3e;margin-bottom:10px}.quiz-panel h3{font:700 23px/1.35 Georgia,serif;margin-bottom:18px}.quiz-options{display:grid;gap:10px}.quiz-options button{padding:14px;text-align:left;border:2px solid #7c684d;background:#f7edda;color:#241c15;cursor:pointer;font:16px Arial,sans-serif}.quiz-options button:hover{background:#dcc79e}.quiz-options button.correct{background:#b5c89e;border-color:#4f7139}.quiz-options button.wrong{background:#d4a5a0;border-color:#803f3a}.quiz-options button:disabled{cursor:default}.quiz-feedback{min-height:52px;margin-top:14px;padding:10px;font:14px/1.4 Arial,sans-serif}.complete-panel{text-align:center;background:#e7d8b7}.completion-seal{margin:0 auto 10px;width:70px;height:70px;border-radius:50%;display:grid;place-items:center;border:4px double #604c35;color:#604c35;font:bold 38px Georgia,serif}.completion-stats{display:flex;justify-content:center;gap:20px;margin:20px 0;font:bold 12px Arial,sans-serif}
+@media(max-width:700px){.game-hud{width:70vw}.newspaper{width:22%;height:14%}.controls-hint{font-size:8px}.paper-sheet,.quiz-panel,.complete-panel{padding:22px 16px}.paper-sheet p{font-size:16px}.quiz-panel h3{font-size:19px}.player-hand-left{left:12%}.player-hand-right{right:12%}}
+
+/* =========================
+   FRASES CLAVE DE LOS DIARIOS
+   ========================= */
+.paper-text{
+  font: 20px/1.75 Georgia,serif;
+  text-align:justify;
+  margin:18px 0 8px;
+}
+.key-phrase{
+  display:inline;
+  padding:1px 3px;
+  margin:0 2px;
+  border:0;
+  border-bottom:3px solid #e3b72d;
+  background:rgba(255,220,58,.38);
+  color:#8a5b00;
+  font:inherit;
+  font-weight:900;
+  text-decoration:underline;
+  text-decoration-color:#e3b72d;
+  text-decoration-thickness:2px;
+  cursor:pointer;
+  transition:.15s;
+}
+.key-phrase:hover{
+  background:#ffe56a;
+  color:#533800;
+  transform:translateY(-1px);
+}
+.key-phrase.key-collected{
+  background:#a9c68a;
+  border-bottom-color:#4d7138;
+  color:#304a24;
+  text-decoration-color:#4d7138;
+}
+.paper-key-instruction{
+  margin-top:18px;
+  padding:10px;
+  border:2px dashed #a88a45;
+  background:#f5e7c8;
+  text-align:center;
+  font:700 12px/1.45 Arial,sans-serif;
+  color:#624b2d;
+}
+.paper-key-progress{
+  margin:10px 0;
+  text-align:center;
+  font:bold 11px Arial,sans-serif;
+  color:#745e3f;
+}
+.paper-key-progress.complete{
+  color:#3d682e;
+}
+.paper-source-note{
+  margin-top:15px;
+}
+

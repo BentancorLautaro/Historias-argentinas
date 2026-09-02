@@ -1,0 +1,1176 @@
+/* ================================================================
+   SPRINT 2 · INSTANCIA PIXEL ART / DIARIOS DE ÉPOCA
+   - Mantiene la mecánica original y solo refuerza lectura y presentación.
+   - Los diarios abiertos son más largos y angostos.
+   - Los párrafos sin frase clave se muestran como referencia secundaria.
+   ================================================================ */
+
+.pixel-instance {
+  image-rendering: pixelated;
+  background: #17120f;
+}
+
+.pixel-instance .table-scene {
+  background: #211813;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.pixel-instance .room-backdrop {
+  background:
+    repeating-linear-gradient(0deg, #16151b 0 10px, #1b1a21 10px 20px),
+    #17151a;
+}
+
+.pixel-instance .room-backdrop:before {
+  border: 6px solid #0d0c10;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.018) 0 7px, transparent 7px 14px),
+    #30292a;
+  box-shadow: inset 0 0 0 4px #4a3b31, inset 0 0 80px #080606;
+}
+
+.pixel-instance .room-backdrop:after {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(9px, 1.1vw, 15px);
+  letter-spacing: .08em;
+  color: #b99555;
+  text-shadow: 3px 3px 0 #20140e;
+}
+
+.pixel-instance .table-surface {
+  left: 3%;
+  right: 3%;
+  height: 63%;
+  bottom: -5%;
+  background:
+    repeating-linear-gradient(0deg, #4b2d1b 0 10px, #5c3921 10px 20px, #432719 20px 30px);
+  border: 8px solid #24140c;
+  box-shadow: inset 0 0 0 4px #6c4327, inset 0 25px 45px #1b0e08, 0 -12px 0 #160c07;
+}
+
+.pixel-instance .table-edge {
+  height: 10%;
+  top: -9%;
+  background: repeating-linear-gradient(90deg, #6d4325 0 16px, #7a4c2b 16px 24px, #5b351e 24px 40px);
+  border: 5px solid #2b180d;
+  box-shadow: 0 8px 0 #160b07;
+}
+
+.pixel-instance .player-hands {
+  border-radius: 0;
+  border: 4px solid #43291d;
+  box-shadow: 6px 6px 0 #1e110d;
+}
+
+.pixel-instance .newspaper {
+  width: 13%;
+  height: 21%;
+  padding: clamp(7px, .9vw, 13px);
+  border: 4px solid #35261a;
+  border-radius: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(50,35,20,.05) 0 2px, transparent 2px 6px),
+    #e3d0a5;
+  box-shadow: 7px 7px 0 #24150d, 0 0 0 2px #9d8357;
+  font-family: Georgia, 'Times New Roman', serif;
+  image-rendering: pixelated;
+}
+
+.pixel-instance .newspaper:hover {
+  filter: brightness(1.08);
+  transform: translateY(-6px) rotate(0deg) scale(1.025);
+}
+
+.pixel-instance .newspaper-a { left: 15%; bottom: 37%; }
+.pixel-instance .newspaper-b { right: 15%; bottom: 39%; }
+.pixel-instance .newspaper-c { left: 35%; bottom: 50%; }
+.pixel-instance .newspaper-d { right: 33%; bottom: 27%; }
+
+.pixel-instance .game-hud,
+.pixel-instance .interact-hint,
+.pixel-instance .controls-hint {
+  border-radius: 0;
+  border-width: 3px;
+  box-shadow: 5px 5px 0 #080707;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.pixel-instance .game-hud {
+  background: #0c0b10f2;
+}
+
+.pixel-instance .progress-bar {
+  border-radius: 0;
+  height: 10px;
+  box-shadow: inset 2px 2px 0 #1c1b28;
+}
+
+.pixel-instance .game-modal {
+  background: rgba(5, 5, 7, .86);
+  padding: 2vh 3vw;
+}
+
+/* Diario abierto: alto, angosto y con composición de periódico del siglo XIX. */
+.pixel-instance .paper-sheet {
+  width: min(760px, 84vw);
+  min-height: 92vh;
+  max-height: 96vh;
+  overflow-y: auto;
+  padding: 34px 38px 30px;
+  border: 5px double #3a281a;
+  border-radius: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(70,50,25,.035) 0 2px, transparent 2px 7px),
+    linear-gradient(90deg, rgba(120,85,35,.08), transparent 8%, transparent 92%, rgba(120,85,35,.08)),
+    #e7d6ae;
+  box-shadow: 10px 10px 0 #17100c, 0 0 0 3px #8e744d;
+}
+
+.pixel-instance .paper-sheet:before {
+  inset: 10px;
+  border: 2px solid #7f6846;
+}
+
+.pixel-instance .paper-masthead {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(15px, 1.7vw, 23px);
+  letter-spacing: .2em;
+  border-bottom: 4px double #3a281b;
+  padding-bottom: 12px;
+}
+
+.pixel-instance .paper-reading-guide {
+  margin: 8px auto 10px;
+  max-width: 620px;
+  padding: 5px 8px;
+  border-top: 1px solid #8e7550;
+  border-bottom: 1px solid #8e7550;
+  color: #5f503c;
+  text-align: center;
+  font: 700 7px/1.45 'Press Start 2P', monospace;
+  letter-spacing: .02em;
+}
+
+.pixel-instance .paper-sheet h2 {
+  font-size: clamp(19px, 2.4vw, 28px);
+  line-height: 1.05;
+  margin: 13px 35px 7px;
+  letter-spacing: .01em;
+}
+
+.pixel-instance .paper-date {
+  margin-bottom: 13px;
+  font-size: 13px;
+}
+
+.pixel-instance .paper-kicker {
+  margin: 4px 0 8px;
+  border: 2px solid #725a3b;
+  padding: 5px 9px;
+  font-size: 8px;
+}
+
+.pixel-instance .paper-headline {
+  font-size: clamp(16px, 1.9vw, 24px);
+  line-height: 1.08;
+  margin: 7px 0;
+  padding-bottom: 9px;
+  border-bottom: 3px double #59442d;
+}
+
+.pixel-instance .paper-deck {
+  font-size: 12px;
+  line-height: 1.3;
+  margin-bottom: 9px;
+}
+
+.pixel-instance .paper-text {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #8f7650;
+}
+
+.pixel-instance .paper-text p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+/* Información que no hace falta memorizar: visible, pero deliberadamente secundaria. */
+.pixel-instance .paper-text p.paper-irrelevant {
+  color: #766957;
+  opacity: .62;
+  text-decoration-line: line-through;
+  text-decoration-color: rgba(86, 70, 49, .55);
+  text-decoration-thickness: 1px;
+}
+
+.pixel-instance .paper-text p.paper-relevant .paper-context {
+  color: #625442;
+  opacity: .72;
+}
+
+.pixel-instance .key-phrase {
+  padding: 2px 3px;
+  border: 0;
+  border-bottom: 3px solid #7b2d1e;
+  border-radius: 0;
+  background: #d9bb69;
+  color: #35170f;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
+  font-weight: 900;
+  box-shadow: 2px 2px 0 rgba(68, 34, 20, .2);
+}
+
+.pixel-instance .key-phrase:hover {
+  background: #eed47e;
+}
+
+.pixel-instance .key-phrase.key-collected {
+  background: #9fb978;
+  border-bottom-color: #3c5e31;
+  color: #203019;
+}
+
+.pixel-instance .paper-source-note {
+  color: #76644e;
+  font-size: 9px;
+  opacity: .55;
+  text-decoration: line-through;
+}
+
+.pixel-instance .paper-key-instruction {
+  border: 2px dashed #876c43;
+  border-radius: 0;
+  background: #ddc58e;
+  font: 700 8px/1.5 'Press Start 2P', monospace;
+  box-shadow: 3px 3px 0 #6f5434;
+}
+
+.pixel-instance .paper-key-progress,
+.pixel-instance .paper-key-progress-note {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+}
+
+.pixel-instance .modal-close,
+.pixel-instance .gold-action {
+  border-radius: 0;
+  border: 3px solid #2b1c13;
+  box-shadow: 4px 4px 0 #130c08;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.pixel-instance .modal-close {
+  right: 17px;
+  top: 16px;
+  padding: 7px 9px;
+}
+
+.pixel-instance .gold-action {
+  padding: 12px 16px;
+}
+
+@media (max-width: 760px) {
+  .pixel-instance .newspaper { width: 22%; height: 18%; }
+  .pixel-instance .paper-sheet {
+    width: 92vw;
+    min-height: 94vh;
+    padding: 28px 22px 24px;
+  }
+  .pixel-instance .paper-text { grid-template-columns: 1fr; gap: 0; }
+  .pixel-instance .paper-text p { font-size: 12px; line-height: 1.45; }
+  .pixel-instance .paper-sheet h2 { margin-left: 20px; margin-right: 20px; }
+  .pixel-instance .paper-reading-guide { font-size: 6px; }
+}
+
+
+/* Pixel art también en las pantallas de preguntas, tríadas y cierre. */
+.pixel-instance .quiz-panel,
+.pixel-instance .complete-panel,
+.pixel-instance .board-panel {
+  border-radius: 0;
+  border: 5px double #3a281a;
+  box-shadow: 8px 8px 0 #17100c, 0 0 0 3px #8e744d;
+  background:
+    repeating-linear-gradient(0deg, rgba(70,50,25,.035) 0 2px, transparent 2px 7px),
+    #e7d6ae;
+}
+
+.pixel-instance .quiz-panel h2,
+.pixel-instance .complete-panel h2,
+.pixel-instance .board-panel h2,
+.pixel-instance .board-label {
+  font-family: 'Press Start 2P', monospace;
+}
+
+.pixel-instance .quiz-instruction,
+.pixel-instance .quiz-panel h3,
+.pixel-instance .quiz-options button,
+.pixel-instance .quiz-feedback,
+.pixel-instance .board-header p,
+.pixel-instance .clipping,
+.pixel-instance .formed-idea,
+.pixel-instance .board-feedback,
+.pixel-instance .board-progress,
+.pixel-instance .board-score-chip,
+.pixel-instance .board-reset,
+.pixel-instance .completion-stats,
+.pixel-instance .complete-panel p {
+  font-family: 'Press Start 2P', monospace;
+}
+
+.pixel-instance .quiz-options button,
+.pixel-instance .board-reset,
+.pixel-instance .clipping,
+.pixel-instance .formed-idea {
+  border-radius: 0;
+  border-width: 3px;
+  box-shadow: 3px 3px 0 #332117;
+}
+
+.pixel-instance .quiz-options button {
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.pixel-instance .quiz-feedback,
+.pixel-instance .board-feedback {
+  border-radius: 0;
+}
+
+.pixel-instance .completion-seal {
+  width: 64px;
+  height: 64px;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 #332117;
+}
+
+.pixel-instance .clipping .pin {
+  border-radius: 0;
+  width: 10px;
+  height: 10px;
+  box-shadow: 2px 2px 0 #25150d;
+}
+
+@media (max-width: 760px) {
+  .pixel-instance .quiz-options button { font-size: 8px; }
+}
+
+
+/* ================================================================
+   AJUSTE FINAL — DIARIOS SOBRE LA ZONA MARRÓN + CONTEXTO LEGIBLE
+   ================================================================ */
+.pixel-instance .table-surface {
+  left: 2%;
+  right: 2%;
+  bottom: -4%;
+  height: 67%;
+  transform: perspective(900px) rotateX(10deg);
+  transform-origin: center bottom;
+}
+
+/* Los cuatro diarios quedan deliberadamente dentro de la superficie marrón. */
+.pixel-instance .newspaper {
+  width: clamp(150px, 15.5vw, 235px);
+  height: clamp(120px, 18vw, 220px);
+  padding: 11px 12px;
+  border: 3px solid #35261a;
+  background:
+    repeating-linear-gradient(0deg, rgba(65,45,25,.055) 0 2px, transparent 2px 6px),
+    #e5d3a8;
+  box-shadow: 6px 6px 0 #24150d, 0 0 0 2px #9d8357;
+  overflow: hidden;
+  transform-origin: center center;
+  clip-path: polygon(0 0,100% 0,100% 95%,96% 100%,89% 97%,82% 100%,74% 97%,66% 100%,57% 97%,48% 100%,39% 97%,30% 100%,21% 97%,12% 100%,4% 96%,0 100%);
+}
+
+.pixel-instance .newspaper::before {
+  content: 'EDICIÓN ESPECIAL · 1845';
+  display: block;
+  padding-bottom: 5px;
+  margin-bottom: 7px;
+  border-bottom: 2px solid #34271c;
+  font: 700 7px/1.2 Georgia, 'Times New Roman', serif;
+  letter-spacing: .08em;
+  text-align: center;
+  color: #51402d;
+}
+
+.pixel-instance .newspaper::after {
+  content: '▦  ▦  ▦  ▦  ▦  ▦';
+  display: block;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #8b7552;
+  color: #62513a;
+  font: 700 7px/1 Georgia, 'Times New Roman', serif;
+  letter-spacing: .08em;
+}
+
+.pixel-instance .newspaper-masthead {
+  display: block;
+  margin: 0 0 4px;
+  font: 900 clamp(15px, 1.65vw, 24px)/.92 Georgia, 'Times New Roman', serif;
+  letter-spacing: -.03em;
+  text-align: center;
+}
+
+.pixel-instance .newspaper-rule {
+  display: block;
+  height: 2px;
+  margin: 4px 0 7px;
+  background: #38291c;
+}
+
+.pixel-instance .newspaper-mini-title {
+  display: block;
+  margin-bottom: 5px;
+  font: 900 clamp(8px, .8vw, 11px)/1.1 Georgia, 'Times New Roman', serif;
+  text-align: left;
+}
+
+.pixel-instance .newspaper-mini-lines {
+  display: block;
+  font: 700 clamp(5px, .55vw, 8px)/1.45 Georgia, 'Times New Roman', serif;
+  color: #66553d;
+  text-align: justify;
+  opacity: .95;
+}
+
+.pixel-instance .newspaper-a { left: 9%; bottom: 19%; transform: rotate(-4deg); }
+.pixel-instance .newspaper-b { left: 29%; bottom: 32%; transform: rotate(2deg); }
+.pixel-instance .newspaper-c { right: 28%; bottom: 22%; transform: rotate(-2deg); }
+.pixel-instance .newspaper-d { right: 8%; bottom: 35%; transform: rotate(4deg); }
+
+.pixel-instance .newspaper:hover {
+  filter: brightness(1.08);
+  transform: translateY(-5px) rotate(0deg) scale(1.025);
+}
+
+/* El diario abierto toma una estructura editorial inspirada en el ejemplo: 
+   gran cabecera, titular principal y columnas estrechas de texto. */
+.pixel-instance .paper-sheet {
+  width: min(760px, 82vw);
+  min-height: 94vh;
+  padding: 30px 34px 26px;
+  background:
+    repeating-linear-gradient(0deg, rgba(70,50,25,.035) 0 2px, transparent 2px 7px),
+    linear-gradient(90deg, rgba(120,85,35,.08), transparent 8%, transparent 92%, rgba(120,85,35,.08)),
+    #e7d6ae;
+}
+
+.pixel-instance .paper-text p.paper-relevant,
+.pixel-instance .paper-text p.paper-secondary {
+  color: #3e352a;
+  opacity: 1;
+}
+
+.pixel-instance .paper-text p.paper-secondary {
+  color: #554a3c;
+}
+
+.pixel-instance .paper-text p.paper-irrelevant {
+  color: #766957;
+  opacity: .58;
+  text-decoration-line: line-through;
+  text-decoration-color: rgba(86,70,49,.48);
+  text-decoration-thickness: 1px;
+}
+
+.pixel-instance .paper-text p.paper-relevant .paper-context {
+  color: #3e352a;
+  opacity: 1;
+}
+
+.pixel-instance .key-phrase {
+  display: inline;
+  padding: 0 2px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #28170f;
+  text-decoration-line: underline;
+  text-decoration-color: #8c3925;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+  font: inherit;
+  font-weight: 900;
+  box-shadow: none;
+}
+
+.pixel-instance .key-phrase:hover {
+  background: rgba(196,157,69,.22);
+}
+
+.pixel-instance .key-phrase.key-collected {
+  background: rgba(159,185,120,.35);
+  color: #203019;
+  text-decoration-color: #3c5e31;
+}
+
+@media (max-width: 760px) {
+  .pixel-instance .newspaper {
+    width: 24%;
+    height: 17%;
+    padding: 7px;
+  }
+  .pixel-instance .newspaper-a { left: 5%; bottom: 18%; }
+  .pixel-instance .newspaper-b { left: 28%; bottom: 31%; }
+  .pixel-instance .newspaper-c { right: 27%; bottom: 19%; }
+  .pixel-instance .newspaper-d { right: 4%; bottom: 32%; }
+  .pixel-instance .newspaper-masthead { font-size: clamp(10px, 2.2vw, 15px); }
+  .pixel-instance .newspaper-mini-title { font-size: clamp(6px, 1.2vw, 9px); }
+  .pixel-instance .newspaper-mini-lines { font-size: clamp(4px, .9vw, 6px); }
+}
+
+/* ================================================================
+   AJUSTE FINAL · DIARIOS TIPO PERIÓDICO PIXEL ART
+   Inspiración visual: periódico pixel art con rollo superior y hoja
+   vertical, manteniendo cada diario separado sobre la zona marrón.
+   ================================================================ */
+.pixel-instance .newspaper {
+  width: clamp(155px, 17vw, 245px);
+  height: clamp(175px, 22vw, 285px);
+  padding: 31px 13px 14px;
+  border: 4px solid #30231a;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, rgba(75,52,31,.18) 0 4px, transparent 4px 96%, rgba(75,52,31,.15) 96% 100%),
+    repeating-linear-gradient(0deg, rgba(60,43,27,.055) 0 2px, transparent 2px 7px),
+    #e8d6aa;
+  box-shadow:
+    6px 7px 0 #24150d,
+    0 0 0 2px #846b47,
+    inset 0 0 0 4px #c0a477;
+  clip-path: polygon(0 4%, 3% 4%, 3% 0, 97% 0, 97% 4%, 100% 4%, 100% 96%, 97% 96%, 97% 100%, 3% 100%, 3% 97%, 0 97%);
+  isolation: isolate;
+}
+
+/* Rollo superior característico del modelo de referencia. */
+.pixel-instance .newspaper::before {
+  content: 'EDICIÓN · 1845';
+  position: absolute;
+  z-index: 3;
+  top: -9px;
+  left: 6px;
+  right: 6px;
+  height: 25px;
+  padding: 7px 5px 0;
+  box-sizing: border-box;
+  border: 4px solid #5a4733;
+  border-bottom: 3px solid #3d2c20;
+  background:
+    repeating-linear-gradient(0deg, #b99d6c 0 4px, #d9c18d 4px 8px, #a9895c 8px 11px);
+  color: #3c2b20;
+  font: 900 6px/1 'Press Start 2P', monospace;
+  letter-spacing: .03em;
+  text-align: center;
+  box-shadow: 0 4px 0 #3a281b;
+}
+
+/* Franja inferior y pequeños bloques que refuerzan la lectura como periódico. */
+.pixel-instance .newspaper::after {
+  content: '▰ ▰ ▰  ▰ ▰ ▰  ▰ ▰ ▰';
+  position: absolute;
+  z-index: 2;
+  left: 9px;
+  right: 9px;
+  bottom: 8px;
+  padding-top: 5px;
+  border-top: 2px solid #8a704c;
+  color: #62513a;
+  font: 700 6px/1 'Press Start 2P', monospace;
+  text-align: center;
+  letter-spacing: .02em;
+}
+
+.pixel-instance .newspaper-masthead {
+  position: relative;
+  z-index: 4;
+  display: block;
+  margin: 4px 0 5px;
+  padding-bottom: 5px;
+  border-bottom: 3px double #403024;
+  font: 900 clamp(14px, 1.55vw, 22px)/.92 Georgia, 'Times New Roman', serif;
+  letter-spacing: -.035em;
+  text-align: center;
+}
+
+.pixel-instance .newspaper-rule {
+  position: relative;
+  z-index: 4;
+  display: block;
+  height: 2px;
+  margin: 4px 0 8px;
+  background: #4a3627;
+}
+
+.pixel-instance .newspaper-mini-title,
+.pixel-instance .newspaper-mini-lines {
+  position: relative;
+  z-index: 4;
+}
+
+.pixel-instance .newspaper-mini-title {
+  display: block;
+  margin-bottom: 7px;
+  font: 900 clamp(8px, .78vw, 11px)/1.1 Georgia, 'Times New Roman', serif;
+  text-align: center;
+}
+
+.pixel-instance .newspaper-mini-lines {
+  display: block;
+  padding: 0 3px;
+  font: 700 clamp(5px, .52vw, 8px)/1.5 Georgia, 'Times New Roman', serif;
+  color: #514432;
+  text-align: justify;
+}
+
+/* Cuatro posiciones separadas: dos arriba y dos abajo, todas dentro de la mesa. */
+.pixel-instance .newspaper-a { left: 12%; bottom: 37%; transform: rotate(-2deg); }
+.pixel-instance .newspaper-b { left: 35%; bottom: 12%; transform: rotate(1deg); }
+.pixel-instance .newspaper-c { right: 35%; bottom: 12%; transform: rotate(-1deg); }
+.pixel-instance .newspaper-d { right: 12%; bottom: 37%; transform: rotate(2deg); }
+
+.pixel-instance .newspaper:hover {
+  filter: brightness(1.08);
+  transform: translateY(-5px) rotate(0deg) scale(1.02);
+}
+
+@media (max-width: 760px) {
+  .pixel-instance .newspaper {
+    width: 25%;
+    height: 19%;
+    padding: 27px 7px 10px;
+  }
+  .pixel-instance .newspaper-a { left: 8%; bottom: 38%; }
+  .pixel-instance .newspaper-b { left: 29%; bottom: 12%; }
+  .pixel-instance .newspaper-c { right: 29%; bottom: 12%; }
+  .pixel-instance .newspaper-d { right: 8%; bottom: 38%; }
+  .pixel-instance .newspaper-masthead { font-size: clamp(9px, 2vw, 14px); }
+  .pixel-instance .newspaper-mini-title { font-size: clamp(5px, 1.1vw, 8px); }
+  .pixel-instance .newspaper-mini-lines { font-size: clamp(4px, .8vw, 6px); }
+}
+
+/* ===== V4 - DIARIOS COMO PERIÓDICOS PIXEL ART, SIN SUPERPOSICIÓN ===== */
+.pixel-instance .newspaper {
+  width: 17%;
+  height: 15%;
+  min-width: 150px;
+  min-height: 105px;
+  padding: 9px 10px 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 4px solid #2b2118;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, #b9a27c 0 5px, transparent 5px 100%),
+    linear-gradient(180deg, #f0e4c4 0 18%, #e5d5ae 18% 100%);
+  box-shadow:
+    inset 4px 0 0 #c6ad80,
+    inset -4px 0 0 #9d845d,
+    inset 0 4px 0 #fff1cf,
+    inset 0 -4px 0 #9c8158,
+    6px 6px 0 #21130b;
+  color: #241b14;
+  font-family: Georgia, 'Times New Roman', serif;
+  text-align: center;
+  image-rendering: pixelated;
+  transform: none;
+}
+
+/* El borde superior simula las hojas dobladas del periódico de la referencia. */
+.pixel-instance .newspaper::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  top: 7px;
+  height: 5px;
+  border-top: 2px solid #6f593e;
+  border-bottom: 2px solid #b49a70;
+  background: #d4bf91;
+  box-shadow: 0 4px 0 #ead9b2;
+  pointer-events: none;
+}
+
+.pixel-instance .newspaper::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, transparent 0 48%, #a78d62 49% 58%, #d8c397 59% 100%);
+  border-left: 2px solid #806746;
+  border-top: 2px solid #806746;
+  pointer-events: none;
+}
+
+.pixel-instance .newspaper .newspaper-masthead {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  padding: 4px 2px 3px;
+  border-bottom: 3px solid #302319;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(12px, 1.35vw, 19px);
+  line-height: .92;
+  font-weight: 900;
+  letter-spacing: .035em;
+}
+
+.pixel-instance .newspaper .newspaper-rule {
+  display: block;
+  height: 4px;
+  margin: 5px 2px 5px;
+  border-top: 2px solid #493927;
+  border-bottom: 1px solid #8f7752;
+}
+
+.pixel-instance .newspaper .newspaper-mini-title {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 0 3px 4px;
+  padding: 2px 0;
+  font-size: clamp(7px, .72vw, 10px);
+  font-weight: 900;
+  line-height: 1.05;
+  border-bottom: 2px solid #574633;
+}
+
+.pixel-instance .newspaper .newspaper-mini-lines {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 0 3px;
+  padding-top: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: clamp(5px, .52vw, 7px);
+  line-height: 1.45;
+  letter-spacing: .03em;
+  text-align: left;
+  color: #554432;
+  background:
+    linear-gradient(#685540,#685540) 0 5px/100% 2px no-repeat,
+    linear-gradient(#685540,#685540) 0 11px/78% 2px no-repeat,
+    linear-gradient(#685540,#685540) 0 17px/91% 2px no-repeat,
+    linear-gradient(#685540,#685540) 0 23px/67% 2px no-repeat;
+}
+
+.pixel-instance .newspaper:hover {
+  filter: brightness(1.08);
+  transform: translateY(-5px) scale(1.015);
+}
+
+/* Cuatro posiciones independientes: una fila, con espacio real entre cada periódico. */
+.pixel-instance .newspaper-a { left: 7%;  bottom: 31%; transform: rotate(-2deg); }
+.pixel-instance .newspaper-b { left: 29%; bottom: 34%; transform: rotate(1deg); }
+.pixel-instance .newspaper-c { left: 52%; bottom: 30%; transform: rotate(-1deg); }
+.pixel-instance .newspaper-d { left: 75%; bottom: 34%; transform: rotate(2deg); }
+
+/* En pantallas pequeñas siguen siendo cuatro objetos separados. */
+@media (max-width: 760px) {
+  .pixel-instance .newspaper {
+    width: 20%;
+    height: 15%;
+    min-width: 0;
+    min-height: 0;
+    padding: 6px;
+  }
+  .pixel-instance .newspaper-a { left: 3%;  bottom: 32%; }
+  .pixel-instance .newspaper-b { left: 27%; bottom: 34%; }
+  .pixel-instance .newspaper-c { left: 51%; bottom: 32%; }
+  .pixel-instance .newspaper-d { left: 75%; bottom: 34%; }
+  .pixel-instance .newspaper .newspaper-masthead { font-size: clamp(7px, 1.8vw, 12px); }
+  .pixel-instance .newspaper .newspaper-mini-title { font-size: clamp(5px, 1.2vw, 8px); }
+  .pixel-instance .newspaper .newspaper-mini-lines { font-size: clamp(4px, .9vw, 6px); }
+}
+
+
+/* =========================================================
+   SELECTOR DE NIVELES — ESTILO DEL DIARIO DE FACUNDO
+   ========================================================= */
+.level-select-screen {
+  background: #f3e7c9;
+  color: #25221d;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 5.2vw 5vh;
+}
+
+.level-select-screen::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .22;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(90,65,28,.025) 4px 5px),
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.35), transparent 32%),
+    radial-gradient(circle at 80% 90%, rgba(111,78,24,.08), transparent 30%);
+  z-index: 0;
+}
+
+.level-select-header,
+.level-grid,
+.level-select-feedback,
+.level-back-button { position: relative; z-index: 1; }
+
+.level-select-header {
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid #29251f;
+  padding: 1.7vh 0 1.25vh;
+  margin-bottom: 1.9vh;
+}
+
+.level-select-title {
+  color: #d2ad45;
+  background: #10101c;
+  width: calc(100% + 10.4vw);
+  margin: -1.7vh -5.2vw 1.35vh;
+  padding: 1.8vh 1vw 1.45vh;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(20px, 2.55vw, 43px);
+  letter-spacing: .06em;
+  line-height: 1.15;
+}
+
+.level-select-header p {
+  font-size: clamp(13px, 1.28vw, 22px);
+  line-height: 1.45;
+  margin: 0 auto;
+  max-width: 1150px;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 3.2vw;
+  row-gap: 1.35vh;
+  max-width: 1540px;
+  margin: 0 auto;
+}
+
+.level-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  grid-template-rows: auto auto auto;
+  column-gap: 1.2vw;
+  align-items: start;
+  min-width: 0;
+  padding: .15vh 0 .75vh;
+  background: transparent;
+  color: #25221d;
+  text-align: left;
+  cursor: pointer;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.level-card-wide {
+  grid-column: 1;
+}
+
+.level-card-title {
+  grid-column: 1 / -1;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(13px, 1.47vw, 25px);
+  line-height: 1.35;
+  margin-bottom: .55vh;
+}
+
+.level-card-description {
+  grid-column: 1;
+  font-size: clamp(12px, 1.12vw, 19px);
+  line-height: 1.45;
+  padding-right: .3vw;
+}
+
+.level-card-image {
+  grid-column: 2;
+  grid-row: 2 / 4;
+  width: 100%;
+  aspect-ratio: 6000 / 3375;
+  object-fit: cover;
+  image-rendering: pixelated;
+  border: 0;
+  display: block;
+  align-self: start;
+}
+
+.level-card-status {
+  grid-column: 1;
+  align-self: end;
+  margin-top: .6vh;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(7px, .63vw, 11px);
+  color: #756c59;
+  letter-spacing: .03em;
+}
+
+.level-card:hover:not(.is-locked) .level-card-title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.level-card:hover:not(.is-locked) .level-card-image {
+  filter: brightness(1.07) contrast(1.03);
+}
+
+.level-card:focus-visible {
+  outline: 3px solid #b78d27;
+  outline-offset: 5px;
+}
+
+.level-card.is-locked {
+  cursor: not-allowed;
+  color: #77705f;
+}
+
+.level-card.is-locked .level-card-image {
+  filter: grayscale(1) brightness(.62) contrast(.8);
+  opacity: .63;
+}
+
+.level-card.is-locked .level-card-title,
+.level-card.is-locked .level-card-description {
+  opacity: .62;
+}
+
+.level-card.is-locked .level-card-status {
+  color: #6c6557;
+}
+
+.level-card.is-unlocked .level-card-status {
+  color: #9a771d;
+}
+
+.level-select-feedback {
+  min-height: 24px;
+  margin: .5vh auto 0;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(7px, .68vw, 11px);
+  color: #6b5421;
+}
+
+.level-back-button {
+  display: block;
+  margin: 1.5vh 0 1.2vh;
+  padding: 1.45vh 2.8vw;
+  background: #d2ad45;
+  color: #111;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(10px, .9vw, 15px);
+  text-decoration: underline;
+  box-shadow: 0 2px 0 rgba(0,0,0,.12);
+}
+
+.level-back-button:hover { filter: brightness(1.06); }
+.level-back-button:active { transform: scale(.98); }
+
+@media (max-width: 1050px) {
+  .level-grid { grid-template-columns: 1fr; max-width: 850px; }
+  .level-card-wide { grid-column: auto; }
+  .level-card { grid-template-columns: minmax(0, 1fr) 500px; }
+}
+
+@media (max-width: 680px) {
+  .level-select-screen { padding: 0 4vw 4vh; }
+  .level-select-title { width: calc(100% + 8vw); margin-left: -4vw; margin-right: -4vw; }
+  .level-select-header p { font-size: 12px; }
+  .level-card { grid-template-columns: 1fr; row-gap: 6px; }
+.level-card-image {
+  width: 100%;
+  aspect-ratio: 6000 / 3375;
+  object-fit: cover;
+}  .level-card-description { grid-column: 1; }
+  .level-card-status { grid-column: 1; }
+  .level-card-title { font-size: 12px; }
+  .level-card-description { font-size: 12px; }
+}
+
+
+/* Ajuste final del Nivel 1: diario compacto, completo dentro de cámara y sin desplazamiento. */
+.pixel-instance .paper-sheet {
+  width: min(780px, 88vw);
+  height: auto;
+  min-height: 0;
+  max-height: 88vh;
+  overflow: hidden;
+  padding: 18px 24px 16px;
+  box-sizing: border-box;
+}
+.pixel-instance .paper-sheet h2 {
+  font-size: clamp(20px, 2.35vw, 30px);
+  margin: 7px 28px 4px;
+}
+.pixel-instance .paper-masthead {
+  font-size: clamp(12px, 1.45vw, 18px);
+  padding-bottom: 7px;
+  margin-bottom: 8px;
+}
+.pixel-instance .paper-date {
+  margin-bottom: 7px;
+  font-size: 10px;
+}
+.pixel-instance .paper-kicker {
+  margin: 3px 0 5px;
+  padding: 3px 7px;
+  font-size: 7px;
+}
+.pixel-instance .paper-headline {
+  font-size: clamp(16px, 1.8vw, 23px);
+  margin: 4px 0;
+  padding-bottom: 5px;
+}
+.pixel-instance .paper-deck {
+  font-size: 10px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.pixel-instance .paper-text {
+  gap: 14px;
+  margin-top: 7px;
+  padding-top: 7px;
+}
+.pixel-instance .paper-text p {
+  font-size: 10px;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+.pixel-instance .paper-source-note {
+  margin: 6px 0 3px;
+  font-size: 7px;
+}
+.pixel-instance .paper-key-instruction {
+  margin-top: 5px;
+  padding: 5px 7px;
+  font-size: 6px;
+  line-height: 1.3;
+}
+.pixel-instance .paper-key-progress-note,
+.pixel-instance .paper-key-progress {
+  margin: 4px 0 0;
+  font-size: 6px;
+}
+.pixel-instance .gold-action {
+  margin-top: 6px;
+  padding: 7px 10px;
+  font-size: 7px;
+}
+@media (max-width: 760px) {
+  .pixel-instance .paper-sheet {
+    width: 94vw;
+    max-height: 90vh;
+    padding: 15px 16px 12px;
+  }
+  .pixel-instance .paper-text {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .pixel-instance .paper-text p {
+    font-size: 9px;
+    line-height: 1.22;
+  }
+}
+
+/* Ajuste final: diario un poco más largo, sin llegar a salir de la pantalla. */
+.pixel-instance .paper-sheet {
+  height: 93vh;
+  min-height: 0;
+  max-height: 93vh;
+  overflow: hidden;
+  padding: 22px 26px 18px;
+}
+.pixel-instance .paper-text p {
+  font-size: 10.5px;
+  line-height: 1.3;
+  margin-bottom: 7px;
+}
+@media (max-width: 760px) {
+  .pixel-instance .paper-sheet {
+    height: 91vh;
+    max-height: 91vh;
+    padding: 18px 18px 14px;
+  }
+  .pixel-instance .paper-text p {
+    font-size: 9.5px;
+    line-height: 1.26;
+  }
+}
+
+/* Ajuste de lectura del diario: mismo tamaño de hoja, texto más grande y respirado. */
+.pixel-instance .paper-text {
+  gap: 24px;
+  margin-top: 11px;
+  padding-top: 10px;
+}
+.pixel-instance .paper-text p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0 0 11px;
+  letter-spacing: .01em;
+}
+.pixel-instance .paper-deck {
+  font-size: 11px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.pixel-instance .paper-source-note {
+  margin-top: 10px;
+  font-size: 8px;
+}
+@media (max-width: 760px) {
+  .pixel-instance .paper-text {
+    gap: 16px;
+  }
+  .pixel-instance .paper-text p {
+    font-size: 10.5px;
+    line-height: 1.42;
+    margin-bottom: 9px;
+  }
+}
+
+
+/* Ajuste final de lectura del diario: texto más grande y párrafos más separados. */
+.pixel-instance .paper-text {
+  column-gap: 38px;
+}
+
+.pixel-instance .paper-text p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.pixel-instance .paper-text p + p {
+  padding-top: 2px;
+}
+
+.pixel-instance .paper-text p.paper-relevant,
+.pixel-instance .paper-text p.paper-secondary {
+  letter-spacing: .01em;
+}
+
+@media (max-width: 760px) {
+  .pixel-instance .paper-text p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 9px;
+  }
+}

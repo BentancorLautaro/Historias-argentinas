@@ -1,0 +1,13 @@
+/*
+ * Hoja de estilos principal.
+ * Los módulos conservan el orden de la hoja original para mantener la cascada.
+ */
+@import url('./base.css');
+@import url('./menu.css');
+@import url('./configuracion.css');
+@import url('./juego.css');
+@import url('./tablero.css');
+@import url('./diarios.css');
+@import url('./responsive-menu.css');
+@import url('./periodico.css');
+@import url('./pixel.css');

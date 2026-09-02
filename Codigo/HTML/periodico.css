@@ -1,0 +1,124 @@
+/* Los diarios se reconocen desde lejos como publicaciones y no como simples botones. */
+.newspaper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  padding: clamp(8px, 1.2vw, 16px);
+  text-align: center;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255,248,222,.18), rgba(255,248,222,.18)),
+    repeating-linear-gradient(0deg, transparent 0 4px, rgba(50,35,20,.045) 5px 6px),
+    #e5d5ae;
+}
+
+.newspaper::after {
+  content: '✦ EDICIÓN DEL DÍA ✦';
+  margin-top: auto;
+  width: 100%;
+  font-size: clamp(5px, .55vw, 9px);
+}
+
+.newspaper-masthead {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 900;
+  line-height: .95;
+  font-size: clamp(10px, 1.15vw, 20px);
+  letter-spacing: .03em;
+}
+
+.newspaper-rule {
+  width: 88%;
+  border-top: 1px solid #403321;
+}
+
+.newspaper-mini-title {
+  width: 90%;
+  font: 900 clamp(6px, .62vw, 10px)/1.15 Georgia, 'Times New Roman', serif;
+  text-transform: uppercase;
+}
+
+.newspaper-mini-lines {
+  width: 86%;
+  font: 700 clamp(5px, .48vw, 8px)/1.35 Arial, sans-serif;
+  opacity: .78;
+}
+
+@media (max-width: 700px) {
+  .newspaper {
+    padding: 7px;
+    gap: 3px;
+  }
+
+  .newspaper-masthead { font-size: clamp(8px, 2vw, 13px); }
+  .newspaper-mini-title { font-size: clamp(5px, 1.3vw, 8px); }
+  .newspaper-mini-lines { font-size: clamp(4px, 1vw, 7px); }
+}
+
+/* Extractos de respaldo: siguen siendo exactamente tres ideas seleccionables. */
+.paper-key-extracts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.key-extract {
+  text-align: left;
+}
+
+.paper-key-progress-note {
+  margin-top: 7px;
+  text-align: center;
+  font: 700 11px/1.3 Arial, sans-serif;
+  color: #6a5234;
+}
+
+.paper-text {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+  margin-top:18px;
+}
+.paper-column {
+  min-width:0;
+}
+.paper-text p {
+  margin:0 0 14px;
+  font: 15px/1.55 Georgia, 'Times New Roman', serif;
+  text-align:justify;
+  text-wrap:pretty;
+}
+.paper-text p + p { padding-top:4px; }
+.key-phrase {
+  display:inline;
+  padding:0 2px;
+  border:0;
+  border-bottom:2px solid #7d2f20;
+  background:rgba(173,133,53,.15);
+  color:#5d2419;
+  font:700 inherit;
+  cursor:pointer;
+  text-decoration:underline;
+  text-decoration-style:dotted;
+  text-decoration-thickness:1px;
+}
+.key-phrase:hover { background:rgba(173,133,53,.28); }
+.key-phrase.key-collected {
+  background:#c8a75b;
+  color:#231a12;
+  text-decoration:none;
+  pointer-events:none;
+}
+
+.paper-sheet { width:min(1050px,94vw); max-height:92vh; }
+.paper-sheet .paper-masthead { letter-spacing:.22em; }
+@media (max-width: 760px) {
+  .paper-text { grid-template-columns:1fr; gap:0; }
+  .paper-text p { font-size:15px; line-height:1.5; }
+  .paper-sheet { width:96vw; padding:20px 14px; }
+}
+
+
