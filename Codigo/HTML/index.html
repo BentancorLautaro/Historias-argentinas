@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historias Argentinas</title>
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+  <main id="game-app">
+    <!-- MENU PRINCIPAL -->
+    <section id="start-screen" class="screen active" aria-label="Menú principal">
+      <div class="main-menu">
+        <button id="btn-play" class="main-menu-button" type="button">Jugar</button>
+        <button id="btn-credits" class="main-menu-button" type="button">Creditos</button>
+      </div>
+
+      <button id="btn-settings" class="settings-button" type="button" aria-label="Abrir configuración">
+        <span class="sr-only">Configuración</span>
+      </button>
+    </section>
+
+    <!-- SELECTOR DE NIVELES -->
+    <section id="level-select-screen" class="screen level-select-screen hidden" aria-label="Selección de niveles">
+      <div class="level-select-header">
+        <div class="level-select-title">EL DIARIO DE FACUNDO</div>
+        <p>Cada nivel es una etapa de investigación: explorá, leé, interrogá y reconstruí el relato literario de Facundo.</p>
+      </div>
+
+      <div class="level-grid" id="level-grid">
+        <button class="level-card" type="button" data-level="1">
+          <span class="level-card-title">NIVEL 1: PISTAS EN LA PAMPA</span>
+          <span class="level-card-description">Despertarás en la llanura con fragmentos sueltos. Observá el entorno, descifrá pistas visuales y lógicas para orientar tu investigación.</span>
+          <img src="../Assets/Recursos Graficos/Nivel uno imagen.png" alt="Paisaje de la Pampa con un jinete" class="level-card-image">
+          <span class="level-card-status">DISPONIBLE</span>
+        </button>
+
+        <button class="level-card" type="button" data-level="4">
+          <span class="level-card-title">NIVEL 4: EL FORTÍN ABANDONADO</span>
+          <span class="level-card-description">Explorá las ruinas en busca de documentos, diarios y recuerdos ocultos. Cada hallazgo revela un fragmento del corpus literario de Facundo.</span>
+          <img src="../Assets/Recursos Graficos/Nivel cuatro imagen.png" alt="Fortín abandonado" class="level-card-image">
+          <span class="level-card-status">BLOQUEADO</span>
+        </button>
+
+        <button class="level-card" type="button" data-level="2">
+          <span class="level-card-title">NIVEL 2: VOCES EN LA PULPERÍA</span>
+          <span class="level-card-description">Dialogá con un personaje clave que conoció a Facundo. Contrastá versiones, detectá contradicciones y obtené información para avanzar.</span>
+          <img src="../Assets/Recursos Graficos/Nivel dos imagen.png" alt="Interior pixel art de una pulpería" class="level-card-image">
+          <span class="level-card-status">BLOQUEADO</span>
+        </button>
+
+        <button class="level-card" type="button" data-level="5">
+          <span class="level-card-title">NIVEL 5: RECONSTRUCCIÓN FINAL</span>
+          <span class="level-card-description">Reuní todas las pistas. Ahora debés armar el relato completo de Facundo y cerrar la investigación reconstruyendo su figura histórica y literaria.</span>
+          <img src="../Assets/Recursos Graficos/Nivel cinco imagen.png" alt="Jinetes atravesando la llanura" class="level-card-image">
+          <span class="level-card-status">BLOQUEADO</span>
+        </button>
+
+        <button class="level-card level-card-wide" type="button" data-level="3">
+          <span class="level-card-title">NIVEL 3: CRUCE DEL RÍO PARANÁ</span>
+          <span class="level-card-description">Resolvé un problema práctico de construcción o logística para cruzar el río. La solución está en los textos y planos que recopilaste.</span>
+          <img src="../Assets/Recursos Graficos/Nivel tres imagen.png" alt="Puente de madera sobre el río Paraná" class="level-card-image">
+          <span class="level-card-status">BLOQUEADO</span>
+        </button>
+      </div>
+
+      <div id="level-select-feedback" class="level-select-feedback" aria-live="polite"></div>
+      <button id="btn-back-levels" class="level-back-button" type="button">VOLVER</button>
+    </section>
+
+    <!-- NIVEL 1: ARCHIVO HISTORICO SOBRE UNA MESA -->
+    <section id="game-screen" class="screen game-screen pixel-instance hidden" aria-label="Nivel histórico">
+      <div id="game-world" class="table-scene" tabindex="0">
+        <div class="room-backdrop" aria-hidden="true"></div>
+        <div class="table-surface" aria-hidden="true">
+          <div class="table-edge"></div>
+          <div class="player-view" aria-hidden="true">
+            <div class="player-hands player-hand-left"></div>
+            <div class="player-hands player-hand-right"></div>
+          </div>
+        </div>
+
+        <button class="newspaper newspaper-a" data-paper="0" type="button" aria-label="Abrir diario La Gaceta Mercantil"><span class="newspaper-masthead">LA GACETA<br>MERCANTIL</span><span class="newspaper-rule"></span><span class="newspaper-mini-title">DEBATES DE LA CONFEDERACIÓN</span><span class="newspaper-mini-lines">AUTORIDAD · ORDEN · POLÍTICA</span></button>
+        <button class="newspaper newspaper-b" data-paper="1" type="button" aria-label="Abrir diario Diario de la Tarde"><span class="newspaper-masthead">DIARIO DE<br>LA TARDE</span><span class="newspaper-rule"></span><span class="newspaper-mini-title">VIDA PÚBLICA</span><span class="newspaper-mini-lines">CIUDAD · CAMPO · COSTUMBRES</span></button>
+        <button class="newspaper newspaper-c" data-paper="2" type="button" aria-label="Abrir diario El Comercio del Plata"><span class="newspaper-masthead">EL COMERCIO<br>DEL PLATA</span><span class="newspaper-rule"></span><span class="newspaper-mini-title">RÍO DE LA PLATA</span><span class="newspaper-mini-lines">COMERCIO · PUERTOS · POLÍTICA</span></button>
+        <button class="newspaper newspaper-d" data-paper="3" type="button" aria-label="Abrir diario British Packet"><span class="newspaper-masthead">BRITISH<br>PACKET</span><span class="newspaper-rule"></span><span class="newspaper-mini-title">RIVER PLATE NEWS</span><span class="newspaper-mini-lines">NEWS · COMMERCE · AFFAIRS</span></button>
+
+        <div class="game-hud">
+          <div class="hud-title">ARCHIVO DE 1845</div>
+          <div class="hud-objective">LEÉ LOS DIARIOS Y RECOLECTÁ SUS FRASES CLAVE</div>
+          <div class="progress-wrap">
+            <span id="paper-progress">0 / 4 DIARIOS LEÍDOS</span>
+            <div class="progress-bar"><span id="paper-progress-fill"></span></div>
+          </div>
+        </div>
+
+        <div id="interact-hint" class="interact-hint">HACÉ CLIC EN UN DIARIO PARA LEERLO</div>
+        <div class="controls-hint">CLIC · LEER DIARIO Y SELECCIONAR FRASES CLAVE</div>
+      </div>
+
+      <div id="newspaper-modal" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="paper-title">
+        <div class="paper-sheet">
+          <button id="close-paper" class="modal-close" type="button" aria-label="Cerrar">X</button>
+          <div class="paper-masthead">ARCHIVO HISTÓRICO</div><div class="paper-reading-guide">PIXEL ARCHIVE · TEXTO TACHADO / OSCURO = REFERENCIA, NO ES NECESARIO MEMORIZAR</div>
+          <div class="paper-issue" id="paper-issue">DIARIO COMERCIAL, POLÍTICO Y LITERARIO</div>
+          <h2 id="paper-title">LA GACETA MERCANTIL</h2>
+          <div class="paper-date" id="paper-date"></div>
+          <div class="paper-kicker" id="paper-kicker"></div>
+          <h3 class="paper-headline" id="paper-headline"></h3>
+          <p class="paper-deck" id="paper-deck"></p>
+          <div id="paper-text" class="paper-text"></div>
+          <div class="paper-source-note">Fragmento didáctico creado para el videojuego. La información está formulada como síntesis histórica.</div>
+          <div class="paper-key-instruction">ENCONTRÁ LAS 3 IDEAS SUBRAYADAS Y TOCALAS PARA RECOLECTAR LA INFORMACIÓN</div><div class="paper-key-progress-note">CADA DIARIO TIENE 3 IDEAS CLAVE</div><div id="paper-key-progress" class="paper-key-progress">0 / 0 FRASES CLAVE</div>
+        </div>
+      </div>
+
+      <div id="quiz-modal" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="quiz-title">
+        <div class="quiz-panel">
+          <div class="paper-masthead">CUADERNO DE INVESTIGACIÓN</div>
+          <h2 id="quiz-title">RELACIONÁ LAS IDEAS</h2>
+          <p class="quiz-instruction">Usá la información de los diarios para responder. Debés acertar todas para avanzar.</p>
+          <div id="quiz-content"></div>
+          <div id="quiz-feedback" class="quiz-feedback" aria-live="polite"></div>
+          <button id="quiz-next" class="gold-action hidden" type="button">CONTINUAR</button>
+        </div>
+      </div>
+
+      <div id="board-modal" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="board-title">
+        <div class="board-panel">
+          <div class="board-header">
+            <div class="board-label">TABLERO DE INVESTIGACIÓN</div>
+            <h2 id="board-title">RELACIONÁ LOS RECORTES EN TRÍADAS</h2>
+            <p>Todos los recortes están mezclados. Elegí tres que desarrollen la misma idea. Las relaciones suelen combinar información de diarios diferentes.</p>
+          </div>
+          <div class="board-status-row">
+            <div id="board-progress" class="board-progress">TRÍADAS RELACIONADAS: 0 / 4</div>
+            <div class="board-score-chip">RESUELTAS <span id="board-score">0 / 4</span></div>
+          </div>
+          <div id="board-clippings" class="board-clippings"></div>
+          <div id="formed-idea" class="formed-idea">TRÍADA ELEGIDA: <span>—</span></div>
+          <div id="board-feedback" class="board-feedback"></div>
+          <div class="board-actions">
+            <button id="board-reset-selection" class="board-reset" type="button">LIMPIAR SELECCIÓN</button>
+            <button id="board-next" class="gold-action hidden" type="button">SEGUIR RELACIONANDO</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="level-complete" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="complete-title">
+        <div class="complete-panel">
+          <div class="completion-seal">✓</div>
+          <h2 id="complete-title">NIVEL COMPLETADO</h2>
+          <p>Reuniste las fuentes, respondiste las preguntas y relacionaste los conceptos en el tablero de investigación.</p>
+          <div class="completion-stats"><span id="final-papers">4 / 4 DIARIOS</span><span id="final-quiz">4 / 4 RESPUESTAS</span></div>
+          <button id="return-menu" class="gold-action" type="button">VOLVER AL MENÚ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDITOS -->
+    <section id="credits-screen" class="screen secondary-screen hidden" aria-label="Créditos">
+      <header class="secondary-header">CREDITOS</header>
+
+      <div class="credits-content">
+        <p class="credits-description">Esta seccion reconoce al equipo creador del juego.</p>
+        <h2 class="credits-subtitle">Desarrollado por</h2>
+
+        <div class="credits-list">
+          <div class="credit-card">Cristian Quispe</div>
+          <div class="credit-card">Lautaro Bentancor</div>
+          <div class="credit-card">Ramiro Carpena</div>
+        </div>
+      </div>
+
+      <button id="btn-back-credits" class="back-button" type="button">Volver</button>
+    </section>
+
+    <!-- CONFIGURACION -->
+    <section id="settings-screen" class="screen secondary-screen hidden" aria-label="Configuración">
+      <header class="secondary-header">CONFIGURACION</header>
+
+      <div class="settings-content">
+        <div class="settings-row">
+          <span class="settings-label">Volumen General</span>
+          <input id="general-volume" class="settings-range" type="range" min="0" max="100" value="50" aria-label="Volumen general">
+        </div>
+
+        <div class="settings-row">
+          <span class="settings-label">Musica</span>
+          <input id="music-volume" class="settings-range" type="range" min="0" max="100" value="50" aria-label="Volumen de música">
+        </div>
+
+        <div class="settings-row">
+          <span class="settings-label">Efectos</span>
+          <div class="toggle-group" role="group" aria-label="Efectos de sonido">
+            <button id="effects-on" class="toggle-button is-selected" type="button">ON</button>
+            <button id="effects-off" class="toggle-button" type="button">OFF</button>
+          </div>
+        </div>
+
+        <div class="settings-row">
+          <span class="settings-label">Idioma</span>
+          <button id="language-button" class="language-button" type="button">ESPAÑOL</button>
+        </div>
+
+        <div class="settings-row">
+          <span class="settings-label">Controles</span>
+          <button id="controls-button" class="controls-button" type="button">VER CONTROLES</button>
+        </div>
+      </div>
+
+      <button id="btn-back-settings" class="back-button" type="button">Volver</button>
+    </section>
+  </main>
+  <script src="./js/principal.compatibilidad.js"></script>
+</body>
+</html>
