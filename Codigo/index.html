@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historias Argentinas</title>
+  <link rel="stylesheet" href="./CSS/Compartido/estilos.css">
+  <link rel="stylesheet" href="./CSS/Nivel 4/nivelCuatro.css">
+  <link rel="stylesheet" href="./CSS/Compartido/orientacion-controles.css">
+  <script>
+    try {
+      const nivelEnCurso = Number(sessionStorage.getItem('facundo-nivel-en-curso'));
+      if (nivelEnCurso === 1 || nivelEnCurso === 2) document.documentElement.classList.add('resume-in-progress');
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <div id="aviso-orientacion" role="alert" aria-live="assertive"><div><span aria-hidden="true">↻</span><h1>Por favor, gira tu dispositivo a modo Horizontal (Landscape) para jugar</h1></div></div>
+  <main id="game-app">
+    <div id="app-sections-loading" class="app-sections-loading" role="status">Cargando juego…</div>
+  </main>
+  <script>
+    (() => {
+      const aviso = document.getElementById('aviso-orientacion');
+      const actualizar = () => {
+        const tactil = matchMedia('(pointer: coarse)').matches || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const vertical = matchMedia('(orientation: portrait)').matches;
+        const tablet = /iPad|Tablet|Android(?!.*Mobile)/i.test(navigator.userAgent) || (tactil && Math.min(screen.width,screen.height) >= 600);
+        document.documentElement.dataset.dispositivo = !tactil ? 'pc' : (tablet ? 'tablet' : 'smartphone');
+        document.documentElement.classList.toggle('requiere-horizontal', tactil && vertical);
+        if (aviso) aviso.hidden = !(tactil && vertical);
+      };
+      addEventListener('resize', actualizar); addEventListener('orientationchange', actualizar); actualizar();
+    })();
+  </script>
+  <script type="module" src="./JavaScript/Compartido/cargarSecciones.js"></script>
+</body>
+</html>

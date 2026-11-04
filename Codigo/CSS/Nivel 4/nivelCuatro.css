@@ -1,0 +1,85 @@
+#game-screen-cuatro{position:fixed;inset:0;z-index:40;background:#172a25;color:#f6e8c5;display:flex;align-items:stretch;justify-content:stretch;padding:0;font-family:monospace;width:100vw;height:100dvh;overflow:hidden}#game-screen-cuatro.hidden{display:none}.plataformas-shell{width:100%;height:100%;min-width:0;min-height:0;display:flex;flex-direction:column;gap:0}.plataformas-hud,.plataformas-footer{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#293e32;border:0;border-bottom:2px solid #73825a;padding:8px 12px;box-shadow:none}.plataformas-hud b{display:block;letter-spacing:1px;font-size:clamp(12px,1.7vw,19px)}.plataformas-hud small{display:block;color:#c6d3a0;margin-top:4px}.plataformas-stats{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:12px}.plataformas-shell button{font:inherit;font-weight:bold;background:#d4b36b;color:#292a1c;border:3px solid #f5df9f;padding:8px 12px;cursor:pointer;box-shadow:3px 3px 0 #101b17}.plataformas-shell button:hover{filter:brightness(1.12)}.plataformas-viewport{position:relative;flex:1 1 auto;min-height:0;width:100%;height:100%;aspect-ratio:auto;max-height:none;overflow:hidden;border:0;background:#9ac8d0;box-shadow:none}.plataformas-viewport canvas{width:100%;height:100%;display:block;image-rendering:pixelated}.plataformas-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#101b17b8;padding:16px}.plataformas-overlay.hidden{display:none}.plataformas-panel{max-width:620px;text-align:center;background:#293e32;border:4px solid #d4b36b;padding:clamp(16px,4vw,32px);box-shadow:7px 7px 0 #101b17}.plataformas-panel h1{font-size:clamp(22px,4vw,42px);margin:8px 0 16px;color:#f5df9f}.plataformas-panel p{line-height:1.6}.plataformas-kicker{color:#c6d3a0;letter-spacing:3px}.plataformas-controles{font-size:12px;color:#e4d9b8}.plataformas-lectura{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(480px,90%);background:#f1e1b7;color:#342d1e;border:5px solid #725738;padding:22px;box-shadow:8px 8px 0 #101b17;font-family:monospace}.plataformas-lectura.hidden{display:none}.plataformas-lectura h2{margin-top:0}.plataformas-lectura p{line-height:1.6}.plataformas-lectura #plataformas-cerrar-lectura{float:right;padding:2px 10px}.plataformas-footer{font-size:12px}.plataformas-footer span:first-child{color:#f5df9f;font-weight:bold}@media(max-width:600px){#game-screen-cuatro{padding:0}.plataformas-hud,.plataformas-footer{padding:7px}.plataformas-stats{gap:7px}.plataformas-viewport{max-height:none}.plataformas-footer{font-size:10px}}
+
+/* HUD minimalista: solo sprites de vida y contador de notas, superpuesto al juego. */
+.plataformas-hud-minimo{position:absolute;z-index:5;top:12px;left:12px;display:flex;align-items:center;gap:14px;padding:7px 10px;background:rgba(28,39,29,.78);border:2px solid rgba(245,223,159,.85);border-radius:5px;box-shadow:3px 3px 0 rgba(16,27,23,.45);pointer-events:none}
+.plataformas-vidas{display:flex;align-items:center;gap:4px;min-height:20px}
+.plataformas-sprite-vida{width:21px;height:21px;image-rendering:pixelated;display:block}
+.plataformas-nota{display:flex;align-items:center;gap:5px;color:#fff0c8;font-size:16px;font-weight:bold;line-height:1;font-variant-numeric:tabular-nums}
+.plataformas-sprite-nota{width:22px;height:22px;image-rendering:pixelated;display:block}
+@media(max-width:600px){.plataformas-hud-minimo{top:7px;left:7px;gap:10px;padding:5px 7px}.plataformas-sprite-vida{width:18px;height:18px}.plataformas-nota{font-size:14px}.plataformas-sprite-nota{width:19px;height:19px}}
+
+/* HUD de juego: únicamente vidas, notas y pausa, sin cabecera ni pie. */
+.plataformas-shell{position:relative}
+.plataformas-viewport{position:relative}
+.plataformas-hud-minimo{top:12px;left:12px;gap:12px;padding:6px 9px;background:rgba(28,39,29,.82);border:2px solid rgba(245,223,159,.85);border-radius:5px;box-shadow:3px 3px 0 rgba(16,27,23,.45);pointer-events:none}
+.plataformas-vidas{display:flex;align-items:center;gap:4px;min-height:22px}
+.plataformas-sprite-vida{width:22px;height:22px;image-rendering:pixelated;display:block}
+.plataformas-nota{display:flex;align-items:center;gap:5px;color:#fff0c8;font-size:17px;font-weight:bold;line-height:1;font-variant-numeric:tabular-nums}
+.plataformas-sprite-nota{width:22px;height:25px;image-rendering:pixelated;display:block}
+@media(max-width:600px){.plataformas-hud-minimo{top:7px;left:7px;gap:9px;padding:5px 7px}.plataformas-sprite-vida{width:19px;height:19px}.plataformas-nota{font-size:15px}.plataformas-sprite-nota{width:20px;height:22px}}
+
+
+/* HUD superior: progreso a la izquierda, notas y vidas a la derecha. */
+.plataformas-hud-minimo{position:absolute;z-index:5;top:0;left:0;right:0;display:flex;align-items:center;gap:12px;width:100%;box-sizing:border-box;padding:10px 14px;background:linear-gradient(180deg,rgba(16,27,23,.76),rgba(16,27,23,.12));border:0;border-radius:0;box-shadow:none;pointer-events:none}
+.plataformas-progreso{position:relative;flex:1 1 auto;min-width:24px;height:12px;overflow:hidden;background:rgba(16,27,23,.78);border:2px solid #f5df9f;box-shadow:2px 2px 0 rgba(16,27,23,.55);box-sizing:border-box}
+.plataformas-progreso-valor{width:0;height:100%;background:#d4b36b;box-shadow:inset 0 -2px rgba(98,66,28,.35);transition:width .12s linear}
+.plataformas-nota{flex:0 0 auto;padding:4px 6px;background:rgba(28,39,29,.82);border:1px solid rgba(245,223,159,.7);border-radius:3px}
+.plataformas-vidas{flex:0 0 auto;padding:4px 6px;background:rgba(28,39,29,.82);border:1px solid rgba(245,223,159,.7);border-radius:3px}
+@media(max-width:600px){.plataformas-hud-minimo{top:0;left:0;right:0;gap:6px;padding:7px}.plataformas-progreso{height:10px}.plataformas-nota{padding:3px 4px}.plataformas-vidas{padding:3px 4px;gap:2px}.plataformas-sprite-vida{width:17px;height:17px}.plataformas-nota{font-size:14px}.plataformas-sprite-nota{width:18px;height:20px}}
+
+/* Controles táctiles del nivel 4. */
+.controles-tactiles{display:none;position:absolute;z-index:9;inset:auto 0 12px;justify-content:space-between;align-items:flex-end;padding:0 14px;pointer-events:none;box-sizing:border-box}
+.controles-movimiento,.controles-acciones{display:flex;gap:10px;pointer-events:auto}
+.controles-tactiles button{width:clamp(48px,8vw,68px);height:clamp(48px,8vw,68px);padding:0;border:3px solid #f5df9f;border-radius:12px;background:#293e32dd;color:#fff0c8;font-size:clamp(18px,3vw,25px);touch-action:none;user-select:none;box-shadow:3px 3px 0 #101b17}
+@media(pointer:coarse){.controles-tactiles{display:flex}.plataformas-viewport{aspect-ratio:16/9}.plataformas-viewport canvas{width:100%;height:100%;object-fit:contain}.plataformas-controles{font-size:clamp(9px,2vw,12px)}}
+@media(orientation:landscape) and (max-height:480px){.controles-tactiles{bottom:6px}.controles-tactiles button{width:46px;height:46px}}
+
+.plataformas-pausa {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  z-index: 1000 !important;
+  width: 42px !important;
+  height: 42px !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 2px solid #f5df9f !important;
+  border-radius: 8px !important;
+  background: #30251b !important;
+  color: #f5df9f !important;
+  font-size: 22px !important;
+  cursor: pointer !important;
+}
+
+
+/* Responsive: mantener el lienzo lógico 16:9 sin deformar ni alterar el mundo.
+   El canvas conserva sus 960x540 unidades de juego; solo cambia su tamaño CSS. */
+@media (pointer: coarse) {
+  .plataformas-viewport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: auto;
+    max-height: none;
+  }
+  .plataformas-viewport > canvas {
+    width: min(100%, 177.7778dvh);
+    height: auto;
+    max-height: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    flex: 0 1 auto;
+  }
+  .plataformas-pausa {
+    top: max(8px, env(safe-area-inset-top)) !important;
+    right: max(8px, env(safe-area-inset-right)) !important;
+    width: clamp(40px, 7vw, 48px) !important;
+    height: clamp(40px, 7vw, 48px) !important;
+    padding: 0 !important;
+  }
+  .controles-tactiles {
+    bottom: max(10px, env(safe-area-inset-bottom));
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+}

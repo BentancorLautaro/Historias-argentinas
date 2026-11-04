@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historias Argentinas</title>
+  <link rel="stylesheet" href="../CSS/Compartido/estilos.css">
+  <link rel="stylesheet" href="../CSS/Nivel 4/nivelCuatro.css">
+  <script>
+    // Evita mostrar fugazmente el menú cuando se recarga una partida en curso.
+    try {
+      const nivelEnCurso = Number(sessionStorage.getItem('facundo-nivel-en-curso'));
+      if (nivelEnCurso === 1 || nivelEnCurso === 2) {
+        document.documentElement.classList.add('resume-in-progress');
+      }
+    } catch (_) {}
+  </script>
+</head>
+<body>
+  <main id="game-app">
+    <div id="app-sections-loading" class="app-sections-loading" role="status">Cargando juego…</div>
+  </main>
+  <script type="module" src="../JavaScript/Compartido/cargarSecciones.js"></script>
+</body>
+</html>

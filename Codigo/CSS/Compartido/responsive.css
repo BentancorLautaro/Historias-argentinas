@@ -1,0 +1,300 @@
+/* ================================================================
+   RESPONSIVE GLOBAL
+   El resto de las hojas ya usa vw/vh/%/clamp() para casi todo, y ya
+   trae varios @media (max-width: ...) puntuales. Este archivo cierra
+   los huecos que quedaban para que TODO el juego (menú, niveles,
+   minijuegos y configuración) se vea y se use bien en cualquier
+   tamaño de pantalla:
+
+   1) Altura real del viewport en celulares (barra de direcciones).
+   2) Pantallas bajas (celular en horizontal / notebooks chicas).
+   3) Configuración y créditos en anchos muy angostos (no tenían
+      ningún @media propio).
+   4) Tamaño mínimo de zona táctil en dispositivos táctiles.
+   5) Salvavidas: si un contenido puntual no entra igual, se permite
+      scroll en vez de recortarlo o superponerlo.
+
+   Se carga al final de estilos.css a propósito, para poder ajustar
+   por encima de todo lo anterior sin reescribirlo.
+   ================================================================ */
+
+/* --------------------------------------------------------------
+   1) ALTURA REAL DEL VIEWPORT (fix del 100vh en mobile)
+   -------------------------------------------------------------- */
+@supports (height: 100dvh) {
+  html, body, #game-app {
+    height: 100dvh;
+  }
+}
+
+/* --------------------------------------------------------------
+   2) ZONA TÁCTIL MÍNIMA
+   Los botones más chicos (settings-button, toggle-button, etc.)
+   están pensados en vw/vh y en pantallas muy angostas pueden quedar
+   por debajo de lo cómodo para el dedo. Se refuerza un mínimo sin
+   tocar el diseño visual (no cambia texto ni tamaño de fuente).
+   -------------------------------------------------------------- */
+@media (pointer: coarse) {
+  .settings-button,
+  .toggle-button,
+  .modal-close,
+  .board-reset,
+  .level-back-button,
+  .back-button,
+  .escena-volver,
+  #close-paper {
+    min-width: 40px;
+    min-height: 40px;
+  }
+}
+
+/* --------------------------------------------------------------
+   3) CONFIGURACIÓN Y CRÉDITOS EN ANCHOS ANGOSTOS
+   configuracion.css no traía ningún @media: en celular las filas
+   (etiqueta + control, todo con "left: 48%") quedaban apretadas o
+   se podían superponer. Acá se pasa a una columna simple.
+   -------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .settings-content {
+    top: 10vh;
+    left: 6%;
+    width: 88%;
+    gap: 1.6vh;
+  }
+
+  .settings-row {
+    height: auto;
+    min-height: 8.5vh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: #12122199;
+    border: 1px solid var(--panel-border);
+  }
+
+  .settings-label {
+    position: static;
+    width: 100%;
+    white-space: normal;
+    font-size: clamp(9px, 3.4vw, 13px);
+  }
+
+  .settings-row > .settings-range,
+  .settings-row > .toggle-group,
+
+  .settings-range,
+  .toggle-group,
+
+  .toggle-group {
+    display: flex;
+    width: 100%;
+  }
+
+  .toggle-button {
+    flex: 1;
+    width: auto;
+    height: 40px;
+    font-size: clamp(9px, 3vw, 12px);
+  }
+
+
+  .settings-range {
+    height: 6px;
+  }
+
+  .credits-content,
+  .credits-description,
+  .credits-subtitle,
+  .credits-list {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .secondary-screen {
+    overflow-y: auto;
+  }
+
+  .secondary-header {
+    font-size: clamp(13px, 4.2vw, 18px);
+  }
+
+  .credits-content {
+    padding: 8vh 6vw 12vh;
+  }
+
+  .credits-description {
+    margin-bottom: 3vh;
+    font-size: clamp(10px, 3.2vw, 14px);
+  }
+  .credits-subtitle {
+    margin-bottom: 2vh;
+    font-size: clamp(12px, 3.8vw, 16px);
+  }
+
+  .credits-list {
+    width: 100%;
+    gap: 2vh;
+  }
+
+  .credit-card {
+    font-size: clamp(11px, 3.4vw, 15px);
+  }
+
+  .back-button {
+    left: 4vw;
+    bottom: 4vh;
+    font-size: clamp(9px, 3vw, 12px);
+  }
+}
+
+@media (max-width: 380px) {
+  .settings-label { font-size: 9px; }
+  .toggle-button,
+  .secondary-header { font-size: 13px; }
+  .credits-description { font-size: 10px; }
+  .credits-subtitle { font-size: 12px; }
+  .credit-card { font-size: 11px; }
+  .back-button { font-size: 9px; }
+}
+
+/* --------------------------------------------------------------
+   4) PANTALLAS BAJAS (celular en horizontal, notebooks chicas)
+   Todo el juego está pensado como una escena de altura completa
+   (100vh) sin scroll de página. En viewports muy bajos eso hace
+   que los HUD, paneles y escenas de minijuego se aprieten o se
+   corten. Se reduce el tamaño de lo esencial y, como salvavidas,
+   se habilita scroll donde el contenido siga sin entrar.
+   -------------------------------------------------------------- */
+@media (max-height: 560px) {
+  .game-hud {
+    padding: 8px 12px;
+  }
+  .hud-title { font-size: 11px; margin-bottom: 5px; }
+  .hud-objective { font-size: 9px; }
+  .progress-wrap { margin-top: 6px; }
+
+  .interact-hint,
+  .controls-hint {
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+
+  .pixel-instance .newspaper,
+  .newspaper {
+    height: 15vh;
+  }
+
+  .pixel-instance .paper-sheet,
+  .paper-sheet,
+  .quiz-panel,
+  .board-panel,
+  .complete-panel {
+    max-height: 96vh;
+    padding-top: 14px;
+    padding-bottom: 12px;
+  }
+
+  .escena-mecanica {
+    padding: 1.2vh 4vw;
+    justify-content: flex-start;
+    gap: 1.4vh;
+    overflow-y: auto;
+  }
+
+  .escena-encabezado { margin-top: 0; }
+  .escena-kicker { font-size: 8px; margin-bottom: 4px; }
+  .escena-titulo { font-size: clamp(16px, 5vw, 26px); margin-bottom: 2px; }
+  .escena-subtitulo { font-size: 11px; }
+
+  .escena-lienzo {
+    max-height: 68vh;
+  }
+
+  .escena-cantor .escena-lienzo {
+    max-height: none;
+    flex: 1 1 auto;
+  }
+
+  .escena-pie { margin-bottom: 4px; }
+
+  .huellas-terreno { height: 150px; }
+  .bifurcacion-diagrama { height: 130px; }
+  .payada-mesa { min-height: 130px; }
+  .payada-tablero { min-height: 0; }
+  .payada-mano { padding-top: 14px; }
+
+  .personaje { bottom: 12%; }
+  .personaje-figura { width: 46px; height: 84px; }
+
+  .level-select-title { font-size: clamp(16px, 4.5vw, 28px); padding: 1.1vh 1vw; }
+  .level-grid { row-gap: 1vh; }
+}
+
+@media (max-height: 400px) {
+  .escena-titulo { font-size: clamp(14px, 4.5vw, 20px); }
+  .escena-subtitulo { display: none; }
+  .escena-kicker { margin-bottom: 2px; }
+
+  .pixel-instance .paper-sheet,
+  .paper-sheet,
+  .quiz-panel,
+  .board-panel,
+  .complete-panel {
+    max-height: 98vh;
+  }
+
+  .huellas-terreno { height: 120px; }
+  .bifurcacion-diagrama { height: 110px; }
+  .payada-mesa { min-height: 110px; }
+}
+
+/* En horizontal muy bajo, el menú principal y el selector de niveles
+   también se acomodan para no perder botones fuera de pantalla. */
+@media (max-height: 480px) and (orientation: landscape) {
+  .main-menu {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    gap: 1.4vh;
+  }
+
+  .main-menu-button {
+    height: clamp(34px, 9vh, 54px);
+  }
+
+  .settings-button {
+    width: clamp(28px, 8vh, 40px);
+    height: clamp(28px, 8vh, 40px);
+  }
+
+  .level-select-screen {
+    padding-top: 1.5vh;
+  }
+
+  .level-select-header {
+    padding: 0.8vh 0 0.6vh;
+    margin-bottom: 1vh;
+  }
+}
+
+/* --------------------------------------------------------------
+   5) SALVAVIDAS GENERAL
+   Si a pesar de todo lo anterior algún panel de un minijuego no
+   entra en pantalla (relación de aspecto extrema), se prioriza
+   poder ver y desplazarse por el contenido antes que recortarlo.
+   -------------------------------------------------------------- */
+.escena-lienzo,
+.payada-tablero {
+  overflow-y: auto;
+}
+
+@media (max-width: 340px) {
+  .main-menu-button { font-size: 9px; }
+  .escena-titulo { font-size: 14px; }
+  .level-card-title { font-size: 11px; }
+  .level-card-description { font-size: 11px; }
+}

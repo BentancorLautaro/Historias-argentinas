@@ -1,0 +1,103 @@
+<!-- Fragmento modular: editar este archivo para modificar esta sección del juego. -->
+<section id="game-screen" class="screen game-screen pixel-instance hidden" aria-label="Nivel histórico">
+      <div id="game-world" class="table-scene" tabindex="0">
+        <div class="room-backdrop" aria-hidden="true"></div>
+        <div class="table-surface" aria-hidden="true">
+          <div class="table-edge"></div>
+          <div class="player-view" aria-hidden="true">
+            <div class="player-hands player-hand-left"></div>
+            <div class="player-hands player-hand-right"></div>
+          </div>
+        </div>
+
+        <button class="newspaper newspaper-a" data-paper="0" type="button" aria-label="Abrir diario La Gaceta Mercantil"><span class="newspaper-masthead">LA GACETA<br>MERCANTIL</span><span class="newspaper-rule"></span><span class="newspaper-mini-title">DEBATES DE LA CONFEDERACIÓN</span><span class="newspaper-mini-lines">AUTORIDAD · ORDEN · POLÍTICA</span></button>
+        <button class="newspaper newspaper-b" data-paper="1" type="button" aria-label="Abrir diario Diario de la Tarde"><span class="newspaper-masthead">DIARIO DE<br>LA TARDE</span><span class="newspaper-rule"></span><span class="newspaper-mini-title">VIDA PÚBLICA</span><span class="newspaper-mini-lines">CIUDAD · CAMPO · COSTUMBRES</span></button>
+        <button class="newspaper newspaper-c" data-paper="2" type="button" aria-label="Abrir diario El Comercio del Plata"><span class="newspaper-masthead">EL COMERCIO<br>DEL PLATA</span><span class="newspaper-rule"></span><span class="newspaper-mini-title">RÍO DE LA PLATA</span><span class="newspaper-mini-lines">COMERCIO · PUERTOS · POLÍTICA</span></button>
+        <button class="newspaper newspaper-d" data-paper="3" type="button" aria-label="Abrir diario British Packet"><span class="newspaper-masthead">BRITISH<br>PACKET</span><span class="newspaper-rule"></span><span class="newspaper-mini-title">RIVER PLATE NEWS</span><span class="newspaper-mini-lines">NEWS · COMMERCE · AFFAIRS</span></button>
+
+        <div class="game-hud">
+          <div class="hud-title">ARCHIVO DE 1845</div>
+          <div class="hud-objective">LEÉ LOS DIARIOS Y RECOLECTÁ SUS FRASES CLAVE</div>
+          <div class="progress-wrap">
+            <span id="paper-progress">0 / 4 DIARIOS LEÍDOS</span>
+            <div class="progress-bar"><span id="paper-progress-fill"></span></div>
+          </div>
+          <div id="mensaje-partida" class="save-load-message" aria-live="polite" aria-label="Estado del guardado automático"></div>
+          <div id="interact-hint" class="interact-hint" aria-live="polite" style="display:none"></div>
+        </div>
+
+
+      </div>
+
+      <div id="newspaper-modal" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="paper-title">
+        <div class="paper-modal-layout">
+        <div class="paper-sheet">
+          <button id="close-paper" class="modal-close" type="button" aria-label="Cerrar">X</button>
+          <div class="paper-masthead">ARCHIVO HISTÓRICO</div><div class="paper-reading-guide">PIXEL ARCHIVE · TEXTO TACHADO / OSCURO = REFERENCIA, NO ES NECESARIO MEMORIZAR</div>
+          <div class="paper-issue" id="paper-issue">DIARIO COMERCIAL, POLÍTICO Y LITERARIO</div>
+          <h2 id="paper-title">LA GACETA MERCANTIL</h2>
+          <div class="paper-date" id="paper-date"></div>
+          <div class="paper-kicker" id="paper-kicker"></div>
+          <h3 class="paper-headline" id="paper-headline"></h3>
+          <p class="paper-deck" id="paper-deck"></p>
+          <div id="paper-text" class="paper-text"></div>
+          <div id="paper-key-progress" class="paper-key-progress" hidden aria-hidden="true">0 / 0</div>
+        </div>
+        <aside class="level-one-guide" aria-label="Objetivo del nivel uno">
+          <h3>¿QUÉ TENÉS QUE HACER?</h3>
+          <p>Investigá los cuatro diarios para reunir información sobre el contexto de <em>Facundo</em>.</p>
+          <ol>
+            <li>Hacé clic en un diario para abrirlo.</li>
+            <li>Leé el texto y seleccioná las frases clave.</li>
+            <li>Completá las frases de cada diario para marcarlo como leído.</li>
+            <li>Cuando termines los cuatro, avanzá al cuestionario.</li>
+          </ol>
+          <p class="guide-note">¿Ya lo leíste? Podés volver a abrir cualquier diario haciendo clic otra vez, incluso después de cerrarlo.</p>
+        </aside>
+        </div>
+      </div>
+
+      <div id="quiz-modal" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="quiz-title">
+        <div class="quiz-panel">
+          <div class="paper-masthead">CUADERNO DE INVESTIGACIÓN</div>
+          <h2 id="quiz-title">RELACIONÁ LAS IDEAS</h2>
+          <p class="quiz-instruction">Usá la información de los diarios para responder. Debés acertar todas para avanzar.</p>
+          <div id="quiz-content"></div>
+          <div id="quiz-feedback" class="quiz-feedback" aria-live="polite"></div>
+          <div class="reread-newspapers" aria-label="Volver a leer un diario"><span>CONSULTAR DIARIOS:</span> <button type="button" data-reopen-paper="0">OBSERVADOR</button><button type="button" data-reopen-paper="1">PAMPA</button><button type="button" data-reopen-paper="2">PLATA</button><button type="button" data-reopen-paper="3">CAMPAÑA</button></div>
+          <button id="quiz-next" class="gold-action hidden" type="button">CONTINUAR</button>
+        </div>
+      </div>
+
+      <div id="board-modal" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="board-title">
+        <div class="board-panel">
+          <div class="board-header">
+            <div class="board-label">TABLERO DE INVESTIGACIÓN</div>
+            <h2 id="board-title">RELACIONÁ LOS RECORTES DE LOS CUATRO DIARIOS</h2>
+            <p>Todos los recortes están mezclados. Elegí tres que desarrollen la misma idea. Las relaciones suelen combinar información de diarios diferentes.</p>
+          </div>
+          <div class="board-status-row">
+            <div id="board-progress" class="board-progress">TRÍADAS RELACIONADAS: 0 / 4</div>
+            <div class="board-score-chip">RESUELTAS <span id="board-score">0 / 4</span></div>
+          </div>
+          <div id="board-clippings" class="board-clippings"></div>
+          <div id="formed-idea" class="formed-idea">TRÍADA ELEGIDA: <span>—</span></div>
+          <div id="board-feedback" class="board-feedback"></div>
+          <div class="reread-newspapers" aria-label="Volver a leer un diario"><span>CONSULTAR DIARIOS:</span> <button type="button" data-reopen-paper="0">OBSERVADOR</button><button type="button" data-reopen-paper="1">PAMPA</button><button type="button" data-reopen-paper="2">PLATA</button><button type="button" data-reopen-paper="3">CAMPAÑA</button></div>
+          <div class="board-actions">
+            <button id="board-reset-selection" class="board-reset" type="button">LIMPIAR SELECCIÓN</button>
+            <button id="board-next" class="gold-action hidden" type="button">SEGUIR RELACIONANDO</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="level-complete" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="complete-title">
+        <div class="complete-panel">
+          <div class="completion-seal">✓</div>
+          <h2 id="complete-title">NIVEL COMPLETADO</h2>
+          <p>Reuniste las fuentes, respondiste las preguntas y relacionaste los conceptos en el tablero de investigación.</p>
+          <div class="completion-stats"><span id="final-papers">4 / 4 DIARIOS</span><span id="final-quiz">4 / 4 RESPUESTAS</span></div>
+          <button id="return-menu" class="gold-action" type="button">VOLVER AL MENÚ</button>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --dark-background: #10101c;
+  --panel-background: #1b1c33;
+  --panel-border: #d2ad45;
+  --panel-text: #f1f1f1;
+  --gold: #d2ad45;
+  --blue-track: #555675;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--dark-background);
+  font-family: 'Press Start 2P', monospace;
+}
+
+/*
+ * IMPORTANTE: no se usa transform: scale() ni un lienzo fijo de 1920x1080.
+ * Toda la interfaz ocupa directamente el viewport. De esta forma, al cambiar
+ * el tamaño de la ventana o el zoom, el diseño se recalcula completo y no
+ * aparecen barras/bordes negros alrededor de una maqueta fija.
+ */
+#game-app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+
+
+/* Durante una reanudación, no mostrar el menú ni un instante antes del nivel. */
+.resume-in-progress #start-screen,
+.resume-in-progress #level-select-screen,
+.resume-in-progress #credits-screen,
+.resume-in-progress #settings-screen,
+.resume-in-progress #help-screen {
+  display: none !important;
+}
+
+/* Presentaciones breves: contexto narrativo antes de una actividad educativa. */
+.intro-narrativa { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; padding: 22px; background: rgba(5, 6, 16, .88); }
+.intro-narrativa.hidden { display: none; }
+.intro-narrativa-panel { width: min(760px, 100%); max-height: 90vh; overflow: auto; padding: clamp(22px, 4vw, 42px); color: #f4f0df; background: linear-gradient(145deg, #22233c, #121322); border: 2px solid #d2ad45; box-shadow: 0 0 0 5px rgba(210,173,69,.12), 0 20px 70px #000; line-height: 1.7; }
+.intro-etiqueta { color: #e7c65e; font-size: 11px; letter-spacing: .12em; margin-bottom: 18px; }
+.intro-titulo { font-size: clamp(16px, 2.4vw, 25px); line-height: 1.6; margin-bottom: 18px; }
+.intro-texto { font: 15px/1.8 system-ui, sans-serif; white-space: pre-line; margin-bottom: 26px; }
+.intro-continuar { display: block; margin-left: auto; border: 1px solid #f0d16c; background: #d2ad45; color: #151522; padding: 13px 20px; font: inherit; font-size: 10px; cursor: pointer; }
+.intro-continuar:hover, .intro-continuar:focus-visible { background: #f0d16c; outline: 2px solid #fff; outline-offset: 3px; }
+@media (max-width: 600px) { .intro-texto { font-size: 14px; } .intro-continuar { font-size: 9px; } }

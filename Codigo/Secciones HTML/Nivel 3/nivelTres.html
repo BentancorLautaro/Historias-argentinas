@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html><head><link href="../../CSS/Nivel%203/nivelTres.css" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet"/><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+
+
+
+
+
+
+
+<title>Constructora del Paraná</title>
+<meta content="cover" name="claude:viewport-fit-sides"/>
+</head><body>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=Bitter:wght@400;600;700&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+
+<div class="intro-funcionamiento" id="intro-funcionamiento">
+<div class="intro-panel">
+<div class="intro-kicker">NIVEL 3 · CONSTRUCTORA DEL PARANÁ</div>
+<h2>¿CÓMO SE JUEGA?</h2>
+<p>Construí el puente reuniendo materiales y completando sus 6 tramos.</p>
+<div class="intro-grid">
+<div><b>1 · TALAR</b><span>Golpeá el árbol hasta conseguir troncos.</span></div>
+<div><b>2 · TRABAJAR</b><span>Usá los materiales para aserrar, lijar, tratar y afilar.</span></div>
+<div><b>3 · CONSTRUIR</b><span>Colocá los pilotes y tablones necesarios para avanzar.</span></div>
+<div><b>4 · TRABAJADOR</b><span>Podés reclutar un trabajador para hacer tareas mientras vos seguís jugando.</span></div>
+</div>
+<div class="intro-tip">OBJETIVO: COMPLETÁ LOS 6 TRAMOS DEL PUENTE.</div>
+<button id="btn-comenzar-intro" type="button">COMENZAR</button>
+</div>
+</div>
+<div class="historiaOverlay" id="historiaPuente" hidden role="dialog" aria-modal="true" aria-labelledby="historiaTitulo">
+  <section class="historiaModal">
+    <div class="historiaKicker">CONSTRUCTORA DEL PARANÁ · CONTEXTO HISTÓRICO</div>
+    <div class="historiaTitulo">CAPÍTULO III · ASOCIACIÓN — LA PULPERÍA</div>
+    <div class="historiaNumero" id="historiaNumero"></div>
+    <h2 id="historiaTitulo"></h2>
+    <p class="historiaTexto" id="historiaTexto"></p>
+    <div class="historiaPensamiento" id="historiaPensamiento"></div>
+    <p class="historiaAviso">Leé este fragmento para comprender el contexto histórico antes de continuar.</p>
+    <button class="btn pri historiaContinuar" id="btnContinuarHistoria" type="button">CONTINUAR LA CONSTRUCCIÓN</button>
+  </section>
+</div>
+<!-- Audio opcional. No se referencia ningún archivo hasta que se agregue el recurso real. -->
+<audio id="sonidoConstruccion" preload="none"></audio>
+<div class="wrap">
+<div class="top"><button class="game-pause-trigger" id="pausa-nivel-tres" type="button" aria-label="Abrir menú de pausa" title="Menú (Esc)">☰</button><h1>Constructora del Paraná</h1><div class="dia">Tramos <b id="nTramos">0</b> de 6</div></div>
+<section aria-label="El puente" class="card">
+<h3>El puente sobre el arroyo</h3>
+<svg aria-label="Puente en construcción" id="puente" preserveaspectratio="none" role="img" viewbox="0 0 720 230"></svg>
+<div class="fila sp" style="margin-top:12px">
+<div><div class="estado" id="estado"></div><div class="nota" id="ayuda"></div></div>
+<div class="fila" id="acciones"></div>
+</div>
+</section>
+
+<div aria-label="Inventario" class="recursos">
+<div class="stat recursoVisual"><span class="recursoIcono">🪵</span><span class="lab">Troncos</span><b id="vTroncos">0</b></div>
+<div class="stat recursoVisual"><span class="recursoIcono">🪚</span><span class="lab">Tablones</span><b id="vTablones">0</b></div>
+<div class="stat recursoVisual"><span class="recursoIcono">🪵✨</span><span class="lab">Lijados</span><b id="vLijados">0</b></div>
+<div class="stat recursoVisual"><span class="recursoIcono">🛡️</span><span class="lab">Tratados</span><b id="vTratados">0</b></div>
+<div class="stat recursoVisual"><span class="recursoIcono">📍</span><span class="lab">Pilotes</span><b id="vPilotes">0</b></div>
+</div>
+<section aria-label="Trabajador" class="card trabajadorCard">
+<h2>👷 Personal de obra</h2>
+<div class="workerStatus"><span class="workerBadge" id="workerStatus">Sin trabajador</span><span class="nota" id="workerInfo">Podés reclutar un trabajador para que te ayude con las tareas.</span></div>
+<div class="workerActions" id="workerActions">
+<button class="btn pri" data-a="recruit" type="button">Reclutar trabajador <small>Costo: 2 troncos</small></button>
+</div>
+</section>
+<div class="cols2">
+<section class="card">
+<h2>Talar</h2>
+<div class="stage" id="stage">
+<svg aria-hidden="true" id="arbolSvg" viewbox="0 0 240 300">
+
+<g id="arbolEscalado" style="transform-origin:120px 272px"><g id="arbol" style="transform-origin:120px 272px">
+<!-- Copa y ramas en bloques de pixel art -->
+<path class="f-madera tree-branch" d="M120 182 L120 145 L91 121 L95 115 L121 135 L145 112 L150 118 L128 145 L128 182 Z"></path>
+<path class="f-madera tree-trunk" d="M104 274 L108 154 L115 154 L115 145 L125 145 L125 154 L132 154 L136 274 Z"></path>
+<path class="tree-bark-light" d="M111 164h6v76h-6z M126 156h5v52h-5z M114 248h5v18h-5z"></path>
+<path class="tree-bark-dark" d="M128 170h5v28h-5z M106 214h5v31h-5z M120 154h4v20h-4z"></path>
+<path class="f-corte" d="" id="corteI"></path>
+<path class="f-corte" d="" id="corteD"></path>
+<!-- Grandes masas de hojas, con bordes escalonados -->
+<path class="leaf-shadow" d="M120 58 L145 63 L145 69 L164 69 L164 78 L177 78 L177 92 L188 92 L188 113 L181 113 L181 130 L166 130 L166 143 L143 143 L143 151 L98 151 L98 145 L75 145 L75 137 L58 137 L58 124 L47 124 L47 103 L53 103 L53 86 L65 86 L65 74 L82 74 L82 65 L101 65 L101 58 Z"></path>
+<path class="leaf-main" d="M120 64 L143 69 L143 75 L162 75 L162 84 L174 84 L174 98 L182 98 L182 115 L172 115 L172 130 L156 130 L156 139 L137 139 L137 145 L101 145 L101 138 L80 138 L80 130 L64 130 L64 116 L56 116 L56 101 L63 101 L63 87 L75 87 L75 77 L93 77 L93 70 L120 64 Z"></path>
+<path class="leaf-light" d="M91 78h24v7h11v13h-8v10H99v-7H82V90h9z M145 91h17v7h8v15h-9v8h-18v-7h-8V101h10z M67 111h15v7h10v12H78v-5H67z"></path>
+<path class="leaf-highlight" d="M98 72h17v6h-8v7H94v-7h4z M145 82h12v6h-6v6h-11v-7h5z"></path>
+</g></g>
+<g id="astillas"></g>
+<circle cx="120" cy="214" fill="none" id="zonaCorte" opacity=".75" r="15" stroke="currentColor" stroke-dasharray="4 4" stroke-width="2"></circle>
+<g id="hacha" style="transform-origin:60px 262px;transform:rotate(-40deg)">
+<!-- Mango de madera con sombreado por píxeles -->
+<rect class="axe-handle-dark" height="80" width="7" x="57" y="182"></rect>
+<rect class="axe-handle" height="74" width="4" x="58.5" y="184"></rect>
+<rect class="axe-handle-light" height="12" width="2" x="59" y="190"></rect>
+<!-- Cabeza metálica escalonada -->
+<path class="axe-metal-dark" d="M59 181h20v4h7v6h-4v9h-6v5H59z"></path>
+<path class="axe-metal" d="M61 183h17v4h6v4h-4v7h-6v4H61z"></path>
+<path class="axe-metal-light" d="M64 184h12v3h-5v3h-8z"></path>
+</g>
+</svg>
+</div>
+<div class="fila">
+<button class="btn pri" id="btnTalar" type="button">Picar el árbol</button>
+<span class="nota mono" id="golpes"></span>
+</div>
+<p class="nota" id="instruccionTala" style="margin-top:8px">Hacé clic en el círculo punteado del tronco para dar cada hachazo. El objetivo se mueve.</p>
+</section>
+<section class="card">
+<h2>Craftear</h2>
+<div id="recetas"></div>
+<p class="nota" id="guia" style="margin-top:12px"></p>
+</section>
+</div>
+</div>
+
+
+
+
+<script src="../../JavaScript/Nivel%203/nivelTres.js"></script><script src="../../JavaScript/Nivel%203/intro.js"></script><script>document.getElementById('pausa-nivel-tres')?.addEventListener('click', () => window.parent.postMessage({ tipo: 'abrir-menu-pausa-nivel-tres' }, '*'));</script>
+</body></html>
+
+
+
+
+

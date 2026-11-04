@@ -1,0 +1,67 @@
+/* Menú principal responsive: conserva el fondo y los botones pixel-art de PC. */
+@media (max-width: 900px) {
+  #start-screen {
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .main-menu {
+    top: 50%;
+    right: clamp(18px, 6vw, 54px);
+    bottom: auto;
+    width: clamp(190px, 34vw, 290px);
+    transform: translateY(-50%);
+    gap: clamp(10px, 2.2vh, 18px);
+  }
+
+  .main-menu-button {
+    height: clamp(54px, 9vh, 76px);
+    min-height: 54px;
+    font-size: clamp(10px, 1.5vw, 14px);
+    background-size: 451% 699%;
+  }
+
+  .settings-button {
+    right: max(14px, 3vw);
+    bottom: max(14px, 3vh);
+    width: clamp(36px, 5.5vw, 48px);
+    height: clamp(36px, 5.5vw, 48px);
+  }
+}
+
+@media (max-width: 600px) {
+  #start-screen { background-position: center center; }
+
+  .main-menu {
+    top: 50%;
+    right: 5vw;
+    width: min(54vw, 230px);
+    gap: clamp(9px, 1.8vh, 14px);
+  }
+
+  .main-menu-button {
+    height: clamp(52px, 8.5vh, 66px);
+    min-height: 50px;
+    font-size: clamp(9px, 2.7vw, 12px);
+    background-size: 451% 699%;
+  }
+
+  .settings-button {
+    right: 4vw;
+    bottom: 3vh;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 380px) {
+  .main-menu { width: 58vw; right: 4vw; }
+  .main-menu-button { height: 52px; min-height: 48px; font-size: 9px; }
+}
+
+/* En móviles apaisados, mantener los tres accesos dentro del alto visible. */
+@media (max-height: 480px) and (max-width: 900px) {
+  .main-menu { top: 50%; gap: 6px; width: clamp(160px, 30vw, 230px); }
+  .main-menu-button { height: 44px; min-height: 42px; }
+  .settings-button { width: 34px; height: 34px; }
+}

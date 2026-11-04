@@ -1,0 +1,17 @@
+<section id="game-screen-cuatro" class="screen hidden" aria-label="Nivel 4: El camino de las montoneras">
+  <div class="plataformas-shell">
+    <div class="plataformas-viewport"><button class="game-pause-trigger plataformas-pausa" type="button" aria-label="Abrir menú de pausa" title="Menú (Esc)">☰</button><canvas id="plataformas-canvas" width="960" height="540" aria-label="Juego de plataformas. Flechas o A y D para moverse, espacio o W para saltar."></canvas>
+      <div class="plataformas-hud-minimo" aria-label="Progreso y estado de la partida">
+        <div class="plataformas-progreso" role="progressbar" aria-label="Progreso del nivel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="plataformas-progreso-valor" class="plataformas-progreso-valor"></div></div>
+        <div class="plataformas-nota" aria-label="Notas recogidas"><img class="plataformas-sprite-nota" src="../Assets/Recursos Graficos/Compartido/nota-documento.svg" alt=""/><span id="plataformas-notas">0</span></div>
+        <div id="plataformas-vidas" class="plataformas-vidas" aria-label="4 vidas"><img class="plataformas-sprite-vida" src="../Assets/Recursos Graficos/Compartido/vida.svg" alt=""/><img class="plataformas-sprite-vida" src="../Assets/Recursos Graficos/Compartido/vida.svg" alt=""/><img class="plataformas-sprite-vida" src="../Assets/Recursos Graficos/Compartido/vida.svg" alt=""/><img class="plataformas-sprite-vida" src="../Assets/Recursos Graficos/Compartido/vida.svg" alt=""/></div>
+      </div>
+      <div id="controles-tactiles-nivel-cuatro" class="controles-tactiles nivel-cuatro-tactil" aria-label="Controles táctiles">
+        <div class="controles-movimiento"><button type="button" data-tecla="izquierda" aria-label="Mover a la izquierda">◀</button><button type="button" data-tecla="derecha" aria-label="Mover a la derecha">▶</button></div>
+        <div class="controles-acciones"><button type="button" data-tecla="saltar" aria-label="Saltar">A</button><button type="button" data-tecla="interactuar" aria-label="Interactuar">B</button></div>
+      </div>
+      <div id="plataformas-overlay" class="plataformas-overlay"><div class="plataformas-panel"><p class="plataformas-kicker">NIVEL 4 · 1810</p><h1 id="plataformas-titulo">El camino de las montoneras</h1><p id="plataformas-mensaje">Llevá la carta desde el rancho hasta el asentamiento. Saltá zanjas, evitá peligros y descubrí breves notas históricas.</p><p class="plataformas-controles">PC: ← → / A D · ESPACIO / W / ↑: saltar · E: interactuar · ESC: pausa<br>Móvil/tablet: ◀ ▶ mover · A saltar · B interactuar</p><button id="plataformas-jugar" type="button">JUGAR</button></div></div>
+      <div id="plataformas-lectura" class="plataformas-lectura hidden" role="dialog" aria-modal="true"><button id="plataformas-cerrar-lectura" type="button" aria-label="Cerrar">×</button><h2 id="plataformas-lectura-titulo"></h2><p id="plataformas-lectura-texto"></p><small>Presioná E o cerrá para continuar.</small></div>
+    </div>
+  </div>
+</section>

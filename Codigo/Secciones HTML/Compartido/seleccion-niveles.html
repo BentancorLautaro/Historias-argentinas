@@ -1,0 +1,62 @@
+<!-- Fragmento modular: editar este archivo para modificar esta sección del juego. -->
+<section id="level-select-screen" class="screen level-select-screen hidden" aria-label="Selección de niveles">
+      <div class="level-select-header">
+        <div class="level-select-title">EL DIARIO DE FACUNDO</div>
+        <p>Cada nivel es una etapa de investigación: explorá, leé, interrogá y reconstruí el relato literario de Facundo.</p>
+      </div>
+
+      <div class="level-grid" id="level-grid">
+        <div class="level-card-wrapper" data-level-wrapper="1">
+<button class="level-card" type="button" data-level="1">
+          <span class="level-card-title">NIVEL 1: PISTAS EN LA PAMPA</span>
+          <span class="level-card-description">Despertarás en la llanura con fragmentos sueltos. Observá el entorno, descifrá pistas visuales y lógicas para orientar tu investigación.</span>
+          <img src="/Assets/Recursos Graficos/Nivel 1/Nivel uno imagen.png" alt="Paisaje de la Pampa con un jinete" class="level-card-image">
+          <span class="level-card-status">DISPONIBLE</span>
+        </button>
+          <button class="repeat-level-button" type="button" data-repeat-level="1" hidden>REPETIR NIVEL 1</button>
+        </div>
+
+        <div class="level-card-wrapper" data-level-wrapper="2">
+<button class="level-card" type="button" data-level="2">
+          <span class="level-card-title">NIVEL 2: VOCES EN LA PULPERÍA</span>
+          <span class="level-card-description">Dialogá con un personaje clave que conoció a Facundo. Contrastá versiones, detectá contradicciones y obtené información para avanzar.</span>
+          <img src="/Assets/Recursos Graficos/Nivel 2/Nivel dos imagen.png" alt="Interior pixel art de una pulpería" class="level-card-image">
+          <span class="level-card-status">BLOQUEADO</span>
+        </button>
+          <button class="repeat-level-button" type="button" data-repeat-level="2" hidden>REPETIR NIVEL 2</button>
+        </div>
+
+        <div class="level-card-wrapper" data-level-wrapper="3">
+<button class="level-card level-card-wide" type="button" data-level="3">
+          <span class="level-card-title">NIVEL 3: CRUCE DEL RÍO PARANÁ</span>
+          <span class="level-card-description">Resolvé un problema práctico de construcción o logística para cruzar el río. La solución está en los textos y planos que recopilaste.</span>
+          <img src="/Assets/Recursos Graficos/Nivel 3/Nivel tres imagen.png" alt="Puente de madera sobre el río Paraná" class="level-card-image">
+          <span class="level-card-status">BLOQUEADO</span>
+        </button>
+          <button class="repeat-level-button" type="button" data-repeat-level="3" hidden>REPETIR NIVEL 3</button>
+        </div>
+
+        <div class="level-card-wrapper" data-level-wrapper="4">
+<button class="level-card" type="button" data-level="4">
+          <span class="level-card-title">NIVEL 4: EL CAMINO DE LAS MONTONERAS</span>
+          <span class="level-card-description">Llevá una carta por las pampas de 1810: saltá zanjas, evitá peligros y descubrí el contexto de la Revolución.</span>
+          <img src="/Assets/Recursos Graficos/Nivel 4/Nivel cuatro imagen.png" alt="Paisaje rural de las pampas argentinas" class="level-card-image">
+          <span class="level-card-status">BLOQUEADO</span>
+        </button>
+          <button class="repeat-level-button" type="button" data-repeat-level="4" hidden>REPETIR NIVEL 4</button>
+        </div>
+
+        <div class="level-card-wrapper" data-level-wrapper="5">
+<button class="level-card" type="button" data-level="5">
+          <span class="level-card-title">NIVEL 5: RECONSTRUCCIÓN FINAL</span>
+          <span class="level-card-description">Reuní todas las pistas. Ahora debés armar el relato completo de Facundo y cerrar la investigación reconstruyendo su figura histórica y literaria.</span>
+          <img src="/Assets/Recursos Graficos/Nivel 5/Nivel cinco imagen.png" alt="Jinetes atravesando la llanura" class="level-card-image">
+          <span class="level-card-status">BLOQUEADO</span>
+        </button>
+          <button class="repeat-level-button" type="button" data-repeat-level="5" hidden>REPETIR NIVEL 5</button>
+        </div>
+      </div>
+
+      <div id="level-select-feedback" class="level-select-feedback" aria-live="polite"></div>
+      <button id="btn-back-levels" class="level-back-button" type="button">VOLVER</button>
+    </section>

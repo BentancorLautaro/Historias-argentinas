@@ -1,0 +1,200 @@
+<!-- Fragmento modular: editar este archivo para modificar esta sección del juego. -->
+<section id="game-screen-dos" class="screen game-screen pixel-instance hidden" aria-label="Nivel histórico 2">
+      <div id="game-world-dos" class="pulperia-scene" tabindex="0">
+        <div id="mundo-dos" class="pulperia-mundo">
+          <div class="pulperia-backdrop" aria-hidden="true"></div>
+          <div class="pulperia-mostrador" aria-hidden="true"></div>
+          <div id="jugador-mapa" aria-hidden="true"></div>
+
+          <button class="personaje personaje-rastreador" data-personaje="0" type="button" aria-label="Interrogar al Rastreador">
+            <span class="personaje-figura" aria-hidden="true"><img class="personaje-sprite" src="../../../Assets/Sprites/Nivel 2/Npcs/npc-rastreador-frente.png" alt="" onerror="this.hidden=true; this.removeAttribute('src'); this.closest('.personaje-figura')?.classList.add('sin-sprite')"></span>
+            <span class="personaje-etiqueta">EL RASTREADOR</span>
+          </button>
+          <button class="personaje personaje-baqueano" data-personaje="1" type="button" aria-label="Interrogar al Baqueano">
+            <span class="personaje-figura" aria-hidden="true"><img class="personaje-sprite" src="../../../Assets/Sprites/Nivel 2/Npcs/npc-baqueano-frente.png" alt="" onerror="this.hidden=true; this.removeAttribute('src'); this.closest('.personaje-figura')?.classList.add('sin-sprite')"></span>
+            <span class="personaje-etiqueta">EL BAQUEANO</span>
+          </button>
+          <button class="personaje personaje-gaucho-malo" data-personaje="2" type="button" aria-label="Interrogar al Gaucho Malo">
+            <span class="personaje-figura" aria-hidden="true"><img class="personaje-sprite" src="../../../Assets/Sprites/Nivel 2/Npcs/npc-gaucho-malo-frente.png" alt="" onerror="this.hidden=true; this.removeAttribute('src'); this.closest('.personaje-figura')?.classList.add('sin-sprite')"></span>
+            <span class="personaje-etiqueta">EL GAUCHO MALO</span>
+          </button>
+          <button class="personaje personaje-cantor" data-personaje="3" type="button" aria-label="Interrogar al Cantor">
+            <span class="personaje-figura" aria-hidden="true"><img class="personaje-sprite" src="../../../Assets/Sprites/Nivel 2/Npcs/npc-cantor-frente.png" alt="" onerror="this.hidden=true; this.removeAttribute('src'); this.closest('.personaje-figura')?.classList.add('sin-sprite')"></span>
+            <span class="personaje-etiqueta">EL CANTOR</span>
+          </button>
+          <button class="personaje personaje-pulpera" data-personaje="4" type="button" aria-label="Hablar con Doña Jacinta, la pulpera">
+            <span class="personaje-figura" aria-hidden="true"><img class="personaje-sprite" src="../../../Assets/Sprites/Nivel 2/Npcs/npc-dona-jacinta-frente.png" alt="" onerror="this.hidden=true; this.removeAttribute('src'); this.closest('.personaje-figura')?.classList.add('sin-sprite')"></span>
+            <span class="personaje-etiqueta">DOÑA JACINTA</span>
+          </button>
+          <button class="personaje personaje-arriero" data-personaje="5" type="button" aria-label="Hablar con Mateo, el arriero">
+            <span class="personaje-figura" aria-hidden="true"><img class="personaje-sprite" src="../../../Assets/Sprites/Nivel 2/Npcs/npc-mateo-arriero-frente.png" alt="" onerror="this.hidden=true; this.removeAttribute('src'); this.closest('.personaje-figura')?.classList.add('sin-sprite')"></span>
+            <span class="personaje-etiqueta">MATEO · ARRIERO</span>
+          </button>
+          <button class="personaje personaje-curandera" data-personaje="6" type="button" aria-label="Hablar con Tomasa, la curandera">
+            <span class="personaje-figura" aria-hidden="true"><img class="personaje-sprite" src="../../../Assets/Sprites/Nivel 2/Npcs/npc-tomasa-curandera-frente.png" alt="" onerror="this.hidden=true; this.removeAttribute('src'); this.closest('.personaje-figura')?.classList.add('sin-sprite')"></span>
+            <span class="personaje-etiqueta">TOMASA · CURANDERA</span>
+          </button>
+        </div>
+
+        <div class="controles-tactiles nivel-dos-tactil" aria-label="Controles táctiles del nivel 2">
+          <div class="joystick-virtual" id="joystick-nivel-dos" aria-label="Joystick virtual"><span></span></div>
+          <div class="grupo-acciones-tactiles" aria-label="Acciones del jugador">
+            <button type="button" id="boton-a-nivel-dos" class="boton-accion-tactil boton-accion-a" aria-label="Hablar con un personaje">A</button>
+            <button type="button" id="boton-b-nivel-dos" class="boton-accion-tactil boton-accion-b" aria-label="Abrir o salir por una puerta">B</button>
+          </div>
+        </div>
+        <div class="game-hud">
+          <button class="game-pause-trigger" type="button" aria-label="Abrir menú de pausa" title="Menú (Esc)">☰</button>
+          <div class="hud-title">EL PUEBLO · TESTIGOS DE FACUNDO</div>
+          <div class="hud-objective">RECORRÉ EL PUEBLO Y HABLÁ CON SUS HABITANTES. EL BAQUEANO TE ENCARGARÁ UNA MISIÓN CON TRES VECINOS NUEVOS</div>
+          <div class="progress-wrap">
+            <span id="witness-progress">0 / 4 PERSONAJES INTERROGADOS</span>
+            <div class="progress-bar"><span id="witness-progress-fill"></span></div>
+          </div>
+          <div id="mensaje-autoguardado-dos" class="save-load-message" aria-live="polite">PROGRESO GUARDADO AUTOMÁTICAMENTE</div>
+        </div>
+
+        <div id="interact-hint-dos" class="interact-hint">MOVETE CON WASD O LAS FLECHAS Y ACERCATE A UN PERSONAJE</div>
+        <div class="controls-hint">WASD / FLECHAS · MOVERSE — ESPACIO · HABLAR — E · ENTRAR / SALIR DE LA PULPERÍA</div>
+      </div>
+
+      <div id="quiz-modal-dos" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="quiz-title-dos">
+        <div class="quiz-panel">
+          <div class="paper-masthead">CUADERNO DE INVESTIGACIÓN</div>
+          <h2 id="quiz-title-dos">CONTRASTÁ LOS TESTIMONIOS</h2>
+          <p class="quiz-instruction">Usá las pistas de los cuatro personajes para responder. Debés acertar todas para avanzar.</p>
+          <div id="quiz-content-dos"></div>
+          <div id="quiz-feedback-dos" class="quiz-feedback" aria-live="polite"></div>
+          <button id="quiz-next-dos" class="gold-action hidden" type="button">CONTINUAR</button>
+        </div>
+      </div>
+
+      <div id="board-modal-dos" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="board-title-dos">
+        <div class="board-panel">
+          <div class="board-header">
+            <div class="board-label">TABLERO DE VERSIONES</div>
+            <h2 id="board-title-dos">RELACIONÁ LOS RECORTES EN TRÍADAS</h2>
+            <p>Todos los recortes están mezclados. Elegí tres que desarrollen la misma idea sobre Facundo, según lo dicho por los testigos.</p>
+          </div>
+          <div class="board-status-row">
+            <div id="board-progress-dos" class="board-progress">TRÍADAS RELACIONADAS: 0 / 4</div>
+            <div class="board-score-chip">RESUELTAS <span id="board-score-dos">0 / 4</span></div>
+          </div>
+          <div id="board-clippings-dos" class="board-clippings"></div>
+          <div id="formed-idea-dos" class="formed-idea">TRÍADA ELEGIDA: <span>—</span></div>
+          <div id="board-feedback-dos" class="board-feedback"></div>
+          <div class="board-actions">
+            <button id="board-reset-selection-dos" class="board-reset" type="button">LIMPIAR SELECCIÓN</button>
+            <button id="board-next-dos" class="gold-action hidden" type="button">SEGUIR RELACIONANDO</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="level-complete-dos" class="game-modal hidden" role="dialog" aria-modal="true" aria-labelledby="complete-title-dos">
+        <div class="complete-panel">
+          <div class="completion-seal">✓</div>
+          <h2 id="complete-title-dos">NIVEL COMPLETADO</h2>
+          <p>Recorriste el pueblo, reuniste las pistas de los personajes y comparaste sus perspectivas para reconstruir una versión más completa de la historia de Facundo.</p>
+          <div class="completion-stats"><span id="final-witnesses">TESTIMONIOS REUNIDOS</span></div>
+          <button id="return-menu-dos" class="gold-action" type="button">VOLVER AL MENÚ</button>
+        </div>
+      </div>
+    </section>
+
+<section id="escena-rastreador" class="screen escena-mecanica escena-rastreador hidden" aria-label="Minijuego: El Rastreador">
+      <div class="escena-cielo" aria-hidden="true"></div>
+      <div class="escena-sol" aria-hidden="true"></div>
+      <div class="escena-loma escena-loma-lejos" aria-hidden="true"></div>
+      <div class="escena-loma escena-loma-cerca" aria-hidden="true"></div>
+      <div class="escena-pastizal" aria-hidden="true"></div>
+
+      <div class="escena-encabezado">
+        <div class="escena-kicker">MINIJUEGO · SEGUIR EL RASTRO</div>
+        <h2 class="escena-titulo">EL RASTREADOR</h2>
+        <p class="escena-subtitulo">Cirilo, rastreador de los Llanos</p>
+      </div>
+
+      <div id="contenedor-rastreador" class="escena-lienzo"></div>
+
+      <div class="escena-pie">
+        <span id="progreso-rastreador" class="escena-progreso">0 / 3 PISTAS</span>
+        <button type="button" id="volver-rastreador" class="escena-volver">VOLVER</button>
+      </div>
+    </section>
+
+<section id="escena-baqueano" class="screen escena-mecanica escena-baqueano hidden" aria-label="Minijuego: El Baqueano">
+      <div class="escena-noche" aria-hidden="true"></div>
+      <div class="escena-estrellas" aria-hidden="true"></div>
+      <div class="escena-luna" aria-hidden="true"></div>
+      <div class="escena-topografia" aria-hidden="true"></div>
+
+      <div class="escena-encabezado">
+        <div class="escena-kicker">MINIJUEGO · LEER EL MAPA</div>
+        <h2 class="escena-titulo">EL BAQUEANO</h2>
+        <p class="escena-subtitulo">Don Eusebio, baqueano de la Rioja</p>
+      </div>
+
+      <div id="contenedor-baqueano" class="escena-lienzo"></div>
+
+      <div class="escena-pie">
+        <span id="progreso-baqueano" class="escena-progreso">0 / 3 PISTAS</span>
+        <button type="button" id="volver-baqueano" class="escena-volver">VOLVER</button>
+      </div>
+    </section>
+
+<section id="escena-gaucho-malo" class="screen escena-mecanica escena-gaucho-malo hidden" aria-label="Minijuego: El Gaucho Malo">
+      <div class="escena-penumbra" aria-hidden="true"></div>
+      <div class="escena-vinieta" aria-hidden="true"></div>
+      <div class="escena-fogata" aria-hidden="true">
+        <span class="fogata-llama fogata-llama-1"></span>
+        <span class="fogata-llama fogata-llama-2"></span>
+        <span class="fogata-llama fogata-llama-3"></span>
+      </div>
+      <div class="escena-brasas" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="escena-silueta-gaucho" aria-hidden="true"></div>
+
+      <div class="escena-encabezado escena-encabezado-oscura">
+        <div class="escena-kicker">MINIJUEGO · QUE NO TE AGARREN</div>
+        <h2 class="escena-titulo">EL GAUCHO MALO</h2>
+        <p class="escena-subtitulo">El Chileno, un proscrito que lo conoció</p>
+      </div>
+
+      <div id="contenedor-gaucho-malo" class="escena-lienzo escena-lienzo-oscura"></div>
+
+      <div class="escena-pie">
+        <span id="progreso-gaucho-malo" class="escena-progreso">0 / 3 PISTAS</span>
+        <button type="button" id="volver-gaucho-malo" class="escena-volver">VOLVER</button>
+      </div>
+    </section>
+
+<section id="escena-cantor" class="screen escena-mecanica escena-cantor hidden" aria-label="Minijuego: El Cantor">
+      <div class="escena-noche escena-noche-calida" aria-hidden="true"></div>
+      <div class="escena-estrellas" aria-hidden="true"></div>
+      <div class="escena-fogata escena-fogata-chica" aria-hidden="true">
+        <span class="fogata-llama fogata-llama-1"></span>
+        <span class="fogata-llama fogata-llama-2"></span>
+        <span class="fogata-llama fogata-llama-3"></span>
+      </div>
+      <div class="escena-silueta-guitarra" aria-hidden="true"></div>
+      <div class="escena-notas" aria-hidden="true">
+        <span class="nota nota-1">♪</span>
+        <span class="nota nota-2">♫</span>
+        <span class="nota nota-3">♪</span>
+        <span class="nota nota-4">♫</span>
+      </div>
+
+      <div class="escena-encabezado">
+        <div class="escena-kicker">MINIJUEGO · COMPLETAR LA PAYADA</div>
+        <h2 class="escena-titulo">EL CANTOR</h2>
+        <p class="escena-subtitulo">Payador que compuso versos sobre Facundo</p>
+      </div>
+
+      <div id="contenedor-cantor" class="escena-lienzo"></div>
+
+      <div class="escena-pie">
+        <span id="progreso-cantor" class="escena-progreso">0 / 3 PISTAS</span>
+        <button type="button" id="volver-cantor" class="escena-volver">VOLVER</button>
+      </div>
+    </section>

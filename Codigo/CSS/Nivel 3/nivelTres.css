@@ -1,0 +1,2039 @@
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+
+
+/* PIXEL ART — SOLO CAPÍTULO 3 */
+html,body{image-rendering:pixelated}
+body{font-family:"Courier New",monospace;letter-spacing:.2px}
+button,.btn{font-family:"Courier New",monospace;font-weight:900;text-transform:uppercase;border-radius:0!important;border-width:3px!important;border-style:solid!important;box-shadow:4px 4px 0 #101814!important;image-rendering:pixelated;transition:none!important}
+button:active,.btn:active{transform:translate(3px,3px)!important;box-shadow:1px 1px 0 #101814!important}
+.panel,.card,.workerPanel,.workshop,.inventory,.bridgePanel,.hud,.box{border-radius:0!important;box-shadow:6px 6px 0 rgba(16,24,20,.28)!important;border-width:3px!important}
+h1,h2,h3,.title,.brand{font-family:"Courier New",monospace;font-weight:900;text-transform:uppercase;letter-spacing:1px;text-shadow:2px 2px 0 rgba(0,0,0,.18)}
+svg,canvas,img{image-rendering:pixelated;shape-rendering:crispEdges}
+.progress,.bar,.meter{border-radius:0!important;border:3px solid currentColor!important}
+.progress>*,.bar>*,.meter>*{border-radius:0!important}
+.badge,.workerBadge,.tag{border-radius:0!important;border:2px solid currentColor!important;font-family:"Courier New",monospace;font-weight:900}
+input,select{border-radius:0!important;border:3px solid var(--ink)!important;font-family:"Courier New",monospace}
+.panel::before,.card::before{image-rendering:pixelated}
+
+
+
+/* ESTETICA PIXEL ART COMPLETA — SOLO NIVEL 3 */
+:root{
+  --pixel-bg:#173c3a; --pixel-panel:#f3d9a2; --pixel-panel2:#e9c889;
+  --pixel-ink:#201b22; --pixel-dark:#352536; --pixel-green:#3f6b45;
+  --pixel-green2:#6f9b54; --pixel-blue:#4c83a0; --pixel-water:#3f7890;
+  --pixel-brown:#8a5a32; --pixel-gold:#d7a84f; --pixel-red:#a7443d;
+  --pixel-shadow:#201b22;
+}
+html{background:var(--pixel-bg);}
+body{
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    var(--pixel-bg)!important;
+  background-size:8px 8px!important;
+  color:var(--pixel-ink)!important;
+  font-family:"Courier New",monospace!important;
+  image-rendering:pixelated;
+}
+.wrap{gap:14px;max-width:1040px}
+.top{
+  padding:14px 16px;
+  background:var(--pixel-panel);
+  border:4px solid var(--pixel-dark);
+  box-shadow:7px 7px 0 var(--pixel-shadow);
+  image-rendering:pixelated;
+}
+h1,h2,h3,.estado,.dia,.stat b,.workerBadge,.formula,.mono{font-family:"Courier New",monospace!important}
+h1{font-size:clamp(24px,5vw,42px)!important;font-weight:900!important;text-shadow:3px 3px 0 #b77d4b!important}
+h2{font-size:20px!important;font-weight:900!important}
+h3{color:var(--pixel-dark)!important;font-weight:900!important;letter-spacing:.08em}
+.card,.stat{
+  background:var(--pixel-panel)!important;
+  border:4px solid var(--pixel-dark)!important;
+  border-radius:0!important;
+  box-shadow:7px 7px 0 var(--pixel-shadow)!important;
+}
+.card{padding:16px!important}
+.stat{padding:10px 12px!important;min-height:68px}
+.stat .lab{color:#59453d!important;font-weight:900}
+.stat b{font-size:24px!important;color:var(--pixel-ink)!important}
+.dot{border-radius:0!important;border:2px solid var(--pixel-dark)}
+.stage,.tallerSvg{
+  background:#79b5c7!important;
+  border:4px solid var(--pixel-dark)!important;
+  border-radius:0!important;
+  box-shadow:inset 0 -8px 0 rgba(32,27,34,.12),6px 6px 0 var(--pixel-shadow);
+}
+svg,canvas,img{image-rendering:pixelated!important;shape-rendering:crispEdges!important}
+.s-ola{stroke:#d9f1df!important;stroke-opacity:.65!important;stroke-width:3!important}
+.ghost rect{stroke-width:3!important;stroke-dasharray:6 4!important}
+.btn,button{
+  font-family:"Courier New",monospace!important;
+  font-weight:900!important;
+  text-transform:uppercase!important;
+  letter-spacing:.3px;
+  border:3px solid var(--pixel-dark)!important;
+  border-radius:0!important;
+  background:#e7bd68!important;
+  color:var(--pixel-dark)!important;
+  box-shadow:4px 4px 0 var(--pixel-shadow)!important;
+  padding:9px 13px!important;
+  transition:none!important;
+}
+.btn:hover:not(:disabled),button:hover:not(:disabled){background:#f1d487!important;filter:none!important}
+.btn.pri{background:var(--pixel-green)!important;color:#fff5d5!important;border-color:var(--pixel-dark)!important}
+.btn.pri:hover:not(:disabled){background:#537f4d!important}
+.btn:active,button:active{transform:translate(3px,3px)!important;box-shadow:1px 1px 0 var(--pixel-shadow)!important}
+.btn:disabled,button:disabled{filter:grayscale(1);opacity:.45}
+.workerStatus{padding:8px;background:#e5bd78;border:3px solid var(--pixel-dark)}
+.workerBadge{border:3px solid var(--pixel-dark)!important;border-radius:0!important;background:#f5dca5;color:var(--pixel-dark)!important;font-weight:900!important}
+.workerBadge.ok{border-color:var(--pixel-green)!important;color:var(--pixel-green)!important}
+.trabajadorCard{border-top:4px solid var(--pixel-dark)!important}
+.recursos{gap:10px}
+.receta{border-top:3px dashed #8d6b50!important;padding:14px 0!important}
+.zonaProceso{background:#ead09a!important;border:3px dashed var(--pixel-dark)!important;border-radius:0!important}
+.progreso{height:14px!important;background:#6e5949!important;border:3px solid var(--pixel-dark);border-radius:0!important}
+.progreso i{background:var(--pixel-green)!important;border-radius:0!important}
+.proceso{border:3px solid var(--pixel-dark)!important;border-radius:0!important;background:#f5dda7;color:var(--pixel-dark)!important;font-weight:900}
+.flot{border:3px solid var(--pixel-dark)!important;border-radius:0!important;background:#f3d9a2!important;box-shadow:4px 4px 0 var(--pixel-shadow);font-weight:900}
+.nota{color:#665348!important}
+.f-cielo{fill:#79b5c7}.f-agua{fill:#3f7890}.f-tierra{fill:#9b6b3f}.f-hoja{fill:#416c42}.f-hoja2{fill:#6f9b54}
+.f-madera{fill:#8a5a32}.f-corte{fill:#e6c88d}.f-tablon{fill:#c99a56}.f-pilote{fill:#68401f}.f-metal{fill:#5b6266}
+.f-rep{fill:#a7443d}.f-ink{fill:#201b22}
+.zonaTrabajo{stroke-width:3!important;stroke-dasharray:7 5!important}
+@media(max-width:760px){.top{align-items:flex-start}.recursos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+
+/* Las notas educativas deben ser imposibles de pasar por alto. */
+.historiaCard{
+  margin:18px 0 22px!important;
+  padding:24px 28px!important;
+  background:#fff0bd!important;
+  border:5px solid #352536!important;
+  box-shadow:10px 10px 0 #201b22, inset 0 0 0 4px #e2b85e!important;
+  min-height:210px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.historiaTitulo{font-size:16px!important;letter-spacing:1.5px!important;font-weight:900!important}
+.historiaNumero{font-size:18px!important;margin:8px 0!important;font-weight:900!important}
+.historiaCard h2{font-size:clamp(25px,3vw,38px)!important;line-height:1.08!important;margin:6px 0 14px!important}
+.historiaTexto{font-size:clamp(20px,2.2vw,30px)!important;line-height:1.35!important;font-weight:900!important;margin:0!important;max-width:1050px}
+.historiaPensamiento{
+  margin-top:18px!important;padding:16px 18px!important;
+  background:#ead39a!important;border:4px dashed #352536!important;
+  font-size:clamp(19px,2vw,27px)!important;line-height:1.35!important;font-weight:900!important;
+}
+.historiaPensamiento b{display:block;font-size:15px!important;letter-spacing:1.5px;margin-bottom:7px}
+@media(max-width:600px){.historiaCard{padding:18px!important;min-height:240px!important}.historiaTexto{font-size:20px!important}.historiaPensamiento{font-size:18px!important}}
+
+
+
+/* PIXEL ART DE INTERFACES — SOLO PRESENTACION, SIN CAMBIAR MECANICAS */
+/* Puente */
+section.card[aria-label="El puente"]{
+  position:relative;
+  background:#e8c982!important;
+  border:4px solid #352536!important;
+  box-shadow:8px 8px 0 #201b22, inset 0 0 0 4px #f3d9a2!important;
+  padding:16px!important;
+}
+section.card[aria-label="El puente"] h3{
+  margin:-4px -4px 14px!important;
+  padding:10px 12px!important;
+  background:#8a5a32!important;
+  color:#fff0c8!important;
+  border:4px solid #352536!important;
+  box-shadow:4px 4px 0 #201b22!important;
+  text-shadow:2px 2px 0 #352536!important;
+  letter-spacing:1px!important;
+}
+section.card[aria-label="El puente"] svg{
+  border:4px solid #352536!important;
+  background:
+    linear-gradient(#79b5c7 0 55%,#3f7890 55% 100%)!important;
+  box-shadow:inset 0 0 0 4px rgba(243,217,162,.65),6px 6px 0 #201b22!important;
+}
+section.card[aria-label="El puente"] .fila.sp{
+  margin-top:18px!important;
+  padding-top:12px!important;
+  border-top:4px solid #352536!important;
+  background:#f3d9a2!important;
+}
+section.card[aria-label="El puente"] .estado{
+  display:inline-block!important;
+  padding:5px 8px!important;
+  background:#f5dda7!important;
+  border:3px solid #352536!important;
+  box-shadow:3px 3px 0 #201b22!important;
+  text-transform:uppercase!important;
+  font-weight:900!important;
+}
+section.card[aria-label="El puente"] #ayuda{
+  margin-top:8px!important;
+  font-weight:900!important;
+}
+section.card[aria-label="El puente"] #acciones{gap:10px!important}
+
+/* Interfaces de tareas */
+.cols2{gap:18px!important;align-items:stretch!important}
+.cols2>.card{
+  position:relative;
+  background:#f3d9a2!important;
+  border:4px solid #352536!important;
+  box-shadow:8px 8px 0 #201b22, inset 0 0 0 4px #ead09a!important;
+  padding:16px!important;
+}
+.cols2>.card h2{
+  margin:-4px -4px 14px!important;
+  padding:10px 12px!important;
+  background:#3f6b45!important;
+  color:#fff5d5!important;
+  border:4px solid #352536!important;
+  box-shadow:4px 4px 0 #201b22!important;
+  text-shadow:2px 2px 0 #201b22!important;
+  letter-spacing:1px!important;
+}
+/* Marco de juego de tala */
+.cols2>.card:first-child .stage{
+  border:4px solid #352536!important;
+  box-shadow:inset 0 0 0 4px #e8c982,6px 6px 0 #201b22!important;
+  background:#79b5c7!important;
+}
+.cols2>.card:first-child .fila{
+  margin-top:12px!important;
+  padding:10px!important;
+  background:#e8c982!important;
+  border:3px solid #352536!important;
+  box-shadow:4px 4px 0 #201b22!important;
+}
+.cols2>.card:first-child #golpes{
+  padding:5px 7px!important;
+  background:#f5dda7!important;
+  border:3px solid #352536!important;
+  font-weight:900!important;
+}
+.cols2>.card:first-child #instruccionTala{
+  margin:12px 0 0!important;
+  padding:9px 10px!important;
+  background:#ead09a!important;
+  border-left:5px solid #8a5a32!important;
+  border-top:2px dashed #8a5a32!important;
+  border-bottom:2px dashed #8a5a32!important;
+  font-weight:700!important;
+}
+/* Panel de fabricación */
+.cols2>.card:nth-child(2) #recetas{
+  background:#e8c982!important;
+  border:3px solid #352536!important;
+  box-shadow:4px 4px 0 #201b22!important;
+  padding:4px 12px!important;
+}
+.cols2>.card:nth-child(2) .receta{
+  padding:12px 4px!important;
+  border-top:3px dashed #8a5a32!important;
+}
+.cols2>.card:nth-child(2) .receta:first-child{border-top:0!important}
+.cols2>.card:nth-child(2) .nom{
+  font-weight:900!important;
+  text-transform:uppercase!important;
+  letter-spacing:.4px!important;
+}
+.cols2>.card:nth-child(2) .formula{
+  display:inline-flex!important;
+  margin-top:5px!important;
+  padding:4px 6px!important;
+  background:#f5dda7!important;
+  border:2px solid #68401f!important;
+  color:#352536!important;
+}
+.cols2>.card:nth-child(2) #guia{
+  padding:10px!important;
+  background:#ead09a!important;
+  border:3px solid #352536!important;
+  box-shadow:3px 3px 0 #201b22!important;
+  font-weight:700!important;
+}
+/* Zona activa de cada proceso */
+.zonaProceso{
+  background:#f3d9a2!important;
+  border:4px solid #352536!important;
+  box-shadow:5px 5px 0 #201b22!important;
+  padding:12px!important;
+}
+.zonaProceso>b{
+  display:block!important;
+  padding:7px 8px!important;
+  margin:-12px -12px 10px!important;
+  background:#8a5a32!important;
+  color:#fff0c8!important;
+  border-bottom:4px solid #352536!important;
+  text-transform:uppercase!important;
+}
+.zonaProceso .progreso{
+  height:16px!important;
+  margin-top:10px!important;
+  background:#352536!important;
+  border:3px solid #201b22!important;
+  padding:2px!important;
+}
+.zonaProceso .progreso i{
+  background:#6f9b54!important;
+  box-shadow:inset -3px 0 0 #3f6b45!important;
+}
+@media(max-width:760px){
+  section.card[aria-label="El puente"] #acciones{width:100%}
+  section.card[aria-label="El puente"] #acciones .btn{flex:1 1 100%}
+  .cols2>.card{box-shadow:6px 6px 0 #201b22!important}
+}
+
+
+
+html,body{width:100%;min-height:100%;margin:0}
+body{min-height:100vh;overflow-x:hidden}
+.wrap{width:100%;max-width:none;min-height:100vh;box-sizing:border-box;padding:clamp(14px,2vw,28px);gap:clamp(14px,2vw,24px)}
+.wrap>.card,.wrap>.trabajadorCard,.wrap>.recursos,.wrap>.cols2{width:100%;box-sizing:border-box}
+.wrap>.card:first-of-type{min-height:clamp(280px,38vh,430px)}
+#puente{width:100%;max-height:48vh;min-height:240px;image-rendering:pixelated}
+.recursos{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.stat{min-height:72px;justify-content:center;box-sizing:border-box}
+.cols2{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.cols2>.card{min-height:clamp(380px,52vh,620px);display:flex;flex-direction:column}
+.cols2>.card:first-child .stage{width:100%;max-width:none;flex:1;display:flex;align-items:stretch;justify-content:center;min-height:300px}
+.cols2>.card:first-child .stage svg{width:100%;height:100%;min-height:300px;max-height:560px;image-rendering:pixelated}
+#recetas{flex:1;display:flex;flex-direction:column;justify-content:flex-start}
+@media(max-width:900px){.recursos{grid-template-columns:repeat(3,minmax(0,1fr))}.cols2{grid-template-columns:1fr}}
+@media(max-width:600px){.recursos{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding:10px}.cols2>.card{min-height:auto}.cols2>.card:first-child .stage{min-height:280px}}
+
+
+
+html,body{width:100%;height:100%;min-width:100%;min-height:100%;margin:0;padding:0;overflow-x:hidden}
+body{min-height:100dvh;background:var(--bg)}
+.wrap{width:100vw;min-height:100dvh;max-width:none;margin:0;padding:12px;box-sizing:border-box;display:grid;grid-template-columns:1fr;grid-template-rows:auto minmax(0,28dvh) minmax(0,8dvh) minmax(0,13dvh) minmax(0,1fr);gap:12px}
+.wrap>.top,.wrap>section.card,.wrap>.recursos,.wrap>.cols2{width:100%;max-width:none;box-sizing:border-box;margin:0}
+.wrap>section.card[aria-label="El puente"]{min-height:0;height:clamp(220px,30dvh,360px)}
+.wrap>section.card[aria-label="El puente"] #puente{width:100%;height:clamp(140px,20dvh,230px);max-height:none;display:block}
+.wrap>.recursos{min-height:0}
+.wrap>.trabajadorCard{min-height:0;height:100%;overflow:hidden}
+.wrap>.cols2{min-height:0;height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
+.wrap>.cols2>.card{height:100%;min-height:0;max-height:none;box-sizing:border-box;overflow:hidden}
+.wrap>.cols2>.card:first-child .stage{min-height:0;height:100%;flex:1}
+.wrap>.cols2>.card:first-child .stage svg{width:100%;height:100%;max-height:none;min-height:0}
+.wrap>.cols2>#recetas,.wrap>.cols2>.card #recetas{min-height:0;overflow:auto}
+@media(max-width:900px){.wrap{grid-template-rows:auto auto auto auto auto}.wrap>.cols2{height:auto;grid-template-columns:1fr}.wrap>.cols2>.card{height:auto;min-height:42dvh}.wrap>.cols2>.card:first-child .stage{min-height:300px}.wrap>.cols2>.card:first-child .stage svg{min-height:300px}}
+
+
+
+/* PANTALLA COMPLETA REAL DEL NIVEL 3 */
+html, body {
+  width:100% !important;
+  min-width:100% !important;
+  min-height:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+body {
+  min-height:100vh !important;
+  min-height:100dvh !important;
+  overflow-x:hidden !important;
+}
+.wrap {
+  width:100vw !important;
+  max-width:none !important;
+  min-width:100vw !important;
+  min-height:100vh !important;
+  min-height:100dvh !important;
+  margin:0 !important;
+  padding:clamp(10px,1.4vw,20px) !important;
+  box-sizing:border-box !important;
+}
+.wrap > * {
+  width:100% !important;
+  max-width:none !important;
+  box-sizing:border-box !important;
+}
+.wrap > .cols2 {
+  width:100% !important;
+  max-width:none !important;
+}
+#puente {
+  width:100% !important;
+  max-width:none !important;
+}
+@media (max-width:900px) {
+  .wrap {
+    width:100vw !important;
+    min-width:100vw !important;
+    padding:8px !important;
+  }
+}
+
+
+
+/* Layout: el puente arriba como meta, la tira de inventario, y abajo dos paneles de oficio: talar a la izquierda, craftear a la derecha. */
+:root{
+  --bg:#e6eae3; --panel:#f3f5ef; --ink:#1d2822; --mute:#56665c; --line:#c3ccbf;
+  --cielo:#d3e2dd; --agua:#4d6f66; --tierra:#9a7b52; --hoja:#4f7a43; --hoja2:#6a9a5a;
+  --madera:#8a5a2b; --corte:#ead6ac; --tablon:#c99c5c; --pilote:#6b4220; --metal:#5d6670;
+  --rep:#a3382c; --ok:#2f6b3d; --btn:#2f5a50; --btnfg:#ffffff; --tabla:#d9dfd3;
+  --display:'Alfa Slab One',Georgia,'Times New Roman',serif;
+  --body:'Bitter',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+/* Modo oscuro desactivado: el juego mantiene siempre su paleta clara. */
+:root[data-theme="dark"]{
+  --bg:#121a16; --panel:#1b2520; --ink:#e4e9e1; --mute:#93a299; --line:#2e3a33;
+  --cielo:#1c2b28; --agua:#2f4f48; --tierra:#6e573a; --hoja:#4f8a44; --hoja2:#6aa85a;
+  --madera:#a8723a; --corte:#e3c58f; --tablon:#d4a566; --pilote:#a8723a; --metal:#aab3bc;
+  --rep:#e0705f; --ok:#6fbf84; --btn:#4d8576; --btnfg:#0d1512; --tabla:#26322b; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45;
+  padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(26px,5vw,40px);line-height:1.05;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:400;font-size:18px;margin:0 0 10px}
+h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:0 0 8px;font-weight:600}
+p{margin:0}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:8px 16px}
+.dia{font-family:var(--mono);font-size:14px;color:var(--mute)}
+.dia b{color:var(--ink);font-size:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px;min-width:0}
+.fila{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fila.sp{justify-content:space-between}
+.nota{font-size:13px;color:var(--mute)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+svg{display:block;width:100%;height:auto}
+.f-cielo{fill:var(--cielo)} .f-agua{fill:var(--agua)} .f-tierra{fill:var(--tierra)} .f-hoja{fill:var(--hoja)}
+.f-hoja2{fill:var(--hoja2)} .f-madera{fill:var(--madera)} .f-corte{fill:var(--corte)} .f-tablon{fill:var(--tablon)}
+.f-pilote{fill:var(--pilote)} .f-metal{fill:var(--metal)} .f-rep{fill:var(--rep)} .f-ink{fill:var(--ink)}
+.s-ola{stroke:#fff;stroke-opacity:.22;fill:none;stroke-width:2}
+.s-tab{stroke:var(--pilote);stroke-width:1.2}
+.ghost rect{fill:var(--ink);fill-opacity:.07;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:5 4;cursor:pointer;animation:pulso 1.6s ease-in-out infinite}
+@keyframes pulso{50%{fill-opacity:.2}}
+.nuevo{animation:cae .4s ease-out}
+@keyframes cae{from{transform:translateY(-16px);opacity:0}}
+.proceso{display:inline-block;margin-left:8px;padding:2px 6px;border:1px solid var(--line);border-radius:3px;font-size:11px;color:var(--mute)}
+.tallerSvg{background:var(--cielo);border:1px solid var(--line);border-radius:4px;margin:10px 0;cursor:pointer;max-width:420px}
+.zonaTrabajo{fill:none;stroke:var(--ink);stroke-width:2;stroke-dasharray:5 4;animation:pulso 1.2s ease-in-out infinite;cursor:pointer}
+.herramienta{transform-box:fill-box;transform-origin:center;animation:trabaja .55s ease-in-out infinite alternate}
+@keyframes trabaja{to{transform:rotate(-12deg) translate(-5px,4px)}}
+.trabajadorCard{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}
+.workerStatus{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.workerBadge{font-family:var(--mono);font-size:12px;padding:4px 7px;border:1px solid var(--line);border-radius:4px}
+.workerBadge.ok{border-color:var(--ok);color:var(--ok)}
+.workerActions{display:flex;flex-wrap:wrap;gap:7px}
+
+
+.recursos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:8px 12px;display:flex;flex-direction:column;gap:2px}
+.stat .lab{font-size:12px;color:var(--mute);display:flex;align-items:center;gap:6px}
+.stat b{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;display:inline-block;transform-origin:left center}
+.dot{width:10px;height:10px;display:inline-block;flex:none;border-radius:2px}
+.dot.tr{background:var(--madera);border-radius:50%} .dot.tb{background:var(--tablon)} .dot.pi{background:var(--pilote);border-radius:2px 2px 5px 5px}
+
+.cols2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+@media(max-width:760px){.cols2{grid-template-columns:minmax(0,1fr)}}
+.stage{position:relative;background:var(--cielo);border-radius:4px;overflow:hidden;margin-bottom:10px;max-width:420px;margin-inline:auto}
+.stage svg{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.flot{position:absolute;left:50%;top:38%;transform:translateX(-50%);font-family:var(--mono);font-weight:600;font-size:18px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:3px 10px;pointer-events:none;white-space:nowrap}
+
+.zonaProceso{margin:8px 0;padding:10px;border:1px dashed var(--line);border-radius:4px;background:var(--panel)}
+.progreso{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin-top:8px}.progreso i{display:block;height:100%;width:0;background:var(--btn);transition:width .2s}
+.btn{font-family:var(--body);font-size:14px;font-weight:600;border:1px solid var(--ink);background:transparent;color:var(--ink);
+  border-radius:4px;padding:8px 14px;cursor:pointer;text-align:left}
+.btn:hover:not(:disabled){background:var(--tabla)}
+.btn:focus-visible{outline:3px solid var(--tablon);outline-offset:2px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.pri{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
+.btn.pri:hover:not(:disabled){filter:brightness(1.1);background:var(--btn)}
+.btn small{display:block;font-weight:400;font-size:12px;opacity:.85}
+
+.receta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.receta:first-of-type{border-top:0;padding-top:0}
+.receta .nom{font-weight:700}
+.formula{font-family:var(--mono);font-size:13px;color:var(--mute);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.formula b{color:var(--ink)}
+.estado{font-family:var(--display);font-weight:400;font-size:17px}
+.fin{color:var(--ok)}
+@media(prefers-reduced-motion:reduce){.ghost rect,.nuevo{animation:none}}
+
+
+
+/* Puente menos estirado: mantiene una proporcion mas equilibrada dentro de la pantalla completa. */
+section.card[aria-label="El puente"] #puente{
+  width:min(100%,1100px)!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  display:block!important;
+  margin:0 auto!important;
+}
+.historiaCard{
+  position:relative;
+  background:#f3d9a2!important;
+  border:4px solid #352536!important;
+  box-shadow:8px 8px 0 #201b22, inset 0 0 0 4px #ead09a!important;
+  padding:16px!important;
+}
+.historiaTitulo{
+  display:inline-block;
+  padding:7px 10px;
+  background:#8a5a32;
+  color:#fff0c8;
+  border:3px solid #352536;
+  font-weight:900;
+  letter-spacing:1px;
+  box-shadow:4px 4px 0 #201b22;
+}
+.historiaNumero{margin-top:12px;font-weight:900;color:#68401f;text-transform:uppercase}
+.historiaCard h2{margin:6px 0 8px!important;color:#352536!important}
+.historiaTexto{margin:0;line-height:1.55;font-weight:700}
+.zonaTrabajo{cursor:pointer!important;fill:#f5dca5!important;stroke:#352536!important;stroke-width:4!important;stroke-dasharray:7 5!important}
+.zonaTrabajo:hover{fill:#f1d487!important}
+.procesoCirculos{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.procesoCirculos span{font-weight:900}
+@media(max-width:900px){section.card[aria-label="El puente"] #puente{width:100%!important}.historiaCard{padding:12px!important}}
+
+
+
+/* SOLO PRESENTACIÓN: interfaces de PUENTE + TAREAS. No modifica mecánicas. */
+section.card[aria-label="El puente"],
+.wrap>.cols2>section.card{
+  border:5px solid #352536!important;
+  border-radius:0!important;
+  background:#f7d98b!important;
+  box-shadow:10px 10px 0 #201b22, inset 0 0 0 4px #e8b85d!important;
+  image-rendering:pixelated!important;
+}
+
+section.card[aria-label="El puente"] h3,
+.wrap>.cols2>section.card h2{
+  margin:0 0 14px!important;
+  padding:14px 16px!important;
+  border:4px solid #352536!important;
+  border-radius:0!important;
+  background:#d98f45!important;
+  color:#fff0bd!important;
+  text-shadow:3px 3px 0 #352536!important;
+  box-shadow:5px 5px 0 #201b22!important;
+  letter-spacing:1px!important;
+  line-height:1.6!important;
+}
+
+section.card[aria-label="El puente"] #puente{
+  border:4px solid #352536!important;
+  border-radius:0!important;
+  background:#6d9fa5!important;
+  box-shadow:7px 7px 0 #201b22, inset 0 0 0 4px #9fc3b5!important;
+  image-rendering:pixelated!important;
+}
+
+section.card[aria-label="El puente"] .estado,
+section.card[aria-label="El puente"] #ayuda{
+  border:3px solid #352536!important;
+  border-radius:0!important;
+  background:#fff0bd!important;
+  box-shadow:4px 4px 0 #201b22!important;
+  padding:10px 12px!important;
+}
+
+section.card[aria-label="El puente"] #acciones .btn,
+.wrap>.cols2>section.card .btn{
+  border:4px solid #352536!important;
+  border-radius:0!important;
+  box-shadow:5px 5px 0 #201b22!important;
+  background:#c85d3b!important;
+  color:#fff0bd!important;
+  text-shadow:2px 2px 0 #352536!important;
+  font-family:'Press Start 2P',monospace!important;
+  letter-spacing:.5px!important;
+  line-height:1.7!important;
+  padding:12px 14px!important;
+}
+
+section.card[aria-label="El puente"] #acciones .btn:hover,
+.wrap>.cols2>section.card .btn:hover{
+  transform:translate(2px,2px)!important;
+  box-shadow:3px 3px 0 #201b22!important;
+}
+
+section.card[aria-label="El puente"] #acciones .btn:active,
+.wrap>.cols2>section.card .btn:active{
+  transform:translate(5px,5px)!important;
+  box-shadow:0 0 0 #201b22!important;
+}
+
+.wrap>.cols2>section.card .stage{
+  border:4px solid #352536!important;
+  border-radius:0!important;
+  background:#6d9fa5!important;
+  box-shadow:7px 7px 0 #201b22, inset 0 0 0 4px #9fc3b5!important;
+  padding:8px!important;
+}
+
+.wrap>.cols2>section.card .stage svg{
+  image-rendering:pixelated!important;
+}
+
+.wrap>.cols2>section.card .nota,
+.wrap>.cols2>section.card #guia,
+.wrap>.cols2>section.card #golpes{
+  border:3px solid #352536!important;
+  border-radius:0!important;
+  background:#fff0bd!important;
+  box-shadow:4px 4px 0 #201b22!important;
+  padding:10px 12px!important;
+  font-family:'Press Start 2P',monospace!important;
+  font-size:10px!important;
+  line-height:1.9!important;
+}
+
+/* Paneles internos de las tareas de crafteo */
+.wrap>.cols2>section.card:nth-child(2) #recetas>div{
+  border:4px solid #352536!important;
+  border-radius:0!important;
+  background:#e7b85f!important;
+  box-shadow:6px 6px 0 #201b22!important;
+  padding:14px!important;
+  margin-bottom:14px!important;
+}
+
+.wrap>.cols2>section.card:nth-child(2) #recetas strong,
+.wrap>.cols2>section.card:nth-child(2) #recetas span,
+.wrap>.cols2>section.card:nth-child(2) #recetas small{
+  font-family:'Press Start 2P',monospace!important;
+  line-height:1.8!important;
+}
+
+@media(max-width:900px){
+  section.card[aria-label="El puente"],
+  .wrap>.cols2>section.card{box-shadow:6px 6px 0 #201b22, inset 0 0 0 3px #e8b85d!important}
+  .wrap>.cols2>section.card .stage{box-shadow:5px 5px 0 #201b22, inset 0 0 0 3px #9fc3b5!important}
+}
+
+
+
+/* El SVG ocupa todo el ancho disponible; no modifica las mecanicas ni las coordenadas del puente. */
+section.card[aria-label="El puente"] #puente{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  preserveAspectRatio:none;
+}
+
+
+
+html,body{width:100%;min-width:100%;margin:0;padding:0}
+body{min-height:100dvh;overflow-x:hidden;overflow-y:auto}
+.wrap{
+  width:100vw!important;max-width:none!important;min-width:100vw!important;
+  min-height:100dvh!important;height:auto!important;margin:0!important;
+  padding:clamp(10px,1.4vw,20px)!important;box-sizing:border-box!important;
+  display:flex!important;flex-direction:column!important;gap:clamp(10px,1.2vw,16px)!important;
+}
+.wrap>.top,.wrap>section.card,.wrap>.recursos,.wrap>.cols2{width:100%!important;max-width:none!important;box-sizing:border-box!important;margin:0!important}
+.wrap>section.card[aria-label="El puente"]{height:auto!important;min-height:0!important;flex:0 0 auto!important;overflow:visible!important}
+.wrap>section.card[aria-label="El puente"] #puente{width:100%!important;height:auto!important;max-height:28dvh!important;min-height:150px;display:block}
+.wrap>.recursos{height:auto!important;min-height:0!important;flex:0 0 auto!important}
+.wrap>.trabajadorCard{height:auto!important;min-height:0!important;flex:0 0 auto!important;overflow:visible!important}
+.wrap>.cols2{
+  height:auto!important;min-height:0!important;flex:1 1 auto!important;
+  display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  align-items:stretch!important;overflow:visible!important;
+}
+.wrap>.cols2>.card{
+  height:auto!important;min-height:420px!important;max-height:none!important;
+  box-sizing:border-box!important;overflow:visible!important;
+}
+.wrap>.cols2>.card:first-child .stage{min-height:320px!important;height:auto!important;flex:1 1 auto!important}
+.wrap>.cols2>.card:first-child .stage svg{width:100%!important;height:auto!important;min-height:320px!important;max-height:52dvh!important}
+.wrap>.cols2>.card:nth-child(2) #recetas{min-height:0!important;max-height:none!important;overflow:visible!important}
+@media(max-width:900px){
+  .wrap>.cols2{grid-template-columns:1fr!important}
+  .wrap>.cols2>.card{min-height:0!important}
+  .wrap>.cols2>.card:first-child .stage{min-height:280px!important}
+  .wrap>.cols2>.card:first-child .stage svg{min-height:280px!important;max-height:none!important}
+}
+
+
+
+/* PIXEL ART + PRESS START 2P — SOLO INTERFAZ DE NIVEL 3 */
+:root{--ps-bg:#173c3a;--ps-panel:#f3d9a2;--ps-panel2:#e8c982;--ps-ink:#201b22;--ps-dark:#352536;--ps-gold:#d7a84f;--ps-green:#3f6b45;--ps-blue:#79b5c7;--ps-shadow:#201b22}
+html,body,button,input,select,textarea,.btn{font-family:'Press Start 2P',monospace!important}
+body{font-size:11px!important;letter-spacing:0!important;image-rendering:pixelated!important}
+.wrap{background:transparent!important}
+.top,.card,.stat,.trabajadorCard,.historiaCard,.zonaProceso,.box,.panel{border-radius:0!important}
+.top,.card,.trabajadorCard,.stat,.historiaCard,.zonaProceso,.box,.panel{
+ border:4px solid var(--ps-dark)!important;
+ box-shadow:7px 7px 0 var(--ps-shadow)!important;
+}
+.top{background:var(--ps-panel)!important}
+h1,h2,h3,.title,.brand,.estado,.dia,.stat b,.workerBadge,.formula,.mono,.historiaTitulo,.historiaNumero,.historiaCard h2,.historiaPensamiento b{
+ font-family:'Press Start 2P',monospace!important;
+ text-transform:uppercase!important;
+ letter-spacing:0!important;
+}
+h1{line-height:1.45!important;text-shadow:3px 3px 0 #b77d4b!important}
+h2,h3{line-height:1.6!important}
+button,.btn{
+ font-family:'Press Start 2P',monospace!important;
+ font-size:10px!important;
+ line-height:1.7!important;
+ font-weight:400!important;
+ border:4px solid var(--ps-dark)!important;
+ border-radius:0!important;
+ box-shadow:5px 5px 0 var(--ps-shadow)!important;
+ text-transform:uppercase!important;
+ letter-spacing:0!important;
+}
+button:hover:not(:disabled),.btn:hover:not(:disabled){filter:none!important}
+button:active,.btn:active{transform:translate(4px,4px)!important;box-shadow:1px 1px 0 var(--ps-shadow)!important}
+.stat{background:var(--ps-panel)!important;min-height:78px!important}
+.stat .lab{font-size:9px!important;line-height:1.7!important}
+.stat b{font-size:15px!important;line-height:1.7!important}
+section.card[aria-label="El puente"] h3,.cols2>.card h2,.zonaProceso>b{
+ font-family:'Press Start 2P',monospace!important;
+ font-size:11px!important;
+ line-height:1.7!important;
+}
+section.card[aria-label="El puente"] .estado,#golpes,#guia,#instruccionTala,.formula{
+ font-family:'Press Start 2P',monospace!important;
+ font-size:9px!important;
+ line-height:1.8!important;
+}
+.historiaCard{
+ background:#fff0bd!important;
+ border:5px solid var(--ps-dark)!important;
+ box-shadow:10px 10px 0 var(--ps-shadow),inset 0 0 0 4px #e2b85e!important;
+ padding:30px 34px!important;
+ min-height:300px!important;
+}
+.historiaTitulo{font-size:11px!important;line-height:1.8!important}
+.historiaNumero{font-size:13px!important;line-height:1.8!important}
+.historiaCard h2{font-size:clamp(18px,2vw,28px)!important;line-height:1.7!important}
+.historiaTexto{font-family:'Press Start 2P',monospace!important;font-size:clamp(13px,1.35vw,18px)!important;line-height:2!important;font-weight:400!important}
+.historiaPensamiento{
+ background:#ead39a!important;border:4px solid var(--ps-dark)!important;
+ box-shadow:5px 5px 0 var(--ps-shadow)!important;padding:20px 22px!important;
+}
+.historiaPensamiento b{font-size:10px!important;line-height:1.8!important}
+.historiaPensamiento{font-family:'Press Start 2P',monospace!important;font-size:clamp(11px,1.15vw,15px)!important;line-height:2!important;font-weight:400!important}
+.receta,.fila,.procesoCirculos span{font-family:'Press Start 2P',monospace!important}
+.receta .nom{font-size:10px!important;line-height:1.8!important}
+.procesoCirculos span{font-size:8px!important;line-height:1.8!important}
+@media(max-width:600px){
+ body{font-size:9px!important}
+ button,.btn{font-size:8px!important}
+ .historiaCard{padding:22px!important;min-height:0!important}
+ .historiaCard h2{font-size:15px!important}
+ .historiaTexto{font-size:11px!important;line-height:2!important}
+ .historiaPensamiento{font-size:10px!important;line-height:2!important}
+ .historiaPensamiento b{font-size:8px!important}
+}
+
+
+
+.intro-funcionamiento{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;background:#173c3a;image-rendering:pixelated;}
+.intro-panel{width:min(900px,94vw);max-height:92vh;overflow:auto;padding:32px;background:#f3d9a2;color:#201b22;border:6px solid #352536;box-shadow:12px 12px 0 #201b22;font-family:'Press Start 2P',monospace;text-align:center;}
+.intro-kicker{font-size:10px;line-height:1.8;margin-bottom:18px;}
+.intro-panel h2{font-family:'Press Start 2P',monospace!important;font-size:clamp(18px,3vw,30px)!important;line-height:1.7!important;margin:0 0 18px!important;color:#201b22!important;}
+.intro-panel p{font-family:'Press Start 2P',monospace;font-size:clamp(11px,1.5vw,15px);line-height:2;margin:0 auto 24px;max-width:760px;}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left;margin:20px 0;}
+.intro-grid div{padding:18px;background:#ead39a;border:4px solid #352536;box-shadow:5px 5px 0 #201b22;}
+.intro-grid b{display:block;font-size:10px;line-height:1.8;margin-bottom:9px;}
+.intro-grid span{display:block;font-size:9px;line-height:2;}
+.intro-tip{padding:16px;margin:20px 0;background:#3f6b45;color:#fff;border:4px solid #201b22;box-shadow:5px 5px 0 #201b22;font-size:10px;line-height:1.9;}
+#btn-comenzar-intro{font-family:'Press Start 2P',monospace!important;font-size:11px!important;line-height:1.7!important;padding:16px 24px!important;background:#d7a84f!important;color:#201b22!important;border:4px solid #201b22!important;border-radius:0!important;box-shadow:6px 6px 0 #201b22!important;cursor:pointer;text-transform:uppercase;}
+#btn-comenzar-intro:active{transform:translate(4px,4px);box-shadow:2px 2px 0 #201b22!important;}
+@media(max-width:650px){.intro-panel{padding:22px}.intro-grid{grid-template-columns:1fr}.intro-grid div{padding:14px}.intro-panel p{font-size:10px}.intro-grid b{font-size:8px}.intro-grid span{font-size:8px}.intro-tip{font-size:8px}.intro-kicker{font-size:8px}}
+
+
+
+:root{
+  --cielo:#d3e2dd !important;
+  --agua:#4d6f66 !important;
+  --tierra:#9a7b52 !important;
+  --hoja:#4f7a43 !important;
+  --hoja2:#6a9a5a !important;
+}
+.tallerSvg,.stage{background:#d3e2dd !important;}
+
+/* =========================================================
+   OBJETOS EN PIXEL ART — puente, árbol y hacha
+   Solo presentación: no modifica mecánicas ni hitboxes.
+   ========================================================= */
+
+/* Árbol: contornos escalonados y grupos de color tipo 16-bit */
+.tree-branch{fill:#70431f!important;stroke:#4b2d1d!important;stroke-width:3!important;shape-rendering:crispEdges}
+.tree-trunk{fill:#8d5a2f!important;stroke:#4b2d1d!important;stroke-width:3!important;shape-rendering:crispEdges}
+.tree-bark-light{fill:#b7793d!important;shape-rendering:crispEdges}
+.tree-bark-dark{fill:#633b23!important;shape-rendering:crispEdges}
+.leaf-shadow{fill:#315b36!important;stroke:#25472c!important;stroke-width:3!important;shape-rendering:crispEdges}
+.leaf-main{fill:#4f7d43!important;shape-rendering:crispEdges}
+.leaf-light{fill:#679653!important;shape-rendering:crispEdges}
+.leaf-highlight{fill:#82aa61!important;shape-rendering:crispEdges}
+
+/* Hacha: mango, filo y brillos en píxeles */
+.axe-handle-dark{fill:#5b351d!important;shape-rendering:crispEdges}
+.axe-handle{fill:#9a6230!important;shape-rendering:crispEdges}
+.axe-handle-light{fill:#c58a49!important;shape-rendering:crispEdges}
+.axe-metal-dark{fill:#394148!important;stroke:#252b31!important;stroke-width:2!important;shape-rendering:crispEdges}
+.axe-metal{fill:#66717a!important;shape-rendering:crispEdges}
+.axe-metal-light{fill:#a6b0b4!important;shape-rendering:crispEdges}
+
+/* Puente: tablones con borde oscuro, veta y sombreado 16-bit */
+section.card[aria-label="El puente"] #puente .s-tab{
+  stroke:#4b2d1d!important;
+  stroke-width:3!important;
+  shape-rendering:crispEdges!important;
+}
+section.card[aria-label="El puente"] #puente .f-tablon{
+  fill:#c28b49!important;
+}
+section.card[aria-label="El puente"] #puente .f-pilote{
+  fill:#624020!important;
+  stroke:#432a1b!important;
+  stroke-width:2!important;
+  shape-rendering:crispEdges!important;
+}
+section.card[aria-label="El puente"] #puente .s-tab::after{content:""}
+section.card[aria-label="El puente"] #puente .f-agua{fill:#477c7b!important}
+section.card[aria-label="El puente"] #puente .s-ola{stroke:#a7c8bd!important;stroke-width:2!important;stroke-opacity:.75!important;shape-rendering:crispEdges!important}
+section.card[aria-label="El puente"] #puente .f-tierra{fill:#8f693f!important}
+
+/* Vetas y pequeños reflejos del puente mediante filtros de píxel */
+section.card[aria-label="El puente"] #puente .s-tab:nth-of-type(1){filter:none!important}
+section.card[aria-label="El puente"] #puente .ghost rect{stroke:#352536!important;stroke-width:3!important;stroke-dasharray:6 4!important}
+
+/* Mantener todos los SVG nítidos, sin suavizado */
+#arbolSvg,#puente{shape-rendering:crispEdges!important;image-rendering:pixelated!important}
+
+/* Puente y orillas: pixel-art 16-bit, sin imágenes externas. */
+.f-puente-borde{fill:#4a2f20}
+.f-puente-sombra{fill:#5b3923}
+.f-madera-luz{fill:#e0ad61}
+.f-madera-sombra{fill:#8b5a32}
+.f-clavo{fill:#332a2a}
+.f-pasto{fill:#416c42}
+.f-pasto2{fill:#6f9b54}
+.f-piedra{fill:#6d756d}
+.f-piedra2{fill:#8c9588}
+.f-tallo{fill:#355f39}
+.f-flor{fill:#f0d36a}
+.f-flor2{fill:#e9b4c0}
+.f-junco{stroke:#416c42;stroke-width:3;shape-rendering:crispEdges}
+.orilla-pixel rect,.orilla-pixel path,.decor-pixel rect{shape-rendering:crispEdges}
+
+
+/* Escenario del puente: pixel art de paisaje, sin imágenes externas. */
+section.card[aria-label="El puente"] #puente .nube{fill:#eef4e6}
+section.card[aria-label="El puente"] #puente .nube-luz{fill:#ffffff;opacity:.55}
+section.card[aria-label="El puente"] #puente .ave{fill:none;stroke:#352536;stroke-width:3;shape-rendering:crispEdges}
+section.card[aria-label="El puente"] #puente .f-tierra-oscura{fill:#755238}
+section.card[aria-label="El puente"] #puente .f-tierra-clara{fill:#aa7a4a}
+section.card[aria-label="El puente"] #puente .f-agua-profunda{fill:#315f70}
+section.card[aria-label="El puente"] #puente .f-piedra-sombra{fill:#56605c}
+section.card[aria-label="El puente"] #puente .f-pilote-luz{fill:#7c5229}
+section.card[aria-label="El puente"] #puente .f-pilote-sombra{fill:#4e321d}
+section.card[aria-label="El puente"] #puente .suelo-textura rect{fill:#6e4a31}
+section.card[aria-label="El puente"] #puente .orilla-pixel path,
+section.card[aria-label="El puente"] #puente .orilla-pixel rect,
+section.card[aria-label="El puente"] #puente .cielo-pixel path,
+section.card[aria-label="El puente"] #puente .suelo-textura rect{shape-rendering:crispEdges!important}
+
+
+/* Fondo del árbol: bosque y suelo de pasto, todo dibujado con SVG/CSS pixel art. */
+.f-bosque-fondo{fill:#8fb3a0!important;shape-rendering:crispEdges}
+.bosque-lejano{fill:#6e9270!important;shape-rendering:crispEdges}
+.bosque-medio{fill:#557b50!important;shape-rendering:crispEdges}
+.bosque-troncos path{fill:#5d432d!important;shape-rendering:crispEdges}
+.bosque-copas path{fill:#3e6b3f!important;shape-rendering:crispEdges}
+.bosque-brillos rect{fill:#668d50!important;shape-rendering:crispEdges}
+.f-pasto-suelo{fill:#477442!important;shape-rendering:crispEdges}
+.pasto-borde{fill:#5f914c!important;shape-rendering:crispEdges}
+.plantas-suelo path{fill:none;stroke:#2f5d35;stroke-width:3;shape-rendering:crispEdges}
+.plantas-suelo rect{fill:#77a653;shape-rendering:crispEdges}
+.plantas-suelo .flor-pixel{fill:#f2d36a;stroke:none}
+.plantas-suelo .flor2{fill:#e7a9b5}
+.sombra-pasto{fill:#365d38!important;shape-rendering:crispEdges}
+
+/* Fondo del bosque a todo lo ancho: solo decoración, no modifica el SVG ni las mecánicas. */
+.wrap>.cols2>.card:first-child .stage{
+  max-width:none!important;
+  width:100%!important;
+  padding:0!important;
+  background:
+    /* pasto y pequeños grupos de plantas */
+    linear-gradient(to bottom, transparent 0 58%, #477442 58% 100%),
+    /* árboles lejanos pixelados */
+    linear-gradient(to right,
+      transparent 0 3%, #5f8a5b 3% 7%, transparent 7% 11%,
+      #6e9270 11% 15%, transparent 15% 19%, #557b50 19% 24%,
+      transparent 24% 28%, #6e9270 28% 33%, transparent 33% 38%,
+      #557b50 38% 43%, transparent 43% 48%, #6e9270 48% 53%,
+      transparent 53% 58%, #557b50 58% 63%, transparent 63% 68%,
+      #6e9270 68% 73%, transparent 73% 78%, #557b50 78% 83%,
+      transparent 83% 88%, #6e9270 88% 93%, transparent 93% 100%),
+    #8fb3a0!important;
+  background-size:100% 100%,100% 58%,100% 100%!important;
+  background-position:0 0,0 0,0 0!important;
+  background-repeat:no-repeat!important;
+}
+
+/* Copas y troncos grandes en los laterales, hechos con CSS pixelado. */
+.wrap>.cols2>.card:first-child .stage:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:
+    linear-gradient(#3e6b3f,#3e6b3f) 2% 24%/8% 14% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 5% 36%/2% 28% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 13% 18%/10% 16% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 17% 32%/2% 32% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 78% 20%/11% 17% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 82% 34%/2% 30% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 91% 25%/8% 14% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 94% 38%/2% 27% no-repeat,
+    linear-gradient(#5f914c,#5f914c) 0 58%/100% 4% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 4% 79%/2% 9% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 8% 82%/2% 8% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 92% 80%/2% 9% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 96% 83%/2% 8% no-repeat;
+  image-rendering:pixelated;
+}
+.wrap>.cols2>.card:first-child .stage svg{
+  position:relative;
+  z-index:1;
+}
+
+/* AJUSTE FINAL: el fondo del bosque ocupa TODO el ancho del área de talar. */
+.wrap>.cols2>.card:first-child .stage{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  background-color:#477442!important;
+  background-image:
+    /* cielo del bosque */
+    linear-gradient(to bottom,#8fb3a0 0 58%,#5f914c 58% 62%,#477442 62% 100%),
+    /* árboles lejanos */
+    linear-gradient(to right,
+      #6e9270 0 7%,#8fb3a0 7% 11%,#557b50 11% 17%,#8fb3a0 17% 21%,
+      #6e9270 21% 27%,#8fb3a0 27% 32%,#557b50 32% 38%,#8fb3a0 38% 44%,
+      #6e9270 44% 50%,#8fb3a0 50% 56%,#557b50 56% 62%,#8fb3a0 62% 68%,
+      #6e9270 68% 74%,#8fb3a0 74% 80%,#557b50 80% 86%,#8fb3a0 86% 92%,
+      #6e9270 92% 100%);
+  background-size:100% 100%,100% 58%;
+  background-position:0 0,0 0;
+  background-repeat:no-repeat;
+}
+
+/* Vegetación pixelada que continúa por los costados del árbol. */
+.wrap>.cols2>.card:first-child .stage::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    linear-gradient(#3e6b3f,#3e6b3f) 1% 25%/8% 14% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 4% 37%/2% 28% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 12% 17%/10% 16% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 16% 31%/2% 33% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 79% 19%/10% 16% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 82% 33%/2% 31% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 91% 24%/8% 14% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 95% 37%/2% 28% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 4% 79%/2% 10% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 9% 83%/2% 9% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 91% 80%/2% 10% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 96% 84%/2% 9% no-repeat;
+  image-rendering:pixelated;
+}
+
+.wrap>.cols2>.card:first-child .stage svg{
+  position:relative!important;
+  z-index:1!important;
+  max-height:52dvh!important;
+}
+
+/* ESCENA UNIFICADA: el bosque, el pasto y el árbol forman una sola escena continua. */
+.wrap>.cols2>.card:first-child .stage{
+  background-color:#477442!important;
+  background-image:
+    linear-gradient(to bottom,#8fb3a0 0 57%,#5f914c 57% 61%,#477442 61% 100%),
+    linear-gradient(to right,
+      #557b50 0 6%,#6e9270 6% 11%,#557b50 11% 17%,#8fb3a0 17% 20%,
+      #6e9270 20% 27%,#557b50 27% 33%,#8fb3a0 33% 37%,#557b50 37% 43%,
+      #6e9270 43% 49%,#557b50 49% 56%,#8fb3a0 56% 60%,#557b50 60% 67%,
+      #6e9270 67% 73%,#557b50 73% 80%,#8fb3a0 80% 84%,#557b50 84% 91%,
+      #6e9270 91% 100%);
+  background-size:100% 100%,100% 57%;
+  background-position:0 0,0 0;
+  background-repeat:no-repeat;
+}
+.wrap>.cols2>.card:first-child .stage svg{
+  background:transparent!important;
+}
+
+/* ===== FONDO PIXEL ART DETALLADO — solo escenario, árbol y hacha intactos ===== */
+.wrap>.cols2>.card:first-child .stage{
+  background-color:#477442!important;
+  background-image:
+    /* cielo / profundidad */
+    linear-gradient(to bottom,#8fb3a0 0 54%,#719766 54% 60%,#5f914c 60% 64%,#477442 64% 100%),
+    /* siluetas lejanas */
+    linear-gradient(#6e9270,#6e9270) 2% 12%/5% 40% no-repeat,
+    linear-gradient(#6e9270,#6e9270) 10% 18%/6% 34% no-repeat,
+    linear-gradient(#557b50,#557b50) 18% 8%/7% 44% no-repeat,
+    linear-gradient(#6e9270,#6e9270) 29% 16%/6% 37% no-repeat,
+    linear-gradient(#557b50,#557b50) 38% 10%/8% 43% no-repeat,
+    linear-gradient(#6e9270,#6e9270) 51% 15%/6% 38% no-repeat,
+    linear-gradient(#557b50,#557b50) 61% 7%/8% 45% no-repeat,
+    linear-gradient(#6e9270,#6e9270) 73% 13%/6% 39% no-repeat,
+    linear-gradient(#557b50,#557b50) 83% 9%/7% 44% no-repeat,
+    linear-gradient(#6e9270,#6e9270) 93% 17%/6% 36% no-repeat;
+  background-size:100% 100%,5% 40%,6% 34%,7% 44%,6% 37%,8% 43%,6% 38%,8% 45%,6% 39%,7% 44%,6% 36%;
+  background-position:0 0,2% 12%,10% 18%,18% 8%,29% 16%,38% 10%,51% 15%,61% 7%,73% 13%,83% 9%,93% 17%;
+  background-repeat:no-repeat;
+}
+
+/* Vegetación y textura del suelo. Todo queda detrás del SVG existente. */
+.wrap>.cols2>.card:first-child .stage::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  image-rendering:pixelated;
+  background:
+    /* copas lejanas escalonadas */
+    linear-gradient(#3e6b3f,#3e6b3f) 0% 24%/9% 12% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 4% 20%/5% 8% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 9% 28%/7% 11% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 16% 19%/9% 13% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 24% 27%/7% 10% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 31% 21%/8% 12% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 67% 23%/9% 12% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 75% 18%/7% 13% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 82% 26%/9% 11% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 91% 20%/8% 13% no-repeat,
+    /* troncos */
+    linear-gradient(#5d432d,#5d432d) 4% 31%/2% 28% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 12% 29%/2% 30% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 20% 32%/2% 27% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 28% 31%/2% 28% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 72% 30%/2% 29% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 80% 29%/2% 30% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 88% 32%/2% 27% no-repeat,
+    linear-gradient(#5d432d,#5d432d) 95% 30%/2% 29% no-repeat,
+    /* hierba alta */
+    linear-gradient(#2f5d35,#2f5d35) 2% 60%/1% 5% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 6% 57%/1% 8% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 11% 61%/1% 6% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 17% 58%/1% 7% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 23% 61%/1% 5% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 30% 57%/1% 8% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 70% 59%/1% 7% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 77% 61%/1% 6% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 84% 57%/1% 8% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 90% 61%/1% 6% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 97% 58%/1% 7% no-repeat,
+    /* pequeñas plantas del primer plano */
+    linear-gradient(#2f5d35,#2f5d35) 5% 83%/1% 11% no-repeat,
+    linear-gradient(35deg,transparent 45%,#2f5d35 46% 54%,transparent 55%) 3% 82%/5% 8% no-repeat,
+    linear-gradient(-35deg,transparent 45%,#2f5d35 46% 54%,transparent 55%) 4% 82%/5% 8% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 13% 86%/1% 9% no-repeat,
+    linear-gradient(35deg,transparent 45%,#2f5d35 46% 54%,transparent 55%) 11% 85%/5% 7% no-repeat,
+    linear-gradient(-35deg,transparent 45%,#2f5d35 46% 54%,transparent 55%) 12% 85%/5% 7% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 87% 84%/1% 11% no-repeat,
+    linear-gradient(35deg,transparent 45%,#2f5d35 46% 54%,transparent 55%) 85% 83%/5% 8% no-repeat,
+    linear-gradient(-35deg,transparent 45%,#2f5d35 46% 54%,transparent 55%) 86% 83%/5% 8% no-repeat,
+    linear-gradient(#2f5d35,#2f5d35) 95% 87%/1% 9% no-repeat,
+    linear-gradient(35deg,transparent 45%,#2f5d35 46% 54%,transparent 55%) 93% 86%/5% 7% no-repeat,
+    linear-gradient(-35deg,transparent 45%,#2f5d35 46% 54%,transparent 55%) 94% 86%/5% 7% no-repeat,
+    /* manchas pixeladas del pasto */
+    linear-gradient(#5f914c,#5f914c) 8% 72%/5% 2% no-repeat,
+    linear-gradient(#5f914c,#5f914c) 18% 77%/4% 2% no-repeat,
+    linear-gradient(#3d683b,#3d683b) 27% 70%/3% 2% no-repeat,
+    linear-gradient(#5f914c,#5f914c) 33% 83%/5% 2% no-repeat,
+    linear-gradient(#3d683b,#3d683b) 67% 75%/4% 2% no-repeat,
+    linear-gradient(#5f914c,#5f914c) 74% 88%/5% 2% no-repeat,
+    linear-gradient(#3d683b,#3d683b) 82% 71%/3% 2% no-repeat,
+    linear-gradient(#5f914c,#5f914c) 91% 78%/5% 2% no-repeat;
+}
+
+.wrap>.cols2>.card:first-child .stage svg{
+  position:relative!important;
+  z-index:1!important;
+  background:transparent!important;
+}
+
+/* ===== REHACER FONDO: BOSQUE PIXEL ART MÁS DETALLADO =====
+   Solo modifica el escenario de fondo. El SVG del árbol y el hacha quedan intactos. */
+.wrap>.cols2>.card:first-child .stage{
+  background-color:#4f8247!important;
+  background-image:
+    /* cielo profundo */
+    linear-gradient(to bottom,#a7c3b0 0 45%,#91ad98 45% 53%,#6f965f 53% 60%,#4f8247 60% 100%),
+    /* masas de bosque lejano, escalonadas */
+    linear-gradient(#668866,#668866) 1% 20%/9% 35% no-repeat,
+    linear-gradient(#739676,#739676) 8% 12%/8% 43% no-repeat,
+    linear-gradient(#5b7d59,#5b7d59) 16% 24%/10% 31% no-repeat,
+    linear-gradient(#789a79,#789a79) 26% 15%/8% 39% no-repeat,
+    linear-gradient(#5c805d,#5c805d) 35% 21%/11% 34% no-repeat,
+    linear-gradient(#739476,#739476) 47% 11%/9% 44% no-repeat,
+    linear-gradient(#587b58,#587b58) 57% 22%/11% 33% no-repeat,
+    linear-gradient(#789b79,#789b79) 69% 14%/9% 41% no-repeat,
+    linear-gradient(#5b7e5b,#5b7e5b) 79% 20%/11% 35% no-repeat,
+    linear-gradient(#729374,#729374) 91% 13%/8% 42% no-repeat,
+    /* copas pixeladas lejanas */
+    linear-gradient(#426b43,#426b43) 0% 31%/8% 13% no-repeat,
+    linear-gradient(#4a7248,#4a7248) 7% 25%/10% 15% no-repeat,
+    linear-gradient(#3e6840,#3e6840) 17% 34%/9% 12% no-repeat,
+    linear-gradient(#4b754a,#4b754a) 27% 27%/10% 14% no-repeat,
+    linear-gradient(#416c43,#416c43) 38% 33%/9% 13% no-repeat,
+    linear-gradient(#4b754a,#4b754a) 49% 24%/10% 16% no-repeat,
+    linear-gradient(#3f6941,#3f6941) 60% 32%/10% 13% no-repeat,
+    linear-gradient(#4b754a,#4b754a) 71% 27%/10% 15% no-repeat,
+    linear-gradient(#416c43,#416c43) 82% 34%/9% 12% no-repeat,
+    linear-gradient(#4b754a,#4b754a) 92% 25%/8% 15% no-repeat,
+    /* troncos lejanos */
+    linear-gradient(#5b4933,#5b4933) 4% 39%/2% 25% no-repeat,
+    linear-gradient(#634c32,#634c32) 12% 35%/2% 29% no-repeat,
+    linear-gradient(#55432f,#55432f) 22% 41%/2% 23% no-repeat,
+    linear-gradient(#644d34,#644d34) 32% 37%/2% 27% no-repeat,
+    linear-gradient(#55432f,#55432f) 43% 40%/2% 24% no-repeat,
+    linear-gradient(#654e34,#654e34) 55% 35%/2% 29% no-repeat,
+    linear-gradient(#55432f,#55432f) 66% 41%/2% 23% no-repeat,
+    linear-gradient(#654e34,#654e34) 77% 37%/2% 27% no-repeat,
+    linear-gradient(#55432f,#55432f) 88% 40%/2% 24% no-repeat,
+    linear-gradient(#654e34,#654e34) 96% 35%/2% 29% no-repeat,
+    /* borde de hierba */
+    linear-gradient(#6b9a50,#6b9a50) 0 58%/100% 3% no-repeat,
+    /* manchas del suelo */
+    linear-gradient(#5c914d,#5c914d) 4% 70%/7% 2% no-repeat,
+    linear-gradient(#3f703f,#3f703f) 14% 78%/5% 2% no-repeat,
+    linear-gradient(#62974f,#62974f) 23% 67%/4% 2% no-repeat,
+    linear-gradient(#3d6d3d,#3d6d3d) 31% 84%/6% 2% no-repeat,
+    linear-gradient(#61964e,#61964e) 40% 73%/5% 2% no-repeat,
+    linear-gradient(#3d6d3d,#3d6d3d) 52% 88%/4% 2% no-repeat,
+    linear-gradient(#62974f,#62974f) 62% 69%/6% 2% no-repeat,
+    linear-gradient(#3d6d3d,#3d6d3d) 73% 80%/5% 2% no-repeat,
+    linear-gradient(#62974f,#62974f) 84% 72%/6% 2% no-repeat,
+    linear-gradient(#3d6d3d,#3d6d3d) 94% 85%/5% 2% no-repeat;
+  background-repeat:no-repeat!important;
+  background-position:0 0!important;
+  image-rendering:pixelated;
+}
+
+/* Vegetación de primer plano: más variedad y aspecto de bosque real. */
+.wrap>.cols2>.card:first-child .stage::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  image-rendering:pixelated;
+  background:
+    /* grupos de hojas laterales */
+    linear-gradient(#315d38,#315d38) 1% 39%/7% 8% no-repeat,
+    linear-gradient(#3b6d40,#3b6d40) 5% 34%/8% 10% no-repeat,
+    linear-gradient(#315d38,#315d38) 12% 40%/6% 8% no-repeat,
+    linear-gradient(#3b6d40,#3b6d40) 82% 38%/7% 9% no-repeat,
+    linear-gradient(#315d38,#315d38) 88% 33%/8% 11% no-repeat,
+    linear-gradient(#3b6d40,#3b6d40) 94% 40%/6% 8% no-repeat,
+    /* troncos */
+    linear-gradient(#60472f,#60472f) 4% 43%/2% 20% no-repeat,
+    linear-gradient(#5b432d,#5b432d) 14% 42%/2% 22% no-repeat,
+    linear-gradient(#60472f,#60472f) 86% 43%/2% 20% no-repeat,
+    linear-gradient(#5b432d,#5b432d) 96% 42%/2% 22% no-repeat,
+    /* matas de hierba */
+    linear-gradient(#2e5d37,#2e5d37) 3% 64%/1% 8% no-repeat,
+    linear-gradient(45deg,transparent 44%,#2e5d37 45% 55%,transparent 56%) 1% 63%/5% 7% no-repeat,
+    linear-gradient(-45deg,transparent 44%,#2e5d37 45% 55%,transparent 56%) 3% 62%/5% 8% no-repeat,
+    linear-gradient(#2e5d37,#2e5d37) 12% 68%/1% 7% no-repeat,
+    linear-gradient(45deg,transparent 44%,#2e5d37 45% 55%,transparent 56%) 10% 67%/5% 7% no-repeat,
+    linear-gradient(-45deg,transparent 44%,#2e5d37 45% 55%,transparent 56%) 12% 66%/5% 8% no-repeat,
+    linear-gradient(#2e5d37,#2e5d37) 88% 65%/1% 8% no-repeat,
+    linear-gradient(45deg,transparent 44%,#2e5d37 45% 55%,transparent 56%) 86% 64%/5% 8% no-repeat,
+    linear-gradient(-45deg,transparent 44%,#2e5d37 45% 55%,transparent 56%) 88% 63%/5% 8% no-repeat,
+    linear-gradient(#2e5d37,#2e5d37) 97% 69%/1% 7% no-repeat,
+    linear-gradient(45deg,transparent 44%,#2e5d37 45% 55%,transparent 56%) 95% 68%/5% 7% no-repeat,
+    linear-gradient(-45deg,transparent 44%,#2e5d37 45% 55%,transparent 56%) 97% 67%/5% 8% no-repeat,
+    /* flores pixel */
+    linear-gradient(#f0d36a,#f0d36a) 8% 74%/2% 2% no-repeat,
+    linear-gradient(#f0d36a,#f0d36a) 7% 76%/4% 1% no-repeat,
+    linear-gradient(#e6a6b5,#e6a6b5) 92% 72%/2% 2% no-repeat,
+    linear-gradient(#e6a6b5,#e6a6b5) 91% 74%/4% 1% no-repeat,
+    /* piedritas */
+    linear-gradient(#78866c,#78866c) 18% 91%/3% 2% no-repeat,
+    linear-gradient(#697a64,#697a64) 82% 92%/4% 2% no-repeat,
+    /* textura fina del pasto */
+    repeating-linear-gradient(90deg,transparent 0 18px,rgba(35,83,43,.16) 18px 20px) 0 64%/100% 36% no-repeat;
+}
+
+
+/* ===== NUEVO FONDO: BOSQUE PIXEL ART COMPLETO =====
+   Solo se reemplaza el paisaje exterior. El árbol y el hacha del SVG no se modifican. */
+.wrap>.cols2>.card:first-child .stage{
+  background-color:#4f7f45!important;
+  background-image:
+    /* cielo */
+    linear-gradient(to bottom,#b5cdbd 0 43%,#91ad96 43% 52%,#64885d 52% 58%,#4f7f45 58% 100%),
+    /* copas lejanas, irregulares */
+    linear-gradient(#789b7c,#789b7c) 0% 23%/12% 24% no-repeat,
+    linear-gradient(#6d916f,#6d916f) 9% 17%/10% 30% no-repeat,
+    linear-gradient(#829f82,#829f82) 18% 25%/13% 22% no-repeat,
+    linear-gradient(#668867,#668867) 29% 15%/12% 32% no-repeat,
+    linear-gradient(#789a78,#789a78) 40% 22%/11% 26% no-repeat,
+    linear-gradient(#638562,#638562) 51% 14%/13% 34% no-repeat,
+    linear-gradient(#7b9d7a,#7b9d7a) 63% 24%/12% 24% no-repeat,
+    linear-gradient(#648662,#648662) 74% 16%/13% 32% no-repeat,
+    linear-gradient(#789a78,#789a78) 86% 22%/14% 27% no-repeat,
+    /* árboles de segundo plano */
+    linear-gradient(#4a7048,#4a7048) 3% 33%/3% 27% no-repeat,
+    linear-gradient(#4a7048,#4a7048) 13% 29%/3% 31% no-repeat,
+    linear-gradient(#4a7048,#4a7048) 24% 34%/3% 26% no-repeat,
+    linear-gradient(#466c45,#466c45) 35% 31%/3% 29% no-repeat,
+    linear-gradient(#466c45,#466c45) 48% 33%/3% 27% no-repeat,
+    linear-gradient(#466c45,#466c45) 61% 29%/3% 31% no-repeat,
+    linear-gradient(#4a7048,#4a7048) 76% 32%/3% 28% no-repeat,
+    linear-gradient(#466c45,#466c45) 89% 30%/3% 30% no-repeat,
+    /* pequeñas manchas de luz del cielo */
+    linear-gradient(#c3d8c7,#c3d8c7) 6% 9%/7% 3% no-repeat,
+    linear-gradient(#c3d8c7,#c3d8c7) 72% 8%/8% 3% no-repeat,
+    linear-gradient(#c3d8c7,#c3d8c7) 88% 13%/5% 3% no-repeat;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%,12% 24%,10% 30%,13% 22%,12% 32%,11% 26%,13% 34%,12% 24%,13% 32%,14% 27%,3% 27%,3% 31%,3% 26%,3% 29%,3% 27%,3% 31%,3% 28%,3% 30%,7% 3%,8% 3%,5% 3%!important;
+  background-position:0 0,0% 23%,9% 17%,18% 25%,29% 15%,40% 22%,51% 14%,63% 24%,74% 16%,86% 22%,3% 33%,13% 29%,24% 34%,35% 31%,48% 33%,61% 29%,76% 32%,89% 30%,6% 9%,72% 8%,88% 13%!important;
+}
+
+.wrap>.cols2>.card:first-child .stage::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  image-rendering:pixelated;
+  background:
+    /* línea de horizonte de pasto */
+    linear-gradient(#5f914c,#5f914c) 0 55%/100% 5% no-repeat,
+    /* grupos de arbustos */
+    linear-gradient(#3e6b3f,#3e6b3f) 1% 48%/11% 12% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 10% 45%/8% 15% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 20% 49%/12% 11% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 71% 47%/11% 13% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 82% 44%/8% 16% no-repeat,
+    linear-gradient(#3e6b3f,#3e6b3f) 90% 49%/10% 11% no-repeat,
+    /* hierba alta */
+    linear-gradient(#315d35,#315d35) 3% 57%/1% 7% no-repeat,
+    linear-gradient(#315d35,#315d35) 8% 55%/1% 9% no-repeat,
+    linear-gradient(#315d35,#315d35) 15% 58%/1% 7% no-repeat,
+    linear-gradient(#315d35,#315d35) 24% 56%/1% 8% no-repeat,
+    linear-gradient(#315d35,#315d35) 33% 58%/1% 7% no-repeat,
+    linear-gradient(#315d35,#315d35) 68% 57%/1% 8% no-repeat,
+    linear-gradient(#315d35,#315d35) 77% 55%/1% 9% no-repeat,
+    linear-gradient(#315d35,#315d35) 86% 58%/1% 7% no-repeat,
+    linear-gradient(#315d35,#315d35) 95% 56%/1% 8% no-repeat,
+    /* textura del suelo */
+    linear-gradient(#6b974f,#6b974f) 4% 72%/7% 2% no-repeat,
+    linear-gradient(#426f3d,#426f3d) 16% 66%/5% 2% no-repeat,
+    linear-gradient(#6b974f,#6b974f) 27% 82%/8% 2% no-repeat,
+    linear-gradient(#426f3d,#426f3d) 39% 70%/5% 2% no-repeat,
+    linear-gradient(#6b974f,#6b974f) 61% 78%/7% 2% no-repeat,
+    linear-gradient(#426f3d,#426f3d) 73% 67%/5% 2% no-repeat,
+    linear-gradient(#6b974f,#6b974f) 84% 84%/8% 2% no-repeat,
+    linear-gradient(#426f3d,#426f3d) 94% 71%/5% 2% no-repeat,
+    /* plantas con hojas en V */
+    linear-gradient(35deg,transparent 44%,#315d35 45% 55%,transparent 56%) 5% 78%/7% 12% no-repeat,
+    linear-gradient(-35deg,transparent 44%,#315d35 45% 55%,transparent 56%) 5% 78%/7% 12% no-repeat,
+    linear-gradient(35deg,transparent 44%,#315d35 45% 55%,transparent 56%) 20% 86%/6% 10% no-repeat,
+    linear-gradient(-35deg,transparent 44%,#315d35 45% 55%,transparent 56%) 20% 86%/6% 10% no-repeat,
+    linear-gradient(35deg,transparent 44%,#315d35 45% 55%,transparent 56%) 78% 80%/7% 12% no-repeat,
+    linear-gradient(-35deg,transparent 44%,#315d35 45% 55%,transparent 56%) 78% 80%/7% 12% no-repeat,
+    linear-gradient(35deg,transparent 44%,#315d35 45% 55%,transparent 56%) 94% 87%/6% 10% no-repeat,
+    linear-gradient(-35deg,transparent 44%,#315d35 45% 55%,transparent 56%) 94% 87%/6% 10% no-repeat;
+}
+
+/* ===== FONDO NUEVO: PRADERA Y BOSQUE PIXEL ART =====
+   Solo cambia el escenario detrás del árbol y del hacha.
+   No modifica el SVG, sus elementos ni las mecánicas. */
+.wrap>.cols2>.card:first-child .stage{
+  position:relative!important;
+  overflow:hidden!important;
+  background:
+    /* cielo pixelado con bandas de luz */
+    linear-gradient(to bottom,
+      #4f8fc8 0 18%,
+      #68a7d2 18% 36%,
+      #8bc0d6 36% 48%,
+      #b6d39b 48% 49%,
+      #6e9b4f 49% 66%,
+      #4d7c42 66% 100%)!important;
+}
+
+/* Fondo lejano: montañas, nubes y bosque en capas */
+.wrap>.cols2>.card:first-child .stage::before{
+  content:"";
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:
+    /* nubes pixeladas */
+    linear-gradient(#e9f3ed 0 0) 8% 13%/9% 3% no-repeat,
+    linear-gradient(#e9f3ed 0 0) 11% 10%/12% 5% no-repeat,
+    linear-gradient(#d6e8e6 0 0) 15% 14%/9% 3% no-repeat,
+    linear-gradient(#f1f6ef 0 0) 67% 10%/11% 3% no-repeat,
+    linear-gradient(#f1f6ef 0 0) 70% 7%/14% 6% no-repeat,
+    linear-gradient(#d4e5e5 0 0) 75% 12%/10% 3% no-repeat,
+    /* montañas */
+    linear-gradient(135deg,transparent 0 42%,#7ca69a 42% 48%,transparent 48%) 0 39%/38% 22% no-repeat,
+    linear-gradient(225deg,transparent 0 42%,#709b91 42% 48%,transparent 48%) 25% 39%/45% 22% no-repeat,
+    linear-gradient(135deg,transparent 0 42%,#6e9989 42% 48%,transparent 48%) 58% 39%/42% 22% no-repeat,
+    /* bosque lejano */
+    repeating-linear-gradient(to right,
+      #527e58 0 4%, #688f62 4% 7%, #456f4b 7% 10%, #72976a 10% 13%) 0 44%/100% 22% no-repeat,
+    /* copas lejanas */
+    radial-gradient(ellipse at 9% 51%,#4b7448 0 7%,transparent 7.5%),
+    radial-gradient(ellipse at 19% 49%,#527b4d 0 8%,transparent 8.5%),
+    radial-gradient(ellipse at 31% 53%,#446d45 0 7%,transparent 7.5%),
+    radial-gradient(ellipse at 44% 48%,#5a824f 0 8%,transparent 8.5%),
+    radial-gradient(ellipse at 57% 52%,#416a43 0 7%,transparent 7.5%),
+    radial-gradient(ellipse at 71% 48%,#537b4b 0 8%,transparent 8.5%),
+    radial-gradient(ellipse at 86% 52%,#416a43 0 8%,transparent 8.5%),
+    /* cielo */
+    linear-gradient(#4f8fc8,#8bc0d6 48%,#8bc0d6 48% 100%)!important;
+}
+
+/* Suelo y primer plano: una pradera continua, con parches y hierba pixelada */
+.wrap>.cols2>.card:first-child .stage::after{
+  content:"";
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  height:54%!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:
+    /* línea de horizonte */
+    linear-gradient(#83ad57 0 0) 0 0/100% 7px no-repeat,
+    /* caminos/parches de tierra */
+    linear-gradient(12deg,transparent 0 47%,#759847 47% 52%,transparent 52%) 5% 28%/45% 30% no-repeat,
+    linear-gradient(-10deg,transparent 0 47%,#6b8f43 47% 52%,transparent 52%) 55% 25%/43% 32% no-repeat,
+    /* hierba alta pixelada */
+    repeating-linear-gradient(82deg,transparent 0 18px,#355f3c 18px 22px,transparent 22px 40px) 0 65%/100% 35% no-repeat,
+    repeating-linear-gradient(98deg,transparent 0 27px,#6e9947 27px 31px,transparent 31px 55px) 0 52%/100% 45% no-repeat,
+    /* flores/puntos de colores */
+    radial-gradient(circle at 9% 65%,#f2c84b 0 3px,transparent 4px),
+    radial-gradient(circle at 13% 76%,#d96b62 0 3px,transparent 4px),
+    radial-gradient(circle at 22% 61%,#f1e08a 0 3px,transparent 4px),
+    radial-gradient(circle at 79% 67%,#e68a58 0 3px,transparent 4px),
+    radial-gradient(circle at 88% 78%,#f1d45d 0 3px,transparent 4px),
+    radial-gradient(circle at 94% 62%,#d85d69 0 3px,transparent 4px),
+    /* base de pasto */
+    linear-gradient(#659246,#507d3f);
+}
+
+/* El dibujo del árbol/hacha queda por encima del fondo */
+.wrap>.cols2>.card:first-child .stage svg{
+  position:relative!important;
+  z-index:2!important;
+  background:transparent!important;
+}
+
+/* Más detalles pixelados de vegetación en los bordes */
+.wrap>.cols2>.card:first-child .stage{
+  box-shadow:inset 0 -16px 0 rgba(43,82,45,.28), inset 0 0 0 4px #31583c!important;
+}
+
+/* Fondo de pradera pixel art proporcionado por el usuario.
+   Se usa la imagen completa como un único fondo del escenario.
+   El árbol y el hacha SVG permanecen por encima sin modificaciones. */
+.wrap>.cols2>.card:first-child .stage{
+background-image: url("../../../Assets/Recursos%20Graficos/Nivel%203/fondo_pradera_pixelart.png") !important;
+background-size:cover!important;
+background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-color:transparent!important;
+}
+.wrap>.cols2>.card:first-child .stage::before,
+.wrap>.cols2>.card:first-child .stage::after{
+  display:none!important;
+  content:none!important;
+}
+/* Tamaño persistente del árbol: separado de las animaciones de tala */
+#arbolSvg #arbolEscalado {
+  transform: scale(1.20);
+      translate: -5px 10px;
+
+  transform-box: view-box;
+  transform-origin: 120px 272px;
+}
+/* =========================================
+   CONFIGURACIÓN DEL TAMAÑO DEL PUENTE
+   ========================================= */
+
+.wrap > section.card[aria-label="El puente"] #puente {
+
+  /* LARGO: tamaño horizontal del puente (eje X)
+     Menor valor = puente más corto
+     Mayor valor = puente más largo */
+  width: 100% !important;
+
+  /* ALTO: tamaño vertical del puente (eje Y)
+     Menor valor = puente más bajo
+     Mayor valor = puente más alto */
+  height: 500px !important;
+
+  /* Evita que el alto quede limitado */
+  max-height: none !important;
+
+  /* Centra el puente horizontalmente */
+  margin: 0 auto !important;
+}
+
+/* Minijuegos de crafteo: estaciones visualmente distintas */
+.zonaProceso{background:#fff0bd!important;border:4px solid #352536!important;box-shadow:6px 6px 0 #201b22!important;padding:14px!important;}
+.procesoCabecera{display:flex;align-items:center;gap:12px;margin-bottom:10px;color:#352536}
+.procesoIcono{display:grid;place-items:center;min-width:48px;height:48px;background:#f6d58b;border:3px solid #352536;box-shadow:3px 3px 0 #201b22;font-size:25px}
+.procesoCabecera b{font-family:'Press Start 2P',monospace;font-size:12px;line-height:1.8}
+.procesoCabecera .nota{margin-top:5px}
+.tallerSvg{display:block;width:100%;height:auto;max-height:300px;border:3px solid #352536;box-shadow:4px 4px 0 #201b22;image-rendering:pixelated;cursor:crosshair}
+.tallerSvg .zonaTrabajo{fill:#fff0bd;fill-opacity:.18;stroke:#fff0bd;stroke-width:4;stroke-dasharray:5 4;cursor:pointer;animation:zonaPulso 1s steps(2,end) infinite}
+.tallerSvg .herramienta{transform-box:fill-box;transform-origin:center;transition:transform .12s}
+.procesoEstado{display:flex;justify-content:space-between;gap:8px;margin-top:14px;font:10px 'Press Start 2P',monospace;color:#352536}
+.procesoPistas{display:flex;gap:5px;margin-top:8px}
+.procesoPistas i{height:10px;flex:1;border:2px solid #352536;background:#d8c7a0}
+.procesoPistas i.hecho{background:#4e9c83;box-shadow:inset 0 -3px #263b36}
+.procesoResultado{margin-top:9px;text-align:center}
+.proceso-aserrar .procesoIcono{background:#b8e2dc}.proceso-lijar .procesoIcono{background:#f6d58b}.proceso-tratar .procesoIcono{background:#b8e2dc}.proceso-pilote .procesoIcono{background:#d9a06a}
+@keyframes zonaPulso{0%,100%{stroke-opacity:1}50%{stroke-opacity:.35}}
+@media(prefers-reduced-motion:reduce){.tallerSvg .zonaTrabajo{animation:none}}
+
+/* Mecánicas ampliadas de crafteo */
+.taller-tratar .zonaTratamiento{cursor:pointer;transition:filter .12s,transform .12s;transform-box:fill-box;transform-origin:center}
+.taller-tratar .zonaTratamiento.zonaActiva{filter:drop-shadow(0 0 5px #fff0bd);animation:zonaPulso .8s steps(2,end) infinite}
+.taller-tratar .zonaTratamiento.tratada{filter:saturate(.75)}
+.taller-tratar .zonaTratamiento:not(.zonaActiva):not(.tratada){opacity:.72}
+.proceso-tratar .procesoIcono{background:#4e9c83}
+.proceso-pilote .tallerSvg .zonaTrabajo{fill:#e56c45;fill-opacity:.4;stroke:#fff0bd;stroke-dasharray:3 3}
+.proceso-aserrar .tallerSvg .zonaTrabajo{fill:#e56c45;fill-opacity:.28}
+.proceso-lijar .tallerSvg{cursor:ew-resize;touch-action:none}
+/* Aguja móvil para el minijuego de aserrado: ventana de precisión */
+.agujaTiempo{transform-box:fill-box;transform-origin:top center;animation:agujaCorte 1.56s ease-in-out infinite alternate}
+@keyframes agujaCorte{from{transform:translateX(-48px)}to{transform:translateX(48px)}}
+
+/* Mejoras de mecánicas: mezcla, franjas y ritmo */
+.ingredientesMezcla{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0 6px}
+.ingredientesMezcla .btn{min-width:100px;border:3px solid #352536;box-shadow:3px 3px 0 #201b22;font-weight:900}
+.ingredientesMezcla .btn:hover{transform:translateY(-2px)}
+.taller-lijar .franjaSuave{fill:#4e9c83;fill-opacity:.8}
+.taller-lijar .franjaAspera{fill:#e56c45;fill-opacity:.7}
+.taller-mezcla{cursor:default}
+.agujaTiempo{animation:agujaCorte .78s linear infinite alternate}
+@keyframes agujaCorte{from{transform:translateX(-48px)}to{transform:translateX(48px)}}
+
+/* Indicador de ritmo visible y sincronizado con el afilado */
+.agujaRitmo{animation:agujaRitmo .8s linear infinite alternate;pointer-events:none}
+@keyframes agujaRitmo{from{transform:translateX(-32px)}to{transform:translateX(32px)}}
+.taller-lijar{user-select:none;-webkit-user-select:none;touch-action:none}
+.taller-lijar .zonaTrabajo{pointer-events:none}
+/* Indicadores de precisión: desplazamiento horizontal medible y zona objetivo */
+.proceso-aserrar .agujaTiempo{animation:agujaCorte 1.56s linear infinite alternate;transform-box:view-box;transform-origin:210px 43px;pointer-events:none}
+@keyframes agujaCorte{from{transform:translateX(-48px)}to{transform:translateX(48px)}}
+.proceso-pilote .agujaRitmo{animation:agujaRitmo 1.6s linear infinite alternate;transform-box:view-box;transform-origin:329px 42px;pointer-events:none}
+@keyframes agujaRitmo{from{transform:translateX(-32px)}to{transform:translateX(32px)}}
+.zonaPerfecta{pointer-events:none}
+
+/* Inventario más visual y compacto */
+.recursos .recursoVisual{display:grid!important;grid-template-columns:1fr auto;grid-template-rows:auto auto;align-items:center;gap:2px 8px;padding:10px!important;min-height:74px!important}
+.recursoVisual .recursoIcono{grid-column:1;grid-row:1;font-size:22px;line-height:1.1}
+.recursoVisual .lab{grid-column:1;grid-row:2;font-size:10px!important;font-weight:900;letter-spacing:.02em}
+.recursoVisual b{grid-column:2;grid-row:1 / span 2;font-size:25px!important;line-height:1}
+.ingredientesMezcla .ingrediente{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:100px;min-height:68px}
+.ingredientesMezcla .ingrediente span{font-size:22px}
+
+
+/* =========================================================
+   PULIDO VISUAL · NIVEL 3
+   Paleta coherente: río, madera, vegetación y pergamino.
+   ========================================================= */
+:root{
+  --pixel-bg:#183b3b;
+  --pixel-panel:#f4e4bd;
+  --pixel-panel2:#ead3a0;
+  --pixel-ink:#263331;
+  --pixel-dark:#293b36;
+  --pixel-green:#477653;
+  --pixel-green2:#78a66c;
+  --pixel-blue:#6fa9b5;
+  --pixel-water:#397b8b;
+  --pixel-brown:#96633d;
+  --pixel-gold:#dfb963;
+  --pixel-red:#ad5147;
+  --pixel-shadow:rgba(9,24,23,.42);
+}
+body{
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(115,166,132,.22),transparent 55%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 8px),
+    var(--pixel-bg)!important;
+  color:var(--pixel-ink)!important;
+}
+.wrap{width:min(1120px,calc(100% - 32px));gap:18px}
+.top,.card,.stat{border-color:var(--pixel-dark)!important}
+.top{
+  border-radius:5px!important;
+  background:linear-gradient(135deg,#f7e8c4,#e9ce95)!important;
+  box-shadow:0 8px 0 rgba(9,24,23,.28),0 14px 28px rgba(0,0,0,.12)!important;
+}
+.card{
+  border-radius:5px!important;
+  box-shadow:0 6px 0 rgba(9,24,23,.25),0 12px 24px rgba(0,0,0,.10)!important;
+}
+.card h2,.cols2>.card h2{
+  border-radius:3px!important;
+  background:linear-gradient(110deg,#416f50,#54875b)!important;
+}
+section.card[aria-label="El puente"] h3{
+  border-radius:3px!important;
+  background:linear-gradient(110deg,#805334,#a16c43)!important;
+}
+section.card[aria-label="El puente"] svg{
+  border-radius:3px!important;
+}
+.stat{
+  border-radius:4px!important;
+  background:linear-gradient(145deg,#f7e9c9,#e9d09e)!important;
+  box-shadow:0 4px 0 rgba(9,24,23,.22)!important;
+}
+.btn,button{
+  border-radius:3px!important;
+  box-shadow:3px 3px 0 var(--pixel-shadow)!important;
+}
+.btn.pri{
+  background:linear-gradient(135deg,#477653,#365f43)!important;
+}
+.btn.pri:hover:not(:disabled){background:#5b8961!important}
+.nota{color:#5b5547!important}
+.workerStatus{border-radius:3px!important;background:#ead3a0!important}
+.stage,.tallerSvg{
+  border-radius:3px!important;
+  box-shadow:inset 0 -8px 0 rgba(32,27,34,.10),4px 4px 0 var(--pixel-shadow)!important;
+}
+
+/* El dato histórico ocupa la pantalla y detiene la interacción del nivel. */
+.historiaOverlay{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:grid;
+  place-items:center;
+  padding:clamp(14px,3vw,38px);
+  overflow-y:auto;
+  background:rgba(10,25,25,.88);
+  backdrop-filter:blur(5px);
+}
+.historiaOverlay[hidden]{display:none!important}
+.historiaModal{
+  width:min(980px,100%);
+  min-height:min(680px,calc(100dvh - 40px));
+  margin:auto;
+  padding:clamp(22px,5vw,58px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  color:#263331;
+  background:
+    linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,0)),
+    #f5e5bd;
+  border:5px solid #293b36;
+  box-shadow:12px 12px 0 rgba(0,0,0,.42),inset 0 0 0 5px #dfbd75;
+  border-radius:5px;
+}
+.historiaKicker{
+  color:#477653;
+  font-size:clamp(11px,1.4vw,14px);
+  font-weight:900;
+  letter-spacing:2px;
+  margin-bottom:18px;
+}
+.historiaTitulo{
+  font-size:clamp(13px,1.7vw,18px)!important;
+  color:#805334;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+.historiaNumero{
+  display:inline-flex;
+  align-self:flex-start;
+  margin:18px 0 12px!important;
+  padding:8px 12px;
+  color:#fff8e7;
+  background:#477653;
+  border:2px solid #293b36;
+  font-size:clamp(13px,1.5vw,17px)!important;
+}
+.historiaModal h2{
+  margin:8px 0 20px!important;
+  color:#293b36!important;
+  font-size:clamp(27px,5vw,48px)!important;
+  line-height:1.12;
+  text-shadow:2px 2px 0 rgba(223,185,99,.7)!important;
+}
+.historiaTexto{
+  max-width:850px;
+  margin:0!important;
+  color:#343d35;
+  font-family:"Bitter",Georgia,serif;
+  font-size:clamp(19px,2.2vw,27px)!important;
+  font-weight:600!important;
+  line-height:1.55!important;
+}
+.historiaPensamiento{
+  margin-top:clamp(20px,4vh,34px)!important;
+  padding:clamp(16px,3vw,25px)!important;
+  color:#293b36;
+  background:#ead3a0!important;
+  border:3px solid #a87845!important;
+  border-left:9px solid #477653!important;
+  font-family:"Bitter",Georgia,serif;
+  font-size:clamp(17px,2vw,23px)!important;
+  font-weight:600!important;
+  line-height:1.5!important;
+}
+.historiaPensamiento b{
+  color:#477653;
+  font-family:"Courier New",monospace;
+  font-size:13px!important;
+  letter-spacing:1.5px;
+}
+.historiaAviso{
+  margin:22px 0 14px;
+  color:#665948;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.5;
+}
+.historiaContinuar{
+  align-self:flex-start;
+  min-height:52px;
+  padding:13px 20px!important;
+  font-size:14px!important;
+}
+body.historiaAbierta{overflow:hidden}
+@media(max-width:600px){
+  .wrap{width:calc(100% - 20px);gap:13px}
+  .historiaOverlay{padding:10px}
+  .historiaModal{
+    min-height:calc(100dvh - 20px);
+    padding:22px 18px;
+    border-width:4px;
+    box-shadow:6px 6px 0 rgba(0,0,0,.4),inset 0 0 0 3px #dfbd75;
+  }
+  .historiaModal h2{margin-bottom:14px!important}
+  .historiaTexto{font-size:18px!important}
+  .historiaPensamiento{font-size:17px!important}
+  .historiaContinuar{width:100%;align-self:stretch}
+}
+@media(prefers-reduced-motion:reduce){
+  .historiaOverlay{backdrop-filter:none}
+}
+
+/* PALETA SOBRIA: tonos tierra, salvia y agua apagada */
+:root{
+  --pixel-bg:#293b38; --pixel-panel:#e8dfca; --pixel-panel2:#d9ceb5;
+  --pixel-ink:#303633; --pixel-dark:#393a34; --pixel-green:#657b62;
+  --pixel-green2:#82927a; --pixel-blue:#718b8c; --pixel-water:#627f83;
+  --pixel-brown:#80664d; --pixel-gold:#b69a65; --pixel-red:#956e65;
+  --pixel-shadow:#242b28;
+}
+body{background-color:#293b38!important;color:#303633!important}
+.btn,button{background:#d7c8a8!important;color:#393a34!important;border-color:#55574d!important;box-shadow:3px 3px 0 #242b28!important}
+.btn:hover:not(:disabled),button:hover:not(:disabled){background:#c9b995!important}
+.btn.pri{background:#657b62!important;color:#f3eee2!important}
+.btn.pri:hover:not(:disabled){background:#71866d!important}
+.stage,.tallerSvg{background:#a9b4a5!important}
+.workerStatus,.workerBadge{background:#ded4bd!important;color:#393a34!important}
+.progreso i{background:#71836d!important}
+.flot{background:#e8dfca!important}
+.historiaCard{background:#e8dfca!important;box-shadow:7px 7px 0 #242b28,inset 0 0 0 3px #c6b995!important}
+.historiaPensamiento{background:#d9ceb5!important}
+/* Evita acentos saturados en los minijuegos */
+.proceso-aserrar .zonaTrabajo{fill:#8e8b70!important;fill-opacity:.3!important}
+.taller-lijar .franjaSuave{fill:#81917a!important;fill-opacity:.75!important}
+.taller-lijar .franjaAspera{fill:#a88a69!important;fill-opacity:.65!important}
+.proceso-aserrar .agujaTiempo,.proceso-pilote .agujaRitmo{stroke:#8c7665!important}
+.workerFatiga{margin:9px 0;padding:8px 10px;background:#e4dac3;border:1px solid #aaa18c;color:#45483f}
+.workerFatigaTexto{display:flex;justify-content:space-between;font-size:12px;font-weight:800}
+.workerFatigaBarra{height:9px;margin-top:5px;background:#c8c0ad;border:1px solid #8f8a7b;overflow:hidden}
+.workerFatigaBarra i{display:block;height:100%;background:#9a8066;transition:width .2s linear}
+.workerRecuperacion{margin-top:5px;font-size:11px;color:#625f54}
+.seleccionOrden{max-width:540px;margin:12px auto;padding:12px 16px;background:#e6ddc8;border:2px solid #777565;color:#3f433d;text-align:left}
+.seleccionOrden>strong{display:block;text-align:center;font-size:13px;letter-spacing:.04em}
+.seleccionOrden ol{list-style:none;counter-reset:seleccion;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0 0;padding:0}
+.seleccionOrden li{padding:8px;background:#d4cbb6;border:1px solid #a49b86;font-size:12px;font-weight:700;text-align:center;overflow-wrap:anywhere}
+.seleccionOrden li.ocupado{background:#c4cbb9;border-color:#87927e;color:#344238}
+.seleccionOrden li span{font-weight:900;color:#625f54}
+.ingredientesMezcla .ingrediente.seleccionado{background:#aebaa5!important;border-color:#657b62!important;box-shadow:inset 0 0 0 2px #657b62,3px 3px 0 #393a34!important}
+@media(max-width:560px){.seleccionOrden ol{grid-template-columns:1fr}}
+.tallerSvg{filter:saturate(.72)}
+
+/* AJUSTE DE MARCOS: reemplaza el amarillo brillante por verde grisáceo apagado. */
+section.card[aria-label="El puente"],
+.wrap>.cols2>section.card{
+  background:#d8dfd4!important;
+  border-color:#46564e!important;
+  box-shadow:10px 10px 0 #242b28,inset 0 0 0 4px #aab8a7!important;
+}
+section.card[aria-label="El puente"] h3,
+.wrap>.cols2>section.card h2{
+  background:#718579!important;
+  color:#f0f1e9!important;
+  border-color:#46564e!important;
+  text-shadow:2px 2px 0 #46564e!important;
+  box-shadow:4px 4px 0 #242b28!important;
+}
+.wrap>.cols2>section.card:nth-child(2) #recetas>div{
+  background:#c9d1c5!important;
+  border-color:#59675d!important;
+  box-shadow:4px 4px 0 #39463f!important;
+}
+@media(max-width:900px){
+  section.card[aria-label="El puente"],
+  .wrap>.cols2>section.card{
+    box-shadow:6px 6px 0 #242b28,inset 0 0 0 3px #aab8a7!important;
+  }
+}
+
+/* AJUSTE FINO DE CRAFTEO: retirar amarillos y aclarar encabezados */
+.cols2>.card:nth-child(2) #recetas{
+  background:#dce3dc!important;
+  border-color:#687a70!important;
+  box-shadow:4px 4px 0 #39463f!important;
+}
+.cols2>.card:nth-child(2) .receta{
+  background:#dce3dc!important;
+  border-color:#8a9a8e!important;
+}
+.cols2>.card:nth-child(2) .formula{
+  background:#e8ede6!important;
+  border:2px solid #7c8d80!important;
+  color:#303a34!important;
+}
+.cols2>.card:nth-child(2) #guia,
+.wrap>.cols2>section.card .nota,
+.wrap>.cols2>section.card #guia,
+.wrap>.cols2>section.card #golpes{
+  background:#e3e9e1!important;
+  border-color:#78897d!important;
+  color:#354139!important;
+  box-shadow:4px 4px 0 #39463f!important;
+}
+.wrap>.cols2>section.card h2,
+section.card[aria-label="El puente"] h3{
+  background:#9eafa5!important;
+  color:#263b32!important;
+  border-color:#65786c!important;
+  text-shadow:1px 1px 0 #cbd6cd!important;
+  box-shadow:4px 4px 0 #39463f!important;
+}
+
+/* PALETA FINAL DE CRAFTEO: sin fondos amarillos y encabezado más oscuro */
+.wrap>.cols2>.card:nth-child(2) #recetas,
+.cols2>.card:nth-child(2) #recetas{
+  background:#aebdb3!important;
+  border:3px solid #40534b!important;
+  box-shadow:4px 4px 0 #242b28!important;
+}
+.wrap>.cols2>.card:nth-child(2) #recetas>div{
+  background:#c4d0c6!important;
+  border:4px solid #53675c!important;
+  box-shadow:5px 5px 0 #303d37!important;
+}
+.wrap>.cols2>.card:nth-child(2) #recetas .formula,
+.cols2>.card:nth-child(2) .formula{
+  background:#aabbb0!important;
+  border:2px solid #53675c!important;
+  color:#26362f!important;
+}
+.wrap>.cols2>.card:nth-child(2) h2,
+.cols2>.card:nth-child(2) h2{
+  background:#405b55!important;
+  color:#f0f1e9!important;
+  border-color:#293d37!important;
+  text-shadow:2px 2px 0 #293d37!important;
+}
+.wrap>.cols2>.card:nth-child(2) #guia,
+.cols2>.card:nth-child(2) #guia{
+  background:#c4d0c6!important;
+  border-color:#53675c!important;
+  color:#303d36!important;
+}
+@media(max-width:900px){
+  .wrap>.cols2>section.card{box-shadow:6px 6px 0 #242b28,inset 0 0 0 3px #aab8a7!important}
+}
+
+/* PALETA OSCURA DEFINITIVA DEL TALLER: sin amarillos ni verdes/azules pálidos */
+.wrap>.cols2>.card:nth-child(2),
+.wrap .cols2>.card:nth-child(2){
+  background:#34463f!important;
+  border-color:#1e302a!important;
+  color:#edf0e9!important;
+  box-shadow:7px 7px 0 #17231f,inset 0 0 0 4px #52665b!important;
+}
+.wrap .cols2>.card:nth-child(2) h2{
+  background:#263d38!important;
+  color:#f0f2eb!important;
+  border:3px solid #182b26!important;
+  text-shadow:2px 2px 0 #172a25!important;
+}
+.wrap .cols2>.card:nth-child(2) #recetas{
+  background:#40564b!important;
+  border:3px solid #243a31!important;
+  box-shadow:4px 4px 0 #17231f!important;
+}
+.wrap .cols2>.card:nth-child(2) #recetas>.receta{
+  background:#52685b!important;
+  border:3px solid #2c4237!important;
+  box-shadow:4px 4px 0 #1d2e27!important;
+  color:#f0f1e9!important;
+}
+.wrap .cols2>.card:nth-child(2) #recetas .nom{
+  color:#f0f1e9!important;
+}
+.wrap .cols2>.card:nth-child(2) #recetas .formula{
+  background:#354b40!important;
+  border:2px solid #1e352b!important;
+  color:#f0f1e9!important;
+}
+.wrap .cols2>.card:nth-child(2) #recetas .formula b{
+  color:#ffffff!important;
+}
+.wrap .cols2>.card:nth-child(2) #guia{
+  background:#40564b!important;
+  border:3px solid #243a31!important;
+  color:#f0f1e9!important;
+  box-shadow:4px 4px 0 #17231f!important;
+}
+
+/* PALETA UNIFICADA DE TODA LA INTERFAZ (se conserva el arte del puente y del árbol) */
+:root{
+  --ui-fondo:#293b38;
+  --ui-panel:#34463f;
+  --ui-panel-interior:#40564b;
+  --ui-panel-profundo:#263d38;
+  --ui-tarjeta:#52685b;
+  --ui-borde:#1e302a;
+  --ui-sombra:#17231f;
+  --ui-texto:#edf0e9;
+  --ui-texto-suave:#c4d0c6;
+}
+body{
+  background:var(--ui-fondo)!important;
+  color:var(--ui-texto)!important;
+}
+.wrap>.top,
+.wrap>section.card,
+.wrap>.cols2>section.card,
+.wrap>.recursos>.stat{
+  background:var(--ui-panel)!important;
+  color:var(--ui-texto)!important;
+  border-color:var(--ui-borde)!important;
+  box-shadow:7px 7px 0 var(--ui-sombra),inset 0 0 0 3px #52665b!important;
+}
+.wrap .top h1,
+.wrap .top .dia,
+.wrap section.card h2,
+.wrap section.card h3{
+  background:var(--ui-panel-profundo)!important;
+  color:var(--ui-texto)!important;
+  border-color:var(--ui-borde)!important;
+  text-shadow:2px 2px 0 var(--ui-sombra)!important;
+}
+.wrap .nota,
+.wrap .lab,
+.wrap .stat b,
+.wrap .estado,
+.wrap .workerStatus,
+.wrap .workerBadge,
+.wrap .workerInfo{
+  color:var(--ui-texto)!important;
+}
+.wrap .nota,
+.wrap .estado,
+.wrap .workerStatus,
+.wrap .workerBadge,
+.wrap .workerActions,
+.wrap .fila .nota,
+.wrap .workerFatiga,
+.wrap .seleccionOrden,
+.wrap .seleccionOrden li{
+  background:var(--ui-panel-interior)!important;
+  border-color:var(--ui-borde)!important;
+  color:var(--ui-texto)!important;
+}
+.wrap .recursos .stat{
+  background:var(--ui-panel-interior)!important;
+  color:var(--ui-texto)!important;
+  border-color:var(--ui-borde)!important;
+}
+.wrap .workerFatigaBarra{background:#263d38!important;border-color:#1e302a!important}
+.wrap .workerFatigaBarra i{background:#829b88!important}
+.wrap .workerRecuperacion{color:var(--ui-texto-suave)!important}
+.wrap .seleccionOrden li.ocupado{background:#40564b!important;color:var(--ui-texto)!important}
+.wrap button,
+.wrap .btn,
+.intro-panel button,
+.historiaModal button{
+  background:#40564b!important;
+  color:var(--ui-texto)!important;
+  border-color:#1e302a!important;
+  box-shadow:4px 4px 0 var(--ui-sombra)!important;
+}
+.wrap button:hover:not(:disabled),
+.wrap .btn:hover:not(:disabled),
+.intro-panel button:hover:not(:disabled),
+.historiaModal button:hover:not(:disabled){background:#52685b!important}
+.wrap button:disabled,
+.wrap .btn:disabled{background:#293b38!important;color:#9eaaa1!important;border-color:#1e302a!important}
+.wrap .btn.pri,
+.wrap button.pri{background:#52685b!important;color:#f0f2eb!important}
+.wrap .formula,
+.wrap .receta,
+.wrap #recetas,
+.wrap #guia,
+.wrap .nota:not(#instruccionTala),
+.wrap .seleccionOrden,
+.wrap .seleccionOrden li,
+.wrap .workerFatiga{
+  background:var(--ui-panel-interior)!important;
+  color:var(--ui-texto)!important;
+  border-color:var(--ui-borde)!important;
+}
+.wrap .receta .nom,
+.wrap .formula b,
+.wrap .seleccionOrden span,
+.wrap .seleccionOrden strong{color:var(--ui-texto)!important}
+/* Pantallas de introducción e historia: misma paleta, sin fondos crema/amarillos */
+.intro-funcionamiento,
+.historiaOverlay{background:rgba(20,31,27,.88)!important}
+.intro-panel,
+.historiaModal,
+.historiaCard{
+  background:var(--ui-panel)!important;
+  color:var(--ui-texto)!important;
+  border-color:var(--ui-borde)!important;
+  box-shadow:8px 8px 0 var(--ui-sombra),inset 0 0 0 3px #52665b!important;
+}
+.intro-panel h2,
+.historiaModal h2,
+.historiaTitulo,
+.historiaKicker,
+.intro-kicker,
+.intro-tip{
+  background:var(--ui-panel-profundo)!important;
+  color:var(--ui-texto)!important;
+  border-color:var(--ui-borde)!important;
+}
+.intro-panel p,
+.intro-grid>div,
+.historiaTexto,
+.historiaPensamiento,
+.historiaAviso{
+  background:var(--ui-panel-interior)!important;
+  color:var(--ui-texto)!important;
+  border-color:var(--ui-borde)!important;
+}
+.intro-grid b,.historiaPensamiento b{color:#f0f2eb!important}
+/* Excepciones deliberadas: no se alteran los dibujos del puente ni del árbol.
+   Se conserva el fondo/escena de trabajo del árbol (.stage) y los SVG. */
+#puente,#arbolSvg,#arbolEscalado,#arbol,#stage{filter:none!important}
+
+/* CORRECCIÓN FINAL: tramo actual y sección de tala sin amarillo original.
+   Se recolorean los paneles de interfaz, no el arte SVG del puente ni del árbol. */
+.wrap>section.card[aria-label="El puente"] .estado,
+.wrap>section.card[aria-label="El puente"] #ayuda,
+.wrap>.cols2>section.card:first-child .nota,
+.wrap>.cols2>section.card:first-child #golpes,
+.wrap>.cols2>section.card:first-child #instruccionTala{
+  background:#354b40!important;
+  color:#edf0e9!important;
+  border:3px solid #1e302a!important;
+  box-shadow:4px 4px 0 #17231f!important;
+}
+.wrap>section.card[aria-label="El puente"] .estado{
+  background:#263d38!important;
+  color:#f0f2eb!important;
+}
+.wrap>.cols2>section.card:first-child .stage{
+  background:#34463f!important;
+  border-color:#1e302a!important;
+  box-shadow:7px 7px 0 #17231f,inset 0 0 0 4px #52685b!important;
+}
+.wrap>.cols2>section.card:first-child #btnTalar,
+.wrap>.cols2>section.card:first-child #btnTalar.btn.pri{
+  background:#40564b!important;
+  color:#edf0e9!important;
+  border-color:#1e302a!important;
+  box-shadow:4px 4px 0 #17231f!important;
+}
+.wrap>.cols2>section.card:first-child #btnTalar:hover:not(:disabled){
+  background:#52685b!important;
+}
+.wrap>.cols2>section.card:first-child #btnTalar:disabled{
+  background:#293b38!important;
+  color:#9eaaa1!important;
+}
+
+/* AJUSTE COMPLEMENTARIO: fondo que queda detrás del botón de tala y del contador.
+   Se limita a la fila de controles; no modifica el árbol ni el puente. */
+.wrap>.cols2>section.card:first-child .fila{
+  background:#354b40!important;
+  border:3px solid #1e302a!important;
+  box-shadow:4px 4px 0 #17231f!important;
+}
+
+/* CORRECCIÓN DEFINITIVA: contenedor exterior real de los avisos de tramo.
+   #estado y #ayuda están dentro de un div interno, no son hijos directos de .fila.sp. */
+.wrap>section.card[aria-label="El puente"]>.fila.sp:has(#estado):has(#ayuda){
+  background:#354b40!important;
+  background-color:#354b40!important;
+  color:#edf0e9!important;
+  border:3px solid #1e302a!important;
+  box-shadow:4px 4px 0 #17231f!important;
+  padding:10px!important;
+  border-radius:3px!important;
+}
+.wrap>section.card[aria-label="El puente"]>.fila.sp:has(#estado)>div:first-child{
+  background:transparent!important;
+  background-color:transparent!important;
+  color:#edf0e9!important;
+}
+
+
+/* CORRECCIÓN: restaurar el fondo pixel-art detrás del árbol.
+   Esta regla va al final para evitar que las reglas posteriores con
+   background: ... !important vuelvan a ocultar la imagen. */
+.wrap>.cols2>section.card:first-child .stage{
+  background-color: transparent !important;
+  background-image: url("../../../Assets/Recursos%20Graficos/Nivel%203/fondo_pradera_pixelart.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+.wrap>.cols2>section.card:first-child .stage svg{
+  background: transparent !important;
+  position: relative !important;
+  z-index: 2 !important;
+}

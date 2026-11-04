@@ -1,0 +1,77 @@
+<!-- Fragmento modular: editar este archivo para modificar esta sección del juego. -->
+<section id="credits-screen" class="screen secondary-screen hidden" aria-label="Créditos">
+      <header class="secondary-header">CREDITOS</header>
+
+      <div class="credits-content">
+        <p class="credits-description">Esta seccion reconoce al equipo creador del juego.</p>
+        <h2 class="credits-subtitle">Desarrollado por</h2>
+
+        <div class="credits-list">
+          <div class="credit-card">Cristian Quispe</div>
+          <div class="credit-card">Lautaro Bentancor</div>
+          <div class="credit-card">Ramiro Carpena</div>
+        </div>
+      </div>
+
+      <button id="btn-back-credits" class="back-button" type="button">Volver</button>
+    </section>
+
+<section id="settings-screen" class="screen secondary-screen hidden" aria-label="Configuración">
+      <header class="secondary-header">CONFIGURACION</header>
+
+      <div class="settings-content">
+        <div class="settings-row">
+          <span class="settings-label">Volumen General</span>
+          <input id="general-volume" class="settings-range" type="range" min="0" max="100" value="50" aria-label="Volumen general">
+        </div>
+
+        <div class="settings-row">
+          <span class="settings-label">Musica</span>
+          <input id="music-volume" class="settings-range" type="range" min="0" max="100" value="50" aria-label="Volumen de música">
+        </div>
+
+        <div class="settings-row">
+          <span class="settings-label">Efectos</span>
+          <div class="toggle-group" role="group" aria-label="Efectos de sonido">
+            <button id="effects-on" class="toggle-button is-selected" type="button">ON</button>
+            <button id="effects-off" class="toggle-button" type="button">OFF</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Apartado de pruebas oculto: aparece al pulsar cinco veces el título de configuración. -->
+      <div id="testing-secret" class="testing-secret" hidden aria-label="Herramientas de testing">
+        <label for="testing-code">ACCESO DE PRUEBAS</label>
+        <div class="testing-secret-controls">
+          <input id="testing-code" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="Código" aria-label="Código de pruebas">
+          <button id="testing-unlock" type="button">DESBLOQUEAR</button>
+        </div>
+        <p id="testing-feedback" role="status" aria-live="polite"></p>
+      </div>
+
+      <button id="btn-back-settings" class="back-button" type="button">Volver</button>
+    </section>
+
+
+<!-- Menú de pausa compartido por todos los niveles -->
+<div id="game-pause-menu" class="game-pause-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="game-pause-title">
+  <section class="game-pause-panel">
+    <button id="game-pause-close" class="game-pause-close" type="button" aria-label="Cerrar menú y continuar" title="Continuar">×</button>
+    <p class="pause-kicker">PARTIDA EN CURSO</p>
+    <h2 id="game-pause-title">MENÚ DE PAUSA</h2>
+    <div class="pause-actions">
+      <button id="pause-resume" class="pause-action primary" type="button">VOLVER AL JUEGO</button>
+      <button id="pause-restart-level" class="pause-action" type="button">REINICIAR NIVEL</button>
+      <button id="pause-level-select" class="pause-action" type="button">VOLVER A NIVELES</button>
+      <button id="pause-open-settings" class="pause-action" type="button">CONFIGURACIÓN</button>
+    </div>
+    <div class="pause-settings">
+      <h3>SONIDO Y MÚSICA</h3>
+      <label class="pause-slider-row" for="pause-music-volume"><span>Música</span><output id="pause-music-value">50%</output><input id="pause-music-volume" type="range" min="0" max="100" value="50"></label>
+      <label class="pause-slider-row" for="pause-sfx-volume"><span>Sonidos</span><output id="pause-sfx-value">50%</output><input id="pause-sfx-volume" type="range" min="0" max="100" value="50"></label>
+      <div class="pause-effects-row"><span>Efectos de sonido</span><div><button id="pause-effects-on" type="button" class="pause-toggle is-selected">ACTIVADOS</button><button id="pause-effects-off" type="button" class="pause-toggle">SILENCIAR</button></div></div>
+    </div>
+    <p class="pause-hint">ESC · CERRAR MENÚ</p>
+  </section>
+</div>
