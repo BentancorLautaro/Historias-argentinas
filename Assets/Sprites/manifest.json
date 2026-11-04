@@ -1,0 +1,130 @@
+{
+  "version": 2,
+  "status": "assets_synchronized",
+  "runtime_fallback_required": true,
+  "notes": "Inventario sincronizado con los PNG presentes en el proyecto. La organización de archivos no modifica hitboxes ni física. Las hojas que aún no existen se indican como pendientes; el juego debe conservar los respaldos Canvas/CSS/SVG.",
+  "groups": {
+    "nivel2_jugador": {
+      "path": "Nivel 2/Jugador/",
+      "idle_directions": [
+        "east",
+        "north",
+        "north-east",
+        "north-west",
+        "south",
+        "south-east",
+        "south-west",
+        "west"
+      ],
+      "walking_path": "Nivel 2/Jugador/animaciones/Walking/",
+      "walking_directions": [
+        "east",
+        "north",
+        "north-east",
+        "north-west",
+        "south",
+        "south-east",
+        "south-west",
+        "west"
+      ],
+      "frames_per_direction": 8,
+      "files": "Una imagen estática por cada dirección en la raíz de Jugador y 8 cuadros frame_000.png a frame_007.png por dirección en animaciones/Walking."
+    },
+    "nivel4_jugador_pie": {
+      "path": "Nivel 4/Jugador/",
+      "idle": [
+        "Quieto_Mirando_Derecha.png",
+        "Quieto_Mirando_Izquierda.png"
+      ],
+      "running_right": [
+        "Corriendo der frame 1.png",
+        "Corriendo der frame 2.png",
+        "Corriendo der frame 3.png"
+      ],
+      "running_left": [
+        "Corriendo izq frame 1.png",
+        "Corriendo izq frame 2.png",
+        "Corriendo izq frame 3.png"
+      ],
+      "jump": [
+        "Saltando_Mirando_Derecha.png",
+        "Saltando_Mirando_Izquierda.png"
+      ],
+      "fall": [
+        "Cayendo_Mirando_Derecha.png",
+        "Cayendo_Mirando_Izquierda.png"
+      ]
+    },
+    "nivel4_guardia_pie": {
+      "path": "Nivel 4/Guardia/",
+      "idle": [
+        "Quieto_Mirando_Derecha.png",
+        "Quieto_Mirando_Izquierda.png"
+      ],
+      "running_right": [
+        "Corriendo der frame 1.png",
+        "Corriendo der frame 2.png",
+        "Corriendo der frame 3.png"
+      ],
+      "running_left": [
+        "Corriendo izq  frame 1.png",
+        "Corriendo izq frame 2.png",
+        "Corriendo izq  frame 3.png"
+      ],
+      "jump": [
+        "Saltando_Mirando_Derecha.png",
+        "Saltando_Mirando_Izquierda.png"
+      ],
+      "fall": [
+        "Cayendo_Mirando_Derecha.png",
+        "Cayendo_Mirando_Izquierda.png"
+      ],
+      "seated": [
+        "Sentado_Mirando_derecha.png",
+        "Sentado_Mirando_Izquierda.png"
+      ]
+    },
+    "nivel4_caballo_solo": {
+      "path": "Nivel 4/Caballo/",
+      "available": [
+        "Caballo quieto.png"
+      ],
+      "pending": [
+        "trote",
+        "galope",
+        "salto",
+        "caer"
+      ]
+    },
+    "nivel4_montura_guardia": {
+      "path": "Nivel 4/Monturas/Guardia/",
+      "idle": [
+        "Quieto der.png",
+        "Quieto izq.png"
+      ],
+      "running_right_frames": 6,
+      "running_left_frames": 6,
+      "jump_frames_per_direction": 2,
+      "fall_frames_per_direction": 1
+    },
+    "nivel4_montura_jugador": {
+      "path": "Nivel 4/Monturas/Jugador/",
+      "idle": [
+        "Quieto der.png",
+        "Quieto izq.png"
+      ],
+      "running_right_frames": 6,
+      "running_left_frames": 6,
+      "jump_frames_per_direction": 2,
+      "fall_frames_per_direction": 1
+    },
+    "nivel4_peligros": {
+      "path": "Nivel 4/Peligros/",
+      "available": [
+        "Fogata.png",
+        "Fogata 2.png",
+        "Pinchos.png"
+      ]
+    }
+  }
+}
